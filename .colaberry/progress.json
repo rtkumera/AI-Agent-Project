@@ -1201,21 +1201,23 @@
       "criteria": [
         {
           "text": "The document names the accountable human for this domain and the specific responsibilities proposed to transition to the agent.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Each transitioning responsibility states what evidence would show the agent is ready to hold it.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Responsibilities that must stay human are listed separately, each with the reason it is reserved.",
-          "passed": false
+          "passed": true
         }
       ],
-      "files_touched": [],
+      "files_touched": [
+        "docs/discovery/03-role-and-da-transition.md"
+      ],
       "tests_added": [],
-      "notes": null,
-      "updated_at": null,
+      "notes": "Accountable human Swati Raman (ACCOUNTABILITY_v1.md:7). Data Analyst duty list for curriculum is absent; search record in section 1 of the doc (40 platform files, 36 workforce docs, scope amendment missing). Classified the 38 draft capabilities from curriculum.json: 18 transition (each with rung acceptance evidence), 19 split (line from permissions_by_environment.production), 1 stays human (DA duty list, R0). Stays-human list with reasons in section 6; outline of the missing DA duty register in section 7. Nothing reviewed by Swati; all rows remain draft. Platform @ a284987.",
+      "updated_at": "2026-11-05T00:00:00Z",
       "verification": {
         "state": "not_started",
         "criteria_passed": 0,
