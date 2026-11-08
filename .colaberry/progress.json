@@ -1083,21 +1083,23 @@
       "criteria": [
         {
           "text": "The plan accounts for every inherited legacy record for this domain, each one kept, merged or retired with a reason.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "The migration is described as replayable: running it twice leaves the same end state, with no duplicated side effects.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "The plan states what happens to a record the migration cannot classify, rather than assuming none exist.",
-          "passed": false
+          "passed": true
         }
       ],
-      "files_touched": [],
+      "files_touched": [
+        "docs/migration/legacy-migration-plan.md"
+      ],
       "tests_added": [],
-      "notes": null,
-      "updated_at": null,
+      "notes": "All 8 legacy records dispositioned (3 merged and done, 3 merge deferred, 2 retire planned but not performed by any code). Replayability: steps M1-M5 with idempotency guards (repointLegacyBehaviors only-if-empty; RETIRED_AGENTS skip-if-disabled) plus snapshot-diff evidence; found a rebuild would enable 3 rows (AiAgent.enabled default true). Unclassifiable rule: untouched, record_kind null, logged and queued for Swati/Ali; 4 unregistered Anthropic crons named. 13 citations checked; 7 issues with the brief recorded (W1-W7). Nothing changed in the platform. Platform @ a284987.",
+      "updated_at": "2026-11-07T00:00:00Z",
       "verification": {
         "state": "not_started",
         "criteria_passed": 0,
