@@ -1281,21 +1281,23 @@
       "criteria": [
         {
           "text": "Exactly three agent tasks are proposed, each with its boundary stated as what the agent must NOT do.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Each task names the evidence that proves it completed, and that evidence is something other than the task being marked done.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Each task names the human who approves it wherever approval is required.",
-          "passed": false
+          "passed": true
         }
       ],
-      "files_touched": [],
+      "files_touched": [
+        "docs/discovery/05-three-proposed-tasks.md"
+      ],
       "tests_added": [],
-      "notes": null,
-      "updated_at": null,
+      "notes": "Three of Dara's 38 draft capabilities, one per risk shape: A curriculum_integrity_scan (read-only, R0->R7, aim R4), B out_of_scope_escalation_handoff (ticket + Basecamp write, R0->R6, aim R3), C curriculum_improvement_recommendations (human_decision, R0->R5, aim R2 then R5 shadow). Evidence tables written before each task; mocked tests and timer-closed records excluded as evidence. Each task has a must-NOT list, Swati Raman as approver, switch-off conditions and how to switch off. Nothing enabled, granted or raised; all stay draft. Platform @ a284987; citation drift recorded.",
+      "updated_at": "2026-11-07T00:00:00Z",
       "verification": {
         "state": "not_started",
         "criteria_passed": 0,
