@@ -1,0 +1,1375 @@
+<title>Dara Discovery Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: an inspection report. One reading column, two tabbed pages, figures set large where they carry the finding. */
+:root {
+  --bg: #f4f6f8;
+  --surface: #ffffff;
+  --ink: #16202b;
+  --muted: #566372;
+  --rule: #d9dfe6;
+  --accent: #1d5c8c;
+  --accent-soft: #e3eef7;
+  --unknown: #a35f00;
+  --unknown-soft: #fbefdc;
+  --absent: #b0312b;
+  --absent-soft: #f9e3e1;
+  --known: #2a7a46;
+  --known-soft: #e2f2e7;
+  --reserved: #6b4fa0;
+  --reserved-soft: #ece6f6;
+  --open: #1d5c8c;
+  --font-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e141a; --surface: #161e27; --ink: #e6ebf0; --muted: #9aa7b4; --rule: #2a3542;
+    --accent: #6fb0e3; --accent-soft: #15293a;
+    --unknown: #f0b45a; --unknown-soft: #33260f; --absent: #f08a83; --absent-soft: #3a1a18;
+    --known: #79cf96; --known-soft: #16301f; --reserved: #b49ae6; --reserved-soft: #2a2140; --open: #6fb0e3;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e141a; --surface: #161e27; --ink: #e6ebf0; --muted: #9aa7b4; --rule: #2a3542;
+  --accent: #6fb0e3; --accent-soft: #15293a;
+  --unknown: #f0b45a; --unknown-soft: #33260f; --absent: #f08a83; --absent-soft: #3a1a18;
+  --known: #79cf96; --known-soft: #16301f; --reserved: #b49ae6; --reserved-soft: #2a2140; --open: #6fb0e3;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+}
+.wrap {
+  max-width: 980px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3, h4, .tab, .eyebrow, .chip, .fig-num, .fig-label, th { font-family: var(--font-display); }
+h1, h2, h3 { text-wrap: balance; line-height: 1.15; margin: 0; }
+p { margin: 0; max-width: 68ch; }
+code, .cite { font-family: var(--font-mono); font-size: 0.78em; }
+code { background: var(--accent-soft); padding: 0.05em 0.35em; border-radius: 4px; overflow-wrap: anywhere; }
+.cite { color: var(--muted); overflow-wrap: anywhere; }
+a { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* Masthead */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+.mast { background: var(--surface); border-bottom: 1px solid var(--rule); }
+.mast .wrap { padding-block: 28px 0; display: grid; gap: 14px; }
+.eyebrow { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.mast h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 800; letter-spacing: -0.01em; }
+.mast h1 span { color: var(--accent); }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 18px; font-family: var(--font-display); font-size: 14px; color: var(--muted); }
+.meta b { color: var(--ink); font-weight: 700; }
+.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--rule); }
+.tabs .wrap { display: flex; gap: 4px; overflow-x: auto; }
+@media (min-width: 900px) { .tabs .wrap { flex-wrap: wrap; overflow-x: visible; } }
+.tab {
+  appearance: none; border: 0; background: none; cursor: pointer; color: var(--muted);
+  font-size: 15px; font-weight: 700; padding: 14px 14px 12px; border-bottom: 3px solid transparent; white-space: nowrap;
+}
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.tab:hover { color: var(--ink); }
+.tab .n { display: inline-block; min-width: 1.6em; color: var(--accent); }
+
+/* Page body */
+main .wrap { padding-block: 32px 64px; display: grid; gap: 48px; }
+section.block { display: grid; gap: 18px; }
+section.block > h2 { font-size: clamp(22px, 3.2vw, 28px); font-weight: 800; }
+section.block > h2 .req { display: block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 6px; }
+.lede { font-size: 19px; color: var(--ink); }
+.small { font-size: 15px; color: var(--muted); }
+
+/* Answer banner */
+.answer {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 10px;
+  padding: 24px; display: grid; gap: 10px;
+}
+.answer .verdict { font-family: var(--font-display); font-size: clamp(24px, 4vw, 34px); font-weight: 800; line-height: 1.15; text-wrap: balance; }
+.answer .verdict em { font-style: normal; color: var(--accent); }
+.answer .verdict s { text-decoration-thickness: 3px; text-decoration-color: var(--absent); color: var(--muted); }
+
+/* Figures */
+.figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+.fig { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 16px; display: grid; gap: 4px; align-content: start; }
+.fig-num { font-size: 44px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.fig-num small { font-size: 20px; color: var(--muted); font-weight: 700; }
+.fig-label { font-size: 14px; font-weight: 700; }
+.fig p { font-size: 14px; color: var(--muted); line-height: 1.45; }
+.fig.reserved .fig-num { color: var(--reserved); }
+.fig.zero .fig-num { color: var(--absent); }
+.fig.unknown .fig-num { color: var(--unknown); }
+.fig.known .fig-num { color: var(--known); }
+
+/* Chart */
+.chart-box { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 16px; display: grid; gap: 12px; }
+.chart-scroll { overflow-x: auto; }
+.chart-scroll svg { display: block; min-width: 600px; width: 100%; height: auto; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: var(--font-display); font-size: 13px; color: var(--muted); }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; vertical-align: -1px; margin-right: 6px; }
+
+/* Class list */
+.classes { display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.cls { display: grid; grid-template-columns: 210px 1fr; gap: 6px 24px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+.cls h3 { font-size: 18px; font-weight: 800; }
+.cls .rung { font-family: var(--font-mono); font-size: 12px; color: var(--muted); display: block; margin-top: 4px; }
+.cls > div { min-width: 0; display: grid; gap: 6px; }
+.cls.pick { background: var(--accent-soft); margin-inline: -12px; padding-inline: 12px; border-radius: 8px; border-bottom-color: transparent; }
+.cls.pick h3 { color: var(--accent); }
+.cls.no h3 { color: var(--absent); }
+@media (max-width: 640px) { .cls { grid-template-columns: 1fr; } }
+
+/* Reasons and lists */
+ol.reasons { margin: 0; padding: 0; list-style: none; counter-reset: r; display: grid; gap: 14px; }
+ol.reasons li { counter-increment: r; display: grid; grid-template-columns: 36px 1fr; gap: 12px; }
+ol.reasons li::before { content: counter(r); font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--accent); line-height: 1.3; }
+ol.reasons li > div { min-width: 0; display: grid; gap: 4px; }
+ol.reasons b { font-family: var(--font-display); }
+ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; }
+
+/* Chain */
+.chain { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; }
+.link { flex: 1 1 180px; min-width: 0; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 12px; display: grid; gap: 4px; font-size: 15px; }
+.link .chip { justify-self: start; }
+.arrow { align-self: center; font-family: var(--font-display); color: var(--muted); font-size: 20px; }
+
+/* Chips */
+.chip { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+.chip.unknown { color: var(--unknown); background: var(--unknown-soft); }
+.chip.absent { color: var(--absent); background: var(--absent-soft); }
+.chip.known { color: var(--known); background: var(--known-soft); }
+.chip.reserved { color: var(--reserved); background: var(--reserved-soft); }
+.chip.open { color: var(--open); background: var(--accent-soft); }
+.chip.notmet { color: var(--absent); background: var(--absent-soft); }
+
+/* Checklist */
+.checks { display: grid; gap: 10px; counter-reset: c; }
+.check { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 14px 16px; display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; align-items: start; }
+.check h4 { font-size: 16px; font-weight: 800; }
+.check p { font-size: 15px; grid-column: 1 / -1; }
+.check .chip { grid-row: 1; grid-column: 2; }
+
+/* Callout */
+.callout { border: 2px solid var(--unknown); background: var(--unknown-soft); border-radius: 10px; padding: 18px 20px; display: grid; gap: 10px; }
+.callout h3 { font-size: 20px; font-weight: 800; color: var(--ink); }
+.callout .vs { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+.callout .vs div { background: var(--surface); border-radius: 8px; padding: 10px 12px; font-size: 15px; display: grid; gap: 2px; }
+.callout .vs b { font-family: var(--font-display); }
+
+/* Flow */
+.flow { display: grid; gap: 8px; }
+.step { display: grid; grid-template-columns: 150px 1fr; gap: 4px 18px; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 12px 16px; }
+.step h4 { font-size: 15px; font-weight: 800; }
+.step > div { min-width: 0; display: grid; gap: 6px; font-size: 15px; }
+.step .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--rule); border-radius: 4px; padding: 1px 6px; text-decoration: none; }
+a.tag:hover { color: var(--accent); border-color: var(--accent); }
+.layers { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; padding: 0; list-style: none; counter-reset: l; }
+.layers li { counter-increment: l; font-size: 13px; font-family: var(--font-display); background: var(--accent-soft); border-radius: 4px; padding: 2px 8px; }
+.layers li::before { content: counter(l) ". "; color: var(--accent); font-weight: 800; }
+.step.warn { border-color: var(--unknown); }
+@media (max-width: 640px) { .step { grid-template-columns: 1fr; } }
+
+/* Element cards */
+.elements { display: grid; gap: 16px; }
+.el { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; scroll-margin-top: 70px; }
+.el-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding: 14px 18px; border-bottom: 1px solid var(--rule); }
+.el-head h3 { font-size: 21px; font-weight: 800; }
+.el-head .idx { font-family: var(--font-display); font-weight: 800; color: var(--muted); font-size: 15px; }
+.el-head .q { flex-basis: 100%; font-size: 14px; color: var(--muted); font-style: italic; }
+.el.s-unknown { border-top: 4px solid var(--unknown); }
+.el.s-absent { border-top: 4px solid var(--absent); }
+.el.s-known { border-top: 4px solid var(--known); }
+.el dl { margin: 0; display: grid; grid-template-columns: 170px 1fr; }
+.el dt, .el dd { padding: 12px 18px; border-bottom: 1px solid var(--rule); margin: 0; }
+.el dt { font-family: var(--font-display); font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.el dd { min-width: 0; font-size: 15.5px; display: grid; gap: 6px; }
+.el dt.first, .el dd.first { background: var(--accent-soft); }
+.el dt.first { color: var(--accent); }
+.el dl > :nth-last-child(-n+2) { border-bottom: 0; }
+.el dd ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+.el .unk { font-family: var(--font-display); font-weight: 800; color: var(--unknown); }
+@media (max-width: 640px) {
+  .el dl { grid-template-columns: 1fr; }
+  .el dt { border-bottom: 0; padding-bottom: 0; }
+}
+
+/* Tables */
+.table-box { overflow-x: auto; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+tr:last-child td { border-bottom: 0; }
+td.none { color: var(--absent); font-family: var(--font-display); font-weight: 800; }
+td.ali { font-family: var(--font-display); font-weight: 700; }
+
+/* Details */
+details { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; }
+summary { cursor: pointer; padding: 14px 18px; font-family: var(--font-display); font-weight: 800; font-size: 16px; }
+details > div { padding: 0 18px 18px; display: grid; gap: 10px; }
+.src { font-family: var(--font-mono); font-size: 12.5px; line-height: 1.7; color: var(--muted); overflow-wrap: anywhere; margin: 0; padding-left: 1.1em; }
+pre { margin: 0; overflow-x: auto; background: var(--bg); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.6; }
+
+/* Glossary */
+.gloss { margin-top: 4px; }
+.gloss dl { margin: 0; display: grid; grid-template-columns: 180px 1fr; gap: 10px 18px; }
+.gloss dt { font-family: var(--font-display); font-weight: 800; font-size: 15px; scroll-margin-top: 70px; }
+.gloss dd { margin: 0; font-size: 15px; min-width: 0; }
+.gloss dt:target { color: var(--accent); }
+@media (max-width: 640px) { .gloss dl { grid-template-columns: 1fr; gap: 2px; } .gloss dd { margin-bottom: 10px; } }
+a.term { color: inherit; text-decoration: underline dotted var(--accent); text-underline-offset: 3px; }
+
+.howto { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+.howto div { border-left: 3px solid var(--accent); padding: 2px 0 2px 12px; font-size: 15px; display: grid; gap: 2px; }
+.howto b { font-family: var(--font-display); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .page:not([hidden]) { animation: fade 0.25s ease-out; }
+  @keyframes fade { from { opacity: 0.4; } to { opacity: 1; } }
+}
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="eyebrow">Discovery &amp; validation · release r0 · Curriculum, Learning &amp; Certification</div>
+    <h1>Dara, the curriculum AI employee: <span>what kind of system she is, what she's made of, and whose work she takes on</span></h1>
+    <div class="meta">
+      <span>Accountable human <b>Swati Raman</b></span>
+      <span>DRI <b>Ali Muwwakkil</b></span>
+      <span>Platform repo <b>ColaberryEnterprise_AI_LeadershipAccelerator</b></span>
+      <span>Status <b>draft for review</b></span>
+    </div>
+    <details class="gloss">
+      <summary>New to AI agents? Read these ten terms first</summary>
+      <div>
+        <p class="small">Dara is already built and running. These are the words the reports use most. Underlined terms in the reports link back here.</p>
+        <dl>
+          <dt id="g-capability">Capability</dt><dd>One specific job the agent does, such as "flag a curriculum gap every morning" or "answer a student's DM". Dara has 38 candidate capabilities. Autonomy is approved per capability, never for the whole agent.</dd>
+          <dt id="g-ladder">Autonomy ladder (R0–R9)</dt><dd>The platform's ten levels of how much an agent may do alone, from R0 "define the workflow" up to R9 "reliable operation and ownership". Each capability has a starting level and a ceiling it can never exceed.</dd>
+          <dt id="g-reserved">Human-reserved</dt><dd>A decision a person must make at every level, forever, for example what students are taught. The code caps these at R5, so the agent can prepare and propose but never decide.</dd>
+          <dt id="g-approved">Approved autonomy</dt><dd>The level a human has actually signed off for a capability. Until one is recorded, the platform treats the capability as having no authority at all.</dd>
+          <dt id="g-tool">Tool call</dt><dd>The model asking the code to do something specific, such as <code>escalate_to_human</code>. Dara's model may make at most one tool call per reply, so it can't loop.</dd>
+          <dt id="g-shadow">Shadow mode</dt><dd>A safety check that evaluates and logs what it would do but never blocks. It's useful for watching, but it doesn't protect anything. Dara's authorization gate defaults to shadow.</dd>
+          <dt id="g-failopen">Fail-open</dt><dd>When a check breaks, it lets the action through instead of stopping it. Fail-closed is the opposite. Several of Dara's checks fail open.</dd>
+          <dt id="g-registry">Agent registry</dt><dd>The code file that lists every agent on the platform, with its schedule, tools and on/off flag: <code>agentRegistrySeed.ts</code>. It only sets starting values; production can differ.</dd>
+          <dt id="g-handoff">Handoff</dt><dd>Passing a piece of work to someone else. Dara can hand off to a human (a ticket plus a Basecamp to-do). There is no way for her to hand off to another AI agent.</dd>
+          <dt id="g-citation">file:line citation</dt><dd>A pointer such as <code>daraReplyService.ts:182</code>, meaning that file at that line. Every claim in these reports carries one, or the word "unknown".</dd>
+        </dl>
+      </div>
+    </details>
+  </div>
+  <nav class="tabs" aria-label="Report pages">
+    <div class="wrap" role="tablist">
+      <button class="tab" role="tab" id="tab-classes" aria-controls="classes" aria-selected="true"><span class="n">1</span>Which kind of system?</button>
+      <button class="tab" role="tab" id="tab-anatomy" aria-controls="anatomy" aria-selected="false"><span class="n">2</span>Dara's anatomy</button>
+      <button class="tab" role="tab" id="tab-role" aria-controls="role" aria-selected="false"><span class="n">3</span>Swati's role &amp; the DA transition</button>
+      <button class="tab" role="tab" id="tab-interview" aria-controls="interview" aria-selected="false"><span class="n">4</span>Interview &amp; weekly check-in</button>
+      <button class="tab" role="tab" id="tab-tasks" aria-controls="tasks" aria-selected="false"><span class="n">5</span>Three proposed tasks</button>
+      <button class="tab" role="tab" id="tab-legacy" aria-controls="legacy" aria-selected="false"><span class="n">6</span>Legacy migration plan</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+<!-- ============================== PAGE 1 ============================== -->
+<div class="page" id="classes" role="tabpanel" aria-labelledby="tab-classes">
+<div class="wrap">
+
+  <section class="block">
+    <div class="eyebrow">Report 1 · <code>docs/discovery/01-system-classes.md</code> · platform @ <code>6ba8530</code></div>
+    <div class="answer">
+      <div class="eyebrow">The answer</div>
+      <div class="verdict">Dara should be <em>one tool-using agent</em> that runs most of its work as fixed workflows. It does <s>not</s> need a multi-agent system.</div>
+      <p>An agentic system isn't justified yet either. The reason is in two numbers: 20 of Dara's 38 capabilities must always be decided by a human, and none of the 38 has an approved autonomy level.</p>
+    </div>
+    <div class="howto">
+      <div><b>What this page asks</b>Of the five kinds of AI system, which one does Dara actually need?</div>
+      <div><b>Why it matters to you</b>It tells you what not to build. Adding agents or autonomy beyond this would sit on approvals that don't exist.</div>
+      <div><b>How to check it</b>Every count comes from the 38 capability files in <code>docs/stories/</code>, and the commands are in Sources at the bottom.</div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">The domain's own figures</span>The domain in numbers</h2>
+    <div class="figs">
+      <div class="fig"><div class="fig-num">38</div><div class="fig-label">candidate capabilities</div><p>Separate jobs Dara could do, one story file each.</p></div>
+      <div class="fig reserved"><div class="fig-num">20<small>/38</small></div><div class="fig-label"><a class="term" href="#g-reserved">human-reserved</a></div><p>A person decides, at every level, forever. Capped at R5 in code.</p></div>
+      <div class="fig zero"><div class="fig-num">0<small>/38</small></div><div class="fig-label">with <a class="term" href="#g-approved">approved autonomy</a></div><p>All 38 start at R0. The code returns "no authority" for every one.</p></div>
+      <div class="fig"><div class="fig-num">8</div><div class="fig-label">legacy agent records</div><p>6 folded into Dara's capabilities, 2 retired.</p></div>
+      <div class="fig zero"><div class="fig-num">0<small>/38</small></div><div class="fig-label">reach R8 (agent-to-agent)</div><p>The highest ceiling is R7, on 11 capabilities.</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">One short section per class</span>The five classes, on Dara's <a class="term" href="#g-ladder">autonomy ladder</a></h2>
+    <p>The platform has no "system class" vocabulary of its own. Mapping each class to a rung is this report's interpretation. It lets you lay Dara's real ceilings against the classes.</p>
+    <div class="chart-box">
+      <div class="chart-scroll">
+        <svg viewBox="0 0 640 290" role="img" aria-labelledby="ladder-title ladder-desc">
+          <title id="ladder-title">Dara's 38 capability ceilings by autonomy rung</title>
+          <desc id="ladder-desc">Human-reserved capabilities: 1 at R0, 7 at R2, 5 at R4, 7 at R5. Not reserved: 1 at R5, 6 at R6, 11 at R7. None at R1, R3, R8 or R9.</desc>
+          <!-- class bands -->
+          <rect x="156" y="14" width="58" height="26" rx="4" fill="var(--rule)"></rect>
+          <text x="185" y="31" text-anchor="middle" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)">Chatbot</text>
+          <rect x="216" y="14" width="170" height="26" rx="4" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.5"></rect>
+          <text x="301" y="31" text-anchor="middle" font-family="var(--font-display)" font-size="11" font-weight="800" fill="var(--accent)">Tool-using agent · Dara's class</text>
+          <rect x="388" y="14" width="114" height="26" rx="4" fill="var(--rule)"></rect>
+          <text x="445" y="31" text-anchor="middle" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--ink)">Agentic system</text>
+          <rect x="504" y="14" width="58" height="26" rx="4" fill="var(--absent-soft)"></rect>
+          <text x="533" y="31" text-anchor="middle" font-family="var(--font-display)" font-size="11" font-weight="700" fill="var(--absent)">Multi-agent</text>
+          <!-- grid -->
+          <g stroke="var(--rule)" stroke-width="1">
+            <line x1="40" y1="240" x2="620" y2="240"></line>
+            <line x1="40" y1="180" x2="620" y2="180" stroke-dasharray="2 4"></line>
+            <line x1="40" y1="120" x2="620" y2="120" stroke-dasharray="2 4"></line>
+            <line x1="40" y1="60" x2="620" y2="60" stroke-dasharray="2 4"></line>
+          </g>
+          <g font-family="var(--font-mono)" font-size="10" fill="var(--muted)" text-anchor="end">
+            <text x="32" y="243">0</text><text x="32" y="183">4</text><text x="32" y="123">8</text><text x="32" y="63">12</text>
+          </g>
+          <!-- human-reserved cap line -->
+          <line x1="388" y1="48" x2="388" y2="240" stroke="var(--reserved)" stroke-width="1.5" stroke-dasharray="5 4"></line>
+          <text x="384" y="58" text-anchor="end" font-family="var(--font-display)" font-size="10" font-weight="700" fill="var(--reserved)">human-reserved cap</text>
+          <!-- bars: reserved -->
+          <g fill="var(--reserved)">
+            <rect x="51" y="225" width="36" height="15"></rect>
+            <rect x="167" y="135" width="36" height="105"></rect>
+            <rect x="283" y="165" width="36" height="75"></rect>
+            <rect x="341" y="135" width="36" height="105"></rect>
+          </g>
+          <!-- bars: not reserved -->
+          <g fill="var(--open)">
+            <rect x="341" y="120" width="36" height="15"></rect>
+            <rect x="399" y="150" width="36" height="90"></rect>
+            <rect x="457" y="75" width="36" height="165"></rect>
+          </g>
+          <!-- counts -->
+          <g font-family="var(--font-display)" font-size="12" font-weight="800" fill="var(--ink)" text-anchor="middle">
+            <text x="69" y="219">1</text>
+            <text x="185" y="129">7</text>
+            <text x="301" y="159">5</text>
+            <text x="359" y="114">7+1</text>
+            <text x="417" y="144">6</text>
+            <text x="475" y="69">11</text>
+            <text x="533" y="234" fill="var(--absent)">0</text>
+          </g>
+          <!-- x labels -->
+          <g font-family="var(--font-mono)" font-size="11" fill="var(--muted)" text-anchor="middle">
+            <text x="69" y="258">R0</text><text x="127" y="258">R1</text><text x="185" y="258">R2</text><text x="243" y="258">R3</text><text x="301" y="258">R4</text>
+            <text x="359" y="258">R5</text><text x="417" y="258">R6</text><text x="475" y="258">R7</text><text x="533" y="258">R8</text><text x="591" y="258">R9</text>
+          </g>
+          <text x="330" y="282" text-anchor="middle" font-family="var(--font-display)" font-size="11" fill="var(--muted)">Ceiling: the highest rung each capability may ever reach</text>
+        </svg>
+      </div>
+      <div class="legend">
+        <span><i style="background:var(--reserved)"></i>Human-reserved (20)</span>
+        <span><i style="background:var(--open)"></i>Not reserved (18)</span>
+        <span>Every one of the 38 starts at R0 today.</span>
+      </div>
+    </div>
+
+    <div class="classes">
+      <div class="cls">
+        <h3>Chatbot<span class="rung">autonomy:R2</span></h3>
+        <div><p>A model answers questions from approved knowledge. It has no tools and no side effects. The platform enforces this: a capability with no tool grants is capped at R2.</p><span class="cite">autonomyLadder.ts:61, :208-211</span></div>
+      </div>
+      <div class="cls">
+        <h3>Fixed workflow<span class="rung">off the ladder · no model decides</span></h3>
+        <div><p>Code fixes the steps in advance, triggered by a schedule or an event. Dara's first release is exactly this: 4 absorbed behaviors, "all deterministic, no LLM call". The video-link check, for example, runs as a cron at 06:20.</p><span class="cite">agentRegistrySeed.ts:2512-2514, :2564-2570</span></div>
+      </div>
+      <div class="cls pick">
+        <h3>Tool-using agent<span class="rung">autonomy:R3–R5 · recommended</span></h3>
+        <div><p>A model picks from a small set of granted tools inside a hard cap. Dara's student DM is this: the model may call <code>escalate_to_human</code>, and only once per reply, so it can never loop.</p><span class="cite">daraReplyService.ts:182-189 · autonomyLadder.ts:62-64</span></div>
+      </div>
+      <div class="cls">
+        <h3>Agentic system<span class="rung">autonomy:R6–R7</span></h3>
+        <div><p>A model plans and carries out multi-step work toward a goal, chaining actions with production side effects while a human supervises instead of approving each step.</p><span class="cite">autonomyLadder.ts:65-66</span></div>
+      </div>
+      <div class="cls no">
+        <h3>Multi-agent system<span class="rung">autonomy:R8 · not needed</span></h3>
+        <div><p>Several agents with their own roles hand work to each other: "Coordinate necessary, authorized handoffs with other agents."</p><span class="cite">autonomyLadder.ts:67</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">The recommendation, in this domain's numbers</span>Why one tool-using agent</h2>
+    <ol class="reasons">
+      <li><div><b>20 of 38 can never go further than R5.</b><p>The <a class="term" href="#g-reserved">human-reserved</a> capabilities are capped at shadow evaluation in code. More than half the domain can only prepare, draft and propose, so it gets nothing from an agentic system.</p><span class="cite">autonomyLadder.ts:213-220</span></div></li>
+      <li><div><b>The other 18 top out at bounded automation.</b><p>11 have an R7 ceiling, 6 stop at R6 and 1 at R5. R7 means automating named action classes within limits. That's a fixed workflow allowed to run alone, not open-ended planning.</p><span class="cite">Q1 in Sources</span></div></li>
+      <li><div><b>Nothing has been approved yet.</b><p>0 of 38 capabilities has a human-approved level. None of the 106 approval requests on record was decided by a person; all 106 were closed by <code>system:auto_approve_timeout</code>.</p><span class="cite">autonomyLadder.ts:188-191 · APPROVAL_DROP_QUEUE_2026-10-06.md:92</span></div></li>
+      <li><div><b>One agent, not eight.</b><p>The 8 legacy records were separate agents. The migration plan folds 6 into capabilities of one employee and retires 2. Dara is one <code>ai_employee</code> row.</p><span class="cite">curriculum.LEGACY-MIGRATION-PLAN.md:3-6 · agentRegistrySeed.ts:2502-2531</span></div></li>
+      <li><div><b>It can't be just a chatbot or just fixed workflows.</b><p>37 of 38 capabilities need at least one tool, so a chatbot is too little. The DM surface reads free text and decides whether to escalate, which a fixed workflow can't do.</p><span class="cite">Q1 · daraReplyService.ts:182-189</span></div></li>
+    </ol>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">The argument changes when the numbers change</span>How the answer moves with the numbers</h2>
+    <p>With 20 capabilities reserved, every chain that changes what students are taught runs into a human decision. Here's one real chain:</p>
+    <div class="chain">
+      <div class="link"><span class="chip open">not reserved · R7</span><b>Detect a competency gap</b><span class="cite">competency_coverage_gap_detection.md:72</span></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="link"><span class="chip reserved">human decision</span><b>Propose videos to close it</b><span class="cite">coverage_gap_video_curation_proposal.md:77</span></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="link"><span class="chip reserved">human decision</span><b>Publish to the live timeline</b><span class="cite">blueprint_publish_to_live_timeline.md:81</span></div>
+    </div>
+    <p>If the reserved count fell far enough that a chain like this could run end to end without a person, the recommendation would move up a class. If any ceiling were R8, multi-agent would be on the table. Today none is.</p>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">The class this domain explicitly does not need</span>Not needed: a multi-agent system</h2>
+    <ul class="plain">
+      <li><b>0 of 38</b> capabilities has an R8 ceiling. The out-of-scope handoff story says "R8 is explicitly unavailable: no second AI employee has a matching capability." <span class="cite">out_of_scope_escalation_handoff.md:82</span></li>
+      <li>The handoff code agrees: "no AI employee has a matching capability to hand off TO yet." The only recipient is Swati. <span class="cite">daraHandoffService.ts:13-15</span></li>
+      <li>"No employee-to-employee handoff protocol exists, so a cross-domain finding reaches a human, not another agent." <span class="cite">coverage_scope_and_deferral_enforcement.md:55</span></li>
+      <li>Splitting Dara back into several agents would undo the consolidation the migration plan exists to finish.</li>
+    </ul>
+    <p class="small"><span class="chip unknown">unknown</span> Another agent sends a weekly digest "to Curriculum". Whether Dara reads it isn't shown anywhere. Even if she does, it's a one-way feed, not coordination. <span class="cite">agentRegistrySeed.ts:2335</span></p>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">What would have to change for the next class up</span>Five conditions before an agentic system</h2>
+    <p>The best first candidate is the path that uses no reserved decision: <b>daily gap flag → escalation to a named human → Basecamp work gateway</b>. All five conditions must be true, and today none is.</p>
+    <div class="checks">
+      <div class="check"><h4>The Basecamp login problem is resolved</h4><span class="chip notmet">not met</span><p>The gateway writes "under a shared credential that misattributes authorship to a named person", so it's held at R5. <span class="cite">manager_work_gateway_to_basecamp.md:74-75</span></p></div>
+      <div class="check"><h4>A human approves R6 or higher on each step</h4><span class="chip notmet">not met · 0 of 3</span><p>Today that's 0 of 3 steps and 0 of 38 domain-wide. In production, R6 also needs its own pilot approval. <span class="cite">autonomyLadder.ts:188-191, :203-205</span></p></div>
+      <div class="check"><h4>The escalation channel exists and is allowed</h4><span class="chip notmet">not met</span><p>The designed email channel is "unbuilt and, as live_email, default-denied to an agent". <span class="cite">escalation_reaches_a_named_human.md:77</span></p></div>
+      <div class="check"><h4>The authorization gate actually blocks</h4><span class="chip notmet">not met</span><p><code>abac_enforcement</code> defaults to <a class="term" href="#g-shadow">shadow</a>, which logs but never blocks. <span class="cite">agentAuthorizationService.ts:39-46</span></p></div>
+      <div class="check"><h4>A person decides at least one approval</h4><span class="chip notmet">not met · 0 of 106</span><p>All 106 approval requests were closed by a timeout. <span class="cite">APPROVAL_DROP_QUEUE_2026-10-06.md:92</span></p></div>
+    </div>
+    <p class="small">For multi-agent after that, a second AI employee with a matching capability would have to exist, and a human would have to raise a ceiling to R8. Neither is true today.</p>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Unknown is a real answer</span>Open questions</h2>
+    <ul class="plain">
+      <li><span class="chip unknown">unknown</span> <b>Is Dara switched on in production?</b> The registry seed says <code>enabled: false</code>. Report 2 found the charter recording <code>enabled: true</code> as of 2026-09-17. The live value takes a production query.</li>
+      <li><span class="chip unknown">unknown</span> <b>Was her current autonomy level re-approved?</b> The design recorded <code>act_audited</code>. Adding the DM tool moves the classifier to <code>communicate</code>, its top rung. No record of a re-approval was found. <span class="cite">TOOL_CAPABILITY_DESIGN_v1.md:28 · agentCapabilityClassifier.ts:44-56</span></li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Checking the brief</span>Citation drift found</h2>
+    <p>Some line numbers in the capability briefs no longer point at their claim. The claims still hold.</p>
+    <div class="table-box">
+      <table>
+        <thead><tr><th>Brief cites</th><th>Claim</th><th>Where it is now</th></tr></thead>
+        <tbody>
+          <tr><td><code>autonomyLadder.ts:141-144</code></td><td>no approved autonomy</td><td><code>:188-191</code></td></tr>
+          <tr><td><code>agentAuthorizationService.ts:149-150</code></td><td>ABAC defaults to shadow</td><td><code>:39-46</code></td></tr>
+          <tr><td><code>PLATFORM_STATE_2026-09-15.md:117</code></td><td>shadow never denies</td><td>now a table separator; new line not found</td></tr>
+          <tr><td><code>APPROVAL_DROP_QUEUE_2026-10-06.md:92</code></td><td>106 rows, all timeout-decided</td><td class="ali">still accurate</td></tr>
+          <tr><td><code>TOOL_CAPABILITY_DESIGN_v1.md:28</code></td><td>Dara classified act_audited</td><td class="ali">still accurate</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block">
+    <details>
+      <summary>Sources for Report 1</summary>
+      <div>
+        <p class="small">Platform: <code>ColaberryEnterprise_AI_LeadershipAccelerator</code> @ <code>6ba8530</code>, paths under <code>backend/src/services/</code>. Repository: <code>rtkumera/AI-Agent-Project</code>.</p>
+        <ul class="src">
+          <li>agentRegistrySeed.ts:1040-1078, :1700, :2335, :2502-2531, :2564-2570</li>
+          <li>agentDomain/autonomyLadder.ts:59-69, :188-191, :203-205, :208-211, :213-220</li>
+          <li>agentAuthorizationService.ts:39-46</li>
+          <li>agentCapabilityClassifier.ts:44-56</li>
+          <li>curriculum/daraReplyService.ts:182-189</li>
+          <li>curriculum/daraHandoffService.ts:13-15</li>
+          <li>docs/architecture/ai-workforce-management/APPROVAL_DROP_QUEUE_2026-10-06.md:92</li>
+          <li>docs/architecture/…/employees/curriculum/TOOL_CAPABILITY_DESIGN_v1.md:28</li>
+          <li>docs/stories/curriculum.LEGACY-MIGRATION-PLAN.md:3-6</li>
+          <li>docs/stories/curriculum.CAP.*: out_of_scope_escalation_handoff:82, coverage_scope_and_deferral_enforcement:55, manager_work_gateway_to_basecamp:74-75, escalation_reaches_a_named_human:77</li>
+        </ul>
+        <p class="small"><b>Q1: capability counts</b>, run from the repository root:</p>
+<pre>cd docs/stories
+ls curriculum.CAP.*.md | wc -l                                  # 38
+grep -l 'THIS IS A HUMAN DECISION' curriculum.CAP.*.md | wc -l  # 20
+grep -h -o 'ceiling \*\*autonomy:R[0-9]\*\*' curriculum.CAP.*.md | sort | uniq -c
+grep -h -o 'Starting autonomy \*\*autonomy:R[0-9]\*\*' curriculum.CAP.*.md | sort | uniq -c</pre>
+      </div>
+    </details>
+  </section>
+
+</div>
+</div>
+
+<!-- ============================== PAGE 2 ============================== -->
+<div class="page" id="anatomy" role="tabpanel" aria-labelledby="tab-anatomy" hidden>
+<div class="wrap">
+
+  <section class="block">
+    <div class="eyebrow">Report 2 · <code>docs/discovery/02-agent-anatomy.md</code> · platform @ <code>a284987</code></div>
+    <div class="answer">
+      <div class="eyebrow">The headline</div>
+      <div class="verdict">Dara already runs. <em>Swati has approved none of it.</em></div>
+      <p>She answers students over DM, opens handoff tickets, writes Basecamp to-dos and runs three daily scans. Every authorization behind that came from the DRI, Ali. The gap between what Dara <i>does</i> and what her accountable manager has <i>approved</i> covers all nine elements.</p>
+    </div>
+    <div class="howto">
+      <div><b>What this page asks</b>Every agent has nine parts. For each of Dara's: what exists, what's missing, and what the first honest version looks like.</div>
+      <div><b>Why it matters to you</b>You're helping with an agent that's already live. Knowing which parts are solid and which are guesses tells you where to start.</div>
+      <div><b>How to read the colors</b><span><span class="chip known">known</span> <span class="chip unknown">unknown</span> <span class="chip absent">absent</span></span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">An explicit count of how many are unknown</span>The nine elements at a glance</h2>
+    <div class="figs">
+      <div class="fig unknown"><div class="fig-num">5<small>/9</small></div><div class="fig-label">unknown</div><p>Reasoning, memory, procedures, safeguards, verification. The deciding fact lives only in production data.</p></div>
+      <div class="fig zero"><div class="fig-num">1<small>/9</small></div><div class="fig-label">known absent</div><p>Coordination. Agent-to-agent handoff doesn't exist on this platform.</p></div>
+      <div class="fig known"><div class="fig-num">3<small>/9</small></div><div class="fig-label">known from source</div><p>Inputs, communication, tools.</p></div>
+      <div class="fig zero"><div class="fig-num">0<small>/9</small></div><div class="fig-label">approved by Swati</div><p>Every recorded approval is Ali's.</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="callout">
+      <h3>Before anything else: is Dara switched on right now?</h3>
+      <div class="vs">
+        <div><b>The code says off</b>The registry seed sets <code>enabled: false</code>. <span class="cite">agentRegistrySeed.ts:2542</span></div>
+        <div><b>The charter says on</b>"Real production state … <code>enabled: true</code>" as of 2026-09-17. <span class="cite">ROLE_CHARTER_v1.md:68</span></div>
+        <div><b>The truth: unknown</b>The seed only sets the starting value. It takes a production read of Dara's <code>AiAgent</code> row.</div>
+      </div>
+      <p class="small">Everything below describes what the code does <i>when she is enabled</i>.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Where each element lives</span>How one student message flows through Dara</h2>
+    <p>Following a single DM through the code is the quickest way to see the nine elements working together. The tags link to each element's card.</p>
+    <div class="flow">
+      <div class="step"><h4>A student sends a DM</h4><div><p>The message, the last 20 messages in the room, the student's learner context, and any attachments.</p><div class="tags"><a class="tag" href="#el-inputs">inputs</a><a class="tag" href="#el-memory">memory</a></div></div></div>
+      <div class="step"><h4>Guards check first</h4><div><p>Is Dara enabled? Is the sender Dara herself (loop guard)? Is she a member of this room? Any "no" stops here.</p><div class="tags"><a class="tag" href="#el-safeguards">safeguards</a></div></div></div>
+      <div class="step"><h4>The prompt is assembled</h4><div><ol class="layers"><li>safety rules</li><li>role charter</li><li>persona and scope</li><li>manager directives</li><li>approved memory</li><li>reliability state</li><li>learner context</li><li>"never claim a fake escalation"</li></ol><div class="tags"><a class="tag" href="#el-procedures">procedures</a><a class="tag" href="#el-memory">memory</a></div></div></div>
+      <div class="step"><h4>The model answers</h4><div><p><code>gpt-4o-mini</code> by default, temperature 0.7, up to 500 tokens. It may make one <a class="term" href="#g-tool">tool call</a>: <code>escalate_to_human</code>.</p><div class="tags"><a class="tag" href="#el-reasoning">reasoning</a><a class="tag" href="#el-tools">tools</a></div></div></div>
+      <div class="step warn"><h4>Authorization runs</h4><div><p>Checked before the reply and before any escalation. In <a class="term" href="#g-shadow">shadow mode</a> it always says yes.</p><div class="tags"><a class="tag" href="#el-safeguards">safeguards</a></div></div></div>
+      <div class="step"><h4>The reply goes out</h4><div><p>The student gets the reply in the same thread. An escalation also creates an <code>agent_handoff</code> ticket and a Basecamp to-do. Everything is logged under Dara's own id.</p><div class="tags"><a class="tag" href="#el-communication">communication</a><a class="tag" href="#el-verification">verification</a></div></div></div>
+    </div>
+    <p class="small">Separately, three scheduled jobs run each morning: curriculum gap flag (06:10), research sweep (06:15) and certification readiness flag (06:30). <span class="cite">aiOpsScheduler.ts:367, :369, :375</span></p>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Nine sections · what exists, what is missing, first honest version</span>The nine elements</h2>
+    <div class="elements">
+
+      <article class="el s-unknown" id="el-reasoning">
+        <div class="el-head"><span class="idx">1</span><h3>Reasoning</h3><span class="chip unknown">unknown</span><span class="q">How does Dara think and decide?</span></div>
+        <dl>
+          <dt>Does today</dt><dd><p>One LLM call per student message: <code>AI_MODEL</code>, defaulting to <code>gpt-4o-mini</code>, at temperature 0.7 and max 500 tokens. With an image attached, it switches to <code>gpt-4o</code>. The three daily scans use fixed rules, no LLM.</p><span class="cite">daraReplyService.ts:39, :176-184 · directorActions.ts:41-45</span></dd>
+          <dt>Approved</dt><dd><p>Ali approved keeping the scans LLM-free. Nobody has approved a model or its settings.</p><span class="cite">ROLE_CHARTER_v1.md:50, :63</span></dd>
+          <dt>Missing</dt><dd><p><span class="unk">Unknown:</span> which model production runs, because <code>AI_MODEL</code> lives in the environment, not the code. Nothing checks whether the curriculum content in an answer is correct.</p></dd>
+          <dt class="first">First honest version</dt><dd class="first"><p>Record the production model and settings in the charter, with Swati's sign-off. Add one rule: a reply that states a certification requirement must cite its curriculum record or say it doesn't know.</p></dd>
+        </dl>
+      </article>
+
+      <article class="el s-unknown" id="el-memory">
+        <div class="el-head"><span class="idx">2</span><h3>Memory</h3><span class="chip unknown">unknown</span><span class="q">What does Dara remember, and for how long?</span></div>
+        <dl>
+          <dt>Does today</dt><dd><ul><li><b>Within a conversation:</b> the last 20 messages in the room.</li><li><b>Across conversations:</b> only memory rows a manager approved, read fresh on every call.</li></ul><span class="cite">daraReplyService.ts:40, :119-123 · agentSystemPrompt.ts:118 · agentMemoryProposalService.ts:132-135</span></dd>
+          <dt>Approved</dt><dd><p>Dara can't approve her own memory; only Swati or Ali can.</p><span class="cite">ROLE_CHARTER_v1.md:52</span></dd>
+          <dt>Missing</dt><dd><p><span class="unk">Unknown:</span> how many approved memory rows exist for Dara. If there are none, she remembers nothing between conversations. Whether Swati has ever reviewed one is also unknown.</p></dd>
+          <dt class="first">First honest version</dt><dd class="first"><p>Count Dara's memory proposals by status and show Swati. Make the first approved memory the in-scope and out-of-scope lists she confirms.</p></dd>
+        </dl>
+      </article>
+
+      <article class="el s-known" id="el-inputs">
+        <div class="el-head"><span class="idx">3</span><h3>Inputs</h3><span class="chip known">known</span><span class="q">What information reaches Dara?</span></div>
+        <dl>
+          <dt>Does today</dt><dd><ul><li><b>Student DM:</b> the message, 20 messages of history, learner context, and any attachments.</li><li><b>Research sweep:</b> each pilot-cohort student's certification readiness; at risk means pass probability below 0.55.</li><li><b>Daily flags:</b> school-wide signals from the director rules.</li></ul><span class="cite">daraReplyService.ts:119-125, :148-161 · agentSystemPrompt.ts:129 · daraSignalService.ts:18, :31-36 · directorActions.ts:41-45</span></dd>
+          <dt>Approved</dt><dd><p>Ali set the pilot cohort to "Cohort - July 2026". Swati didn't choose it. The gate fails closed when the cohort is empty.</p><span class="cite">daraEligibilityService.ts:33-44 · ROLE_CHARTER_v1.md:68</span></dd>
+          <dt>Missing</dt><dd><p>No input tells Dara whether the curriculum content she describes is correct.</p></dd>
+          <dt class="first">First honest version</dt><dd class="first"><p>This is the most complete element. Swati only needs to confirm the pilot cohort and the 0.55 threshold as her own.</p></dd>
+        </dl>
+      </article>
+
+      <article class="el s-known" id="el-communication">
+        <div class="el-head"><span class="idx">4</span><h3>Communication</h3><span class="chip known">known</span><span class="q">Who does Dara talk to, and through what?</span></div>
+        <dl>
+          <dt>Does today</dt><dd><ul><li><b>Students:</b> replies in the same DM thread, only ever in response to a message. If the model fails twice, the student gets one fixed apology, never silence.</li><li><b>Manager:</b> the Talk tab, with a separate persona.</li><li><b>Humans, by work item:</b> an <code>agent_handoff</code> ticket, a Basecamp to-do, and a WorkforceTask from the research sweep.</li></ul><span class="cite">daraReplyService.ts:26-29, :71-72, :257-260 · daraPersona.ts:9-11 · daraHandoffService.ts:57-71 · daraResearchService.ts:93-103</span></dd>
+          <dt>Approved</dt><dd><p>Ali lifted the original "no outbound communication" rule on 2026-09-17.</p><span class="cite">ROLE_CHARTER_v1.md:49</span></dd>
+          <dt>Missing</dt><dd><p>The planned email to Swati was never built. Escalations go to a Basecamp list inside "Ali Personal", not a queue Swati owns. <span class="unk">Unknown:</span> whether Swati sees escalations at all.</p><span class="cite">ACCOUNTABILITY_v1.md:26, :30 · ROLE_CHARTER_v1.md:68</span></dd>
+          <dt class="first">First honest version</dt><dd class="first"><p>Send escalations somewhere Swati actually checks, then confirm with her that she has seen one real escalation arrive.</p></dd>
+        </dl>
+      </article>
+
+      <article class="el s-known" id="el-tools">
+        <div class="el-head"><span class="idx">5</span><h3>Tools</h3><span class="chip known">known</span><span class="q">What can Dara actually do?</span></div>
+        <dl>
+          <dt>Does today</dt><dd><ul><li><b>One tool the model can call:</b> <code>escalate_to_human</code>, which opens a real ticket.</li><li><b>Attachments:</b> <code>read_attachments</code>, granted in a code constant.</li><li><b>Safety:</b> the model never supplies a student or ticket id; the server fills them in.</li></ul><span class="cite">daraTools.ts:29-31, :33-55 · agentToolRegistry.ts:25 · daraReplyService.ts:148</span></dd>
+          <dt>Approved</dt><dd><p>The registry lists six tool names. The original four were designed as <code>act_audited</code>.</p><span class="cite">agentRegistrySeed.ts:2544-2550 · TOOL_CAPABILITY_DESIGN_v1.md:28</span></dd>
+          <dt>Missing</dt><dd><p>The listed tools don't match what runs. <code>read_attachments</code> is used but not listed, and four of the six listed names aren't tools the model can call. The DM tool pushes Dara to the classifier's top rung. <span class="unk">Unknown:</span> whether a human approved that rung.</p></dd>
+          <dt class="first">First honest version</dt><dd class="first"><p>Keep one list of the tools Dara can actually invoke, and have Swati approve that list and its rung explicitly.</p></dd>
+        </dl>
+      </article>
+
+      <article class="el s-unknown" id="el-procedures">
+        <div class="el-head"><span class="idx">6</span><h3>Procedures</h3><span class="chip unknown">unknown</span><span class="q">What instructions shape her work?</span></div>
+        <dl>
+          <dt>Does today</dt><dd><p>An eight-layer prompt, in fixed order (see the flow above), with the scope and escalation contract in the persona. The research sweep follows a fixed procedure: eligibility, signal, dedup, then a cap of 5 flags per sweep.</p><span class="cite">agentSystemPrompt.ts:105-129 · daraPersona.ts:93-102 · daraSystemPrompt.ts:29-36 · daraResearchService.ts:36, :54-106</span></dd>
+          <dt>Approved</dt><dd><p>Ali approved the charter, persona and scope. Swati has confirmed no requirement.</p><span class="cite">ROLE_CHARTER_v1.md:63-68</span></dd>
+          <dt>Missing</dt><dd><p><span class="unk">Unknown:</span> whether any active manager directive exists for Dara. Directives can only narrow what she does, but they shape every reply without appearing in the code.</p><span class="cite">agentSystemPrompt.ts:28-32</span></dd>
+          <dt class="first">First honest version</dt><dd class="first"><p>Swati restates the scope boundary in her own words and names one question she expects to be escalated. That becomes her first directive.</p></dd>
+        </dl>
+      </article>
+
+      <article class="el s-absent" id="el-coordination">
+        <div class="el-head"><span class="idx">7</span><h3>Coordination</h3><span class="chip absent">absent</span><span class="q">Does Dara work with other agents?</span></div>
+        <dl>
+          <dt>Does today</dt><dd><ul><li>Nothing between agents. Every <a class="term" href="#g-handoff">handoff</a> goes to a human.</li><li>The four legacy rows Dara absorbed are behaviors under her, not peers.</li><li>Other agents write messages addressed to "curriculum", but no code in Dara reads them.</li></ul><span class="cite">daraHandoffService.ts:13-18 · ACCOUNTABILITY_v1.md:43 · repointLegacyBehaviors.ts:31-36 · directorActions.ts:143</span></dd>
+          <dt>Approved</dt><dd><p>Nothing. There is nothing to approve.</p></dd>
+          <dt>Missing</dt><dd><p>Real coordination would need all four, and none exists:</p><ul><li>a second AI employee with a matching capability</li><li>a message contract between employees</li><li>code in Dara that reads messages sent to her</li><li>a capability with a human-approved R8 ceiling (0 of 38 today)</li></ul></dd>
+          <dt class="first">First honest version</dt><dd class="first"><p>Don't build coordination. Decide what happens to the messages addressed to curriculum: send them to Swati, or stop writing them.</p></dd>
+        </dl>
+      </article>
+
+      <article class="el s-unknown" id="el-safeguards">
+        <div class="el-head"><span class="idx">8</span><h3>Safeguards</h3><span class="chip unknown">unknown</span><span class="q">What stops Dara doing the wrong thing?</span></div>
+        <dl>
+          <dt>Does today</dt><dd><ul><li>An on/off switch read on every call, a loop guard, and a room-membership check.</li><li>One model retry and at most one tool call per reply.</li><li>An honest non-escalation: if the handoff can't be recorded, she says so.</li><li>Authorization before each send and escalation, and platform safety rules first in every prompt.</li></ul><span class="cite">daraIdentitySeed.ts:47-53 · daraReplyService.ts:105-117, :186-212, :231-253 · daraTools.ts:72-99 · platformSafetyRules.ts:33-40</span></dd>
+          <dt>Approved</dt><dd><p>Charter rules: Dara can't authorize her own writes, approve her own memory, or change her own autonomy level.</p><span class="cite">ROLE_CHARTER_v1.md:51, :52, :56</span></dd>
+          <dt>Missing</dt><dd><p>Several safeguards are advisory or <a class="term" href="#g-failopen">fail open</a>:</p><ul><li>authorization always says yes in shadow mode, and shadow is the default</li><li>a bridge error defaults to "allowed"</li><li>the on/off check returns "on" if Dara's row is missing</li><li>if ticket linking fails, authorization is skipped and the reply still sends</li></ul><p><span class="unk">Unknown:</span> the live <code>abac_enforcement</code> setting.</p><span class="cite">agentActionAuthorizationBridge.ts:102, :107-115 · agentAuthorizationService.ts:39-46 · daraIdentitySeed.ts:52 · daraReplyService.ts:217-231</span></dd>
+          <dt class="first">First honest version</dt><dd class="first"><p>Read the live setting and report it to Swati. Until it's <code>enforce</code>, describe the gates as monitoring, not protection.</p></dd>
+        </dl>
+      </article>
+
+      <article class="el s-unknown" id="el-verification">
+        <div class="el-head"><span class="idx">9</span><h3>Verification</h3><span class="chip unknown">unknown</span><span class="q">How do we know Dara is doing it right?</span></div>
+        <dl>
+          <dt>Does today</dt><dd><p><b>121 unit tests</b> across 14 files, 20 of them for the reply path. Every reply and failure is logged under Dara's id, and every conversation and escalation has a ticket.</p><span class="cite">curriculum/__tests__/ · daraReplyService.ts:132, :264-273, :291-300 · daraHandoffService.ts:57-69</span></dd>
+          <dt>Approved</dt><dd><p>Nothing. No capability has an approved level, and none of the 106 approval requests was decided by a person.</p><span class="cite">autonomyLadder.ts:189 · APPROVAL_DROP_QUEUE_2026-10-06.md:92</span></dd>
+          <dt>Missing</dt><dd><p>Nothing measures what Dara <i>says</i>. There's no reference set, no golden answers and no shadow comparison. The tests prove the plumbing works, not that her answers are right. <span class="unk">Unknown:</span> whether the tests pass on the current commit; they weren't run.</p></dd>
+          <dt class="first">First honest version</dt><dd class="first"><p>Swati writes 10 real student questions with the answer she expects, including at least 3 that should be escalated. Score each Dara reply against them in shadow. That gives the domain its first measured number.</p></dd>
+        </dl>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Does versus approved</span>Who approved what</h2>
+    <div class="table-box">
+      <table>
+        <thead><tr><th>Decision</th><th>Approved by</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td>Role charter v1, the name "Dara"</td><td class="ali">Ali</td><td><span class="cite">ROLE_CHARTER_v1.md:63</span></td></tr>
+          <tr><td>Accountability contract, Swati as reports-to</td><td class="ali">Ali</td><td><span class="cite">ACCOUNTABILITY_v1.md:3, :50</span></td></tr>
+          <tr><td>Lifting "no outbound communication"</td><td class="ali">Ali</td><td><span class="cite">ROLE_CHARTER_v1.md:49, :65</span></td></tr>
+          <tr><td>Production enablement, pilot cohort, Basecamp target</td><td class="ali">Ali</td><td><span class="cite">ROLE_CHARTER_v1.md:68</span></td></tr>
+          <tr><td>Swati's admin login</td><td class="ali">Ali</td><td><span class="cite">ACCOUNTABILITY_v1.md:17</span></td></tr>
+          <tr><td>Any requirement, capability, autonomy level, memory or directive</td><td class="none">Swati: none found</td><td><span class="cite">Q3 · student_curriculum_dm_support.md</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">Swati had no working login until 2026-09-16, one day before Dara's student surface shipped. <span class="cite">ROLE_CHARTER_v1.md:65-68</span></p>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">For whoever reads the source next</span>Out-of-date statements in the code and docs</h2>
+    <ul class="plain">
+      <li><code>daraIdentitySeed.ts:83-84</code> says "this release has zero LLM calls"; the DM path makes them.</li>
+      <li><code>PERSONALITY_PROFILE_v1.md:66</code> says Dara has no student-facing surface; that changed on 2026-09-17.</li>
+      <li><code>ROLE_CHARTER_v1.md:49</code> still says "Not yet built"; its own v1.5 entry says the surfaces are live.</li>
+      <li>The registry moved about 20 lines between commits: Dara is at <code>agentRegistrySeed.ts:2522</code> now, versus <code>:2502</code> in Report 1.</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Each one resolves an unknown above</span>Production checks still to run</h2>
+    <p class="small">Neither story authorizes these. They're listed so whoever has production access knows exactly what to read.</p>
+    <div class="table-box">
+      <table>
+        <thead><tr><th>Read</th><th>Resolves</th></tr></thead>
+        <tbody>
+          <tr><td>Dara's <code>AiAgent</code> row: <code>enabled</code>, <code>config.pilot_cohort_ids</code>, <code>tools_granted</code>, autonomy level</td><td>Is she on? · Tools</td></tr>
+          <tr><td><code>AgentMemoryProposal</code> rows for Dara, by status</td><td>Memory</td></tr>
+          <tr><td>Active <code>ManagerDirective</code> rows for Dara</td><td>Procedures</td></tr>
+          <tr><td>The <code>abac_enforcement</code> setting and any override on Dara</td><td>Safeguards</td></tr>
+          <tr><td>The production <code>AI_MODEL</code> and <code>DARA_VISION_MODEL</code> values</td><td>Reasoning</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block">
+    <details>
+      <summary>Sources for Report 2</summary>
+      <div>
+        <p class="small">Platform: <code>ColaberryEnterprise_AI_LeadershipAccelerator</code> @ <code>a284987</code>, paths under <code>backend/src/services/</code>.</p>
+        <ul class="src">
+          <li>curriculum/daraReplyService.ts:26-29, 39-40, 48-64, 71-72, 105, 112, 114-125, 132, 148-161, 176-184, 186-212, 217-253, 257-260, 264-273, 291-300, 310-317</li>
+          <li>curriculum/daraSystemPrompt.ts:29-36 · daraPersona.ts:9-11, 23-61, 93-102 · daraTools.ts:29-31, 33-55, 72-77, 85-99</li>
+          <li>curriculum/daraIdentitySeed.ts:47-53, 83-84 · daraHandoffService.ts:13-18, 57-69, 71</li>
+          <li>curriculum/daraSignalService.ts:12-18, 31-36 · daraResearchService.ts:36, 54-106 · daraEligibilityService.ts:33-44 · repointLegacyBehaviors.ts:31-36, 59-61</li>
+          <li>agentBlueprint/agentSystemPrompt.ts:28-32, 105, 108, 115, 118, 125, 129 · platformSafetyRules.ts:33-40</li>
+          <li>agentMemoryProposalService.ts:132-135 · agents/tools/agentToolRegistry.ts:25</li>
+          <li>workLedger/agentActionAuthorizationBridge.ts:102, 107-115 · agentAuthorizationService.ts:39-46 · agentDomain/autonomyLadder.ts:189</li>
+          <li>workforce/directorActions.ts:41-45, 143 · workforce/workforceService.ts:167 · aiOpsScheduler.ts:367, 369, 375</li>
+          <li>agentRegistrySeed.ts:2522-2551</li>
+          <li>docs/…/employees/curriculum/ROLE_CHARTER_v1.md:49-56, 63-68 · ACCOUNTABILITY_v1.md:3, 17, 26, 30, 41, 43, 50 · TOOL_CAPABILITY_DESIGN_v1.md:28 · PERSONALITY_PROFILE_v1.md:66</li>
+          <li>docs/…/APPROVAL_DROP_QUEUE_2026-10-06.md:92</li>
+        </ul>
+<pre># Q2: unit tests per file, and any Dara evaluation material
+grep -c -E "^\s*(it|test)\(" backend/src/services/curriculum/__tests__/*.ts   # sums to 121
+grep -rli dara backend/src | grep -iE "eval|golden|reference|shadow"
+# Q3: any approval attributed to Swati
+grep -n -i swati docs/architecture/ai-workforce-management/employees/curriculum/*.md \
+  | grep -iE "approv|confirm|decid|sign"</pre>
+      </div>
+    </details>
+  </section>
+
+</div>
+</div>
+
+<!-- ============================== PAGE 3 ============================== -->
+<div class="page" id="role" role="tabpanel" aria-labelledby="tab-role" hidden>
+<div class="wrap">
+
+  <section class="block">
+    <div class="eyebrow">Report 3 · <code>docs/discovery/03-role-and-da-transition.md</code> · platform @ <code>a284987</code></div>
+    <div class="answer">
+      <div class="eyebrow">The answer</div>
+      <div class="verdict">The Data Analyst's duties <em>were never written down</em>, so <s>none</s> of them can be handed to Dara yet.</div>
+      <p>What <i>can</i> be sorted is Dara's own work. Of her 38 proposed <a class="term" href="#g-capability">capabilities</a>, 18 would move to her, 19 split so that she prepares and Swati decides, and 1 stays fully human: writing the missing duty list itself. All 38 are still proposals. Swati has agreed none of them.</p>
+    </div>
+    <div class="howto">
+      <div><b>What this page asks</b>What does Swati Raman actually do, and which Data Analyst (DA) responsibilities should move to Dara?</div>
+      <div><b>Why it matters to you</b>Before you hand an agent a job, someone has to write the job down. Here that's the missing piece, and guessing it from a job title would be inventing work.</div>
+      <div><b>How to read the colors</b><span><span class="chip open">moves to Dara</span> <span class="chip reserved">split</span> <span class="chip absent">stays human</span> <span class="chip unknown">unknown</span></span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">What the search found</span>The DA question in numbers</h2>
+    <div class="figs">
+      <div class="fig zero"><div class="fig-num">0</div><div class="fig-label">DA duty lists found</div><p>Not for curriculum, and not for any other domain either.</p></div>
+      <div class="fig"><div class="fig-num">40</div><div class="fig-label">platform files say "data analyst"</div><p>Each one is course content, sales copy, an unrelated helper, or a note that the list is missing.</p></div>
+      <div class="fig known"><div class="fig-num">18<small>/38</small></div><div class="fig-label">would move to Dara</div><p>No human decision inside. Ceilings R5–R7.</p></div>
+      <div class="fig reserved"><div class="fig-num">19<small>/38</small></div><div class="fig-label">split</div><p>Dara prepares, Swati decides. Never automated.</p></div>
+      <div class="fig zero"><div class="fig-num">1<small>/38</small></div><div class="fig-label">stays fully human</div><p>The DA capability itself, held at R0 until a person writes the duty list.</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="callout">
+      <h3>Who Swati is, according to the repository</h3>
+      <div class="vs">
+        <div><b>Sourced: accountable for Dara</b>Swati Raman, Operations team. Confirmed by Ali on 2026-09-15. She owns the video-replacement approval gate, and she co-authors Dara's charter and KPIs with Ali. <span class="cite">ACCOUNTABILITY_v1.md:7 · govern-curriculum-video-sources.md:36-37 · ROLE_CHARTER_v1.md:52</span></div>
+        <div><b>Labels only: her "hats"</b>Curriculum review, documentation, TWC registration, compliance and approval workflows. Another script calls her "Curriculum Lead + TWC Compliance". <span class="cite">launchPmoTeam.js:46-47 · generateAiArchitectRubricsSpreadsheet.js:183-184</span></div>
+        <div><b>Unknown</b>How she actually spends her week. What "TWC" stands for. Whether the targets in that script are her real KPIs. Whether she can log in today, since the records conflict. <span class="cite">ACCOUNTABILITY_v1.md:15 vs curriculum.json:3544</span></div>
+      </div>
+      <p class="small">A label is not a duty list. The interview in Report 4 is where these unknowns get answered.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Proving the gap, not asserting it</span>Where we looked for the Data Analyst's duties</h2>
+    <div class="table-box">
+      <table>
+        <thead><tr><th>Searched</th><th>Found</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td>"data analyst" across the whole platform repo</td><td>40 files, and none is a duty list</td><td><span class="cite">grep, §1 of the report</span></td></tr>
+          <tr><td>The "Data Analyst Agent"</td><td>An unrelated helper that tidies SQL results. It is not the job.</td><td><span class="cite">dataAnalystAgent.ts:1-5</span></td></tr>
+          <tr><td>All 36 AI-workforce docs, and the 10 curriculum employee docs</td><td>Zero mentions</td><td><span class="cite">docs/architecture/ai-workforce-management/</span></td></tr>
+          <tr><td>The "scope amendment" the plan names as the source</td><td>"Not in the repository and was not attached." The cited contract file isn't in the clone.</td><td><span class="cite">curriculum.json:4179</span></td></tr>
+          <tr><td>The "DA Admissions" label the brief cites</td><td>A label on an admissions colleague in a mockup. It's not curriculum, and not a list of duties.</td><td><span class="cite">admin-knowledge-ops-mockup.html:884</span></td></tr>
+          <tr><td>Any report definition (what, who, how often, timezone, channel)</td><td>Confirmed absent platform-wide</td><td><span class="cite">REPORTING_MAP.md:15</span></td></tr>
+          <tr><td>The other five domains' DA capabilities</td><td>Each says its own list is missing too</td><td><span class="cite">capabilities/{sales,learner_success,…}.json</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Splits · exactly where the line falls</span>19 jobs Dara prepares and Swati decides</h2>
+    <p>In every split the line is the same shape: <b>Dara prepares, Swati decides.</b> Each of these touches what students are taught or what lands on a student's record, so the code caps it at R5 or lower, forever. <span class="cite">autonomyLadder.ts:214-218</span></p>
+    <div class="table-box">
+      <table>
+        <thead><tr><th>Job</th><th>Dara's side</th><th>Swati's side</th><th>Ceiling</th></tr></thead>
+        <tbody>
+          <tr><td>Answering students' curriculum DMs</td><td>Reply in the student's room</td><td>Read transcripts, take over a thread</td><td>R5</td></tr>
+          <tr><td>Publishing a week to the live timeline</td><td>Prepare the publish packet</td><td><b>Approve and publish</b></td><td>R5</td></tr>
+          <tr><td>Approving and promoting a curriculum type</td><td>Prepare the promotion diff</td><td><b>Approve and promote</b></td><td>R5</td></tr>
+          <tr><td>Improvement recommendations</td><td>Generate them; never apply</td><td>Apply or decline</td><td>R5</td></tr>
+          <tr><td>Videos for a coverage gap</td><td>Curate candidates</td><td><b>Apply the video</b></td><td>R5</td></tr>
+          <tr><td>Mapping build evidence to CCAR-F</td><td>Propose mappings</td><td>Verify or reject</td><td>R5</td></tr>
+          <tr><td>Change impact on live cohorts</td><td>Build the assessment</td><td>Decide whether to proceed</td><td>R5</td></tr>
+          <tr><td>Week blueprint authoring</td><td>Propose edits</td><td>Author and approve</td><td>R4</td></tr>
+          <tr><td>Module and lesson drafting</td><td>Draft (deferred today)</td><td>Approve or reject</td><td>R4</td></tr>
+          <tr><td>Curriculum type drafts</td><td>Author drafts</td><td>Approve separately</td><td>R4</td></tr>
+          <tr><td>External certificate claims</td><td>Summarise the claim</td><td><b>Approve or reject</b></td><td>R4</td></tr>
+          <tr><td>Learner-outcome feedback</td><td>Report findings</td><td>Decide if curriculum changes</td><td>R4</td></tr>
+          <tr><td>Prep-item status (draft → approved)</td><td>Recommend only</td><td><b>Set the status</b></td><td>R2</td></tr>
+          <tr><td>Strategy proposals</td><td>Draft (deferred today)</td><td>Adopt or decline</td><td>R2</td></tr>
+          <tr><td>Charter and KPIs</td><td>Report against them</td><td><b>Author and approve</b></td><td>R2</td></tr>
+          <tr><td>Manager access</td><td>Report access state</td><td>Open the page and decide</td><td>R2</td></tr>
+          <tr><td>Scope and deferrals</td><td>Report scope</td><td>Approve a scope change</td><td>R2</td></tr>
+          <tr><td>Autonomy record</td><td>Report the record</td><td><b>Approve each level</b></td><td>R2</td></tr>
+          <tr><td>CCAR-F drift</td><td>Report drift</td><td>Approve a weight change</td><td>R2</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small"><span class="chip unknown">note</span> Student DM support already runs unsupervised in production. The matrix records that as a finding, not as a reason it's allowed. <span class="cite">curriculum.json · student_curriculum_dm_support</span></p>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">What would show Dara is ready</span>18 jobs that would move to Dara</h2>
+    <p>"Ceiling" is the most these could ever reach. It is not where Dara is now: she holds <b>no approved level for anything</b>. <span class="cite">autonomyLadder.ts:188-191</span> Each row also starts with an R0 step only Swati can do: stating the scope in her own words.</p>
+    <div class="table-box">
+      <table>
+        <thead><tr><th>Job</th><th>Ceiling</th><th>Ready when…</th></tr></thead>
+        <tbody>
+          <tr><td>Daily curriculum-gap flag</td><td>R6</td><td>Every flag traces to a threshold; Swati signs a pilot with a rollback condition</td></tr>
+          <tr><td>Daily certification-readiness flag</td><td>R6</td><td>Explanations cite stored components; written scope, approver, rollback</td></tr>
+          <tr><td>Video-link health monitoring</td><td>R6</td><td>A fixture test per branch; Swati approves who gets alerts</td></tr>
+          <tr><td>Out-of-scope handoff to Swati</td><td>R6</td><td>One ticket per replay; ABAC enforcing; a person (not a timeout) decides</td></tr>
+          <tr><td>Per-student certification-risk sweep</td><td>R6</td><td>Re-run flags no extra students; Swati approves cohort and cap</td></tr>
+          <tr><td>Escalation reaches a named human</td><td>R6</td><td>One notification per replay; Swati acknowledges a real delivery</td></tr>
+          <tr><td>Basecamp work gateway</td><td>R5</td><td>One to-do per replay; the shared-credential question answered first</td></tr>
+          <tr><td>Curriculum integrity scan</td><td>R7</td><td>Two runs on an unchanged tree match; Swati authorises it by name</td></tr>
+          <tr><td>Briefing Swati in conversation</td><td>R7</td><td>Every answer cites a record or says UNMEASURED</td></tr>
+          <tr><td>Presence signal</td><td>R7</td><td>A gap in the signal raises a real alert</td></tr>
+          <tr><td>Pre-publish validation gate</td><td>R7</td><td>A test proves Dara has no publish path</td></tr>
+          <tr><td>Competency gap detection</td><td>R7</td><td>A self-test injects a gap and the detector finds it</td></tr>
+          <tr><td>Prep-item rubric review</td><td>R7</td><td>A test proves no approval path and no model import</td></tr>
+          <tr><td>Answer-key distribution audit</td><td>R7</td><td>A skewed-key mutation test is caught</td></tr>
+          <tr><td>Cohort readiness reporting</td><td>R7</td><td>A test proves no write path to student records</td></tr>
+          <tr><td>Week teaching-content audit</td><td>R7</td><td>Removing one artifact in a fixture is reported missing</td></tr>
+          <tr><td>LLM-generated card audit</td><td>R7</td><td>The identity-less path count is grep-verifiable</td></tr>
+          <tr><td>LLM cost attribution</td><td>R7</td><td>A real zero is never confused with "unattributed"</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Listed separately, each with its reason</span>What stays human</h2>
+    <ul class="plain">
+      <li><span class="chip absent">stays human</span> <b>Writing the DA duty list.</b> A ceiling over an undefined job "would be a fabrication", so it is held at R0. <span class="cite">curriculum.json:4109-4185</span></li>
+      <li><span class="chip absent">stays human</span> <b>Every decision on Swati's side of the 19 splits.</b> Each decides what students are taught or what lands on their record. <span class="cite">autonomyLadder.ts:214-218</span></li>
+      <li><span class="chip absent">stays human</span> <b>Setting Dara's autonomy, reports-to and risk tier.</b> An agent never raises its own authority. <span class="cite">ROLE_CHARTER_v1.md:56</span></li>
+      <li><span class="chip absent">stays human</span> <b>Approving Dara's charter, KPIs and memory.</b> Manager-authored only. <span class="cite">ROLE_CHARTER_v1.md:52</span></li>
+      <li><span class="chip absent">stays human</span> <b>Widening Dara's scope.</b> Being "curriculum-adjacent" never puts something in scope. <span class="cite">ROLE_CHARTER_v1.md:53</span></li>
+      <li><span class="chip absent">stays human</span> <b>Approving a replacement video.</b> Swati's own 2026-08-24 rule. <span class="cite">govern-curriculum-video-sources.md:61</span></li>
+      <li><span class="chip unknown">not covered</span> <b>TWC registration and compliance, and training-intensive design.</b> No capability mentions them, so they stay with Swati by default. Whether they ever should move is unknown.</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">If the source does not exist: what would have to be written</span>The missing document</h2>
+    <ol class="reasons">
+      <li><div><b>Who writes it.</b><p>The curriculum Data Analyst, if one exists, together with Swati. Ali (DRI) first confirms whether a DA is assigned at all; today that is <i>unknown</i>. Swati signs it. It comes from an interview, never from a job title.</p><span class="cite">curriculum.json:4147</span></div></li>
+      <li><div><b>One row per recurring report.</b><p>Its name, the question it answers, the data source, a named recipient, the cadence and timezone, the channel, who produces it today and how long that takes, the decision it feeds, and what breaks if it's late.</p><span class="cite">REPORTING_MAP.md:15, :19-20, :24</span></div></li>
+      <li><div><b>Ad-hoc requests.</b><p>Who asks, how often, and one example of each.</p></div></li>
+      <li><div><b>A classification for each row.</b><p>Stays human, moves, or splits, with the reason. For a split, the exact line. For a row that moves, the test that would prove Dara is ready.</p></div></li>
+      <li><div><b>Sign-off.</b><p>Swati's name and the date. Until then, every row stays draft and the DA capability stays at R0.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Checking the brief</span>Citation drift found</h2>
+    <div class="table-box">
+      <table>
+        <thead><tr><th>Brief cites</th><th>Where it is now</th></tr></thead>
+        <tbody>
+          <tr><td><code>autonomyLadder.ts:169-173</code> (human-decision R5 cap)</td><td><code>:214-218</code></td></tr>
+          <tr><td><code>admin-knowledge-ops-mockup.html:883</code></td><td><code>:884</code></td></tr>
+          <tr><td>"34 files" of AI-workforce docs</td><td>36 files</td></tr>
+          <tr><td><code>.loop-architect/…/execution-contract.md:45</code></td><td class="none">not in the repository</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block">
+    <details>
+      <summary>Sources for Report 3</summary>
+      <div>
+        <p class="small">Platform: <code>ColaberryEnterprise_AI_LeadershipAccelerator</code> @ <code>a284987</code>. The full tables, with every rung's acceptance criterion, are in <code>docs/discovery/03-role-and-da-transition.md</code>.</p>
+        <ul class="src">
+          <li>backend/src/services/agentDomain/capabilities/curriculum.json: all 38 capabilities (human_decision, permissions_by_environment.production, max_permitted_autonomy, release_behaviour); :3544, :4109-4185</li>
+          <li>backend/src/services/agentDomain/autonomyLadder.ts:185-191, 214-218</li>
+          <li>docs/…/employees/curriculum/ACCOUNTABILITY_v1.md:7, 15, 26-28 · ROLE_CHARTER_v1.md:52, 53, 56 · MANAGER_ACCESS_PLAN.md:3 · RISK_REGISTER.md:10</li>
+          <li>docs/architecture/ai-workforce-management/REPORTING_MAP.md:15, 19-20, 24</li>
+          <li>backend/src/scripts/lib/launchPmoTeam.js:42-48 · generateAiArchitectRubricsSpreadsheet.js:183-191 · assignOrgDepartments20260819.ts:107</li>
+          <li>directives/govern-curriculum-video-sources.md:3, 8, 36-37, 61 · docs/admin-knowledge-ops-mockup.html:884</li>
+          <li>backend/src/intelligence/assistant/agents/dataAnalystAgent.ts:1-5 · docs/agent-catalog/assistant/data-analyst-agent.md:1-5</li>
+        </ul>
+<pre># the absence, evidenced
+grep -rIil --exclude-dir=node_modules --exclude-dir=.git "data analyst" .   # 40 files
+grep -rn -i -E "data analyst|\bDA\b" docs/architecture/ai-workforce-management/employees/curriculum/   # 0
+grep -rIil "scope amendment" .   # only capability JSONs, stating it is missing
+grep -c -i twc backend/src/services/agentDomain/capabilities/curriculum.json   # 0</pre>
+      </div>
+    </details>
+  </section>
+
+</div>
+</div>
+
+<!-- ============================== PAGE 4 ============================== -->
+<div class="page" id="interview" role="tabpanel" aria-labelledby="tab-interview" hidden>
+<div class="wrap">
+
+  <section class="block">
+    <div class="eyebrow">Report 4 · <code>docs/discovery/04-manager-interview.md</code> · platform @ <code>a284987</code></div>
+    <div class="answer">
+      <div class="eyebrow">The plan</div>
+      <div class="verdict">Nine questions in <em>30 minutes</em>, each one written to change the build, plus a <em>20-minute Monday</em> check-in.</div>
+      <p>Dara already runs, and Swati has approved none of it. This interview is where she first gets to decide: what Dara does first, what stays hers forever, what "good" means in numbers, and what gets switched off. <b>It is an agenda, not a booking.</b> No meeting has been arranged, and nothing has been sent.</p>
+    </div>
+    <div class="howto">
+      <div><b>What this page asks</b>What should a 30-minute conversation with Swati cover, and how should she and Dara keep in touch every week after that?</div>
+      <div><b>Why it matters to you</b>An agent can't be validated by a manager who hasn't been asked the right questions. Every question here leads to a specific change in the build.</div>
+      <div><b>How to read it</b><span>Each question shows why it's specific to Dara and <i>what the answer changes</i>. Swati's answers go into the empty table at the end of the report.</span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Time budgeted per section, adding up to 30</span>The agenda</h2>
+    <div class="table-box">
+      <table>
+        <thead><tr><th>Time</th><th>Section</th><th>Min</th><th>Questions</th></tr></thead>
+        <tbody>
+          <tr><td>0:00</td><td>Why this meeting: Dara already runs, and none of it is approved by you</td><td>2</td><td>—</td></tr>
+          <tr><td>0:02</td><td><b>Raise:</b> how you reach Dara today</td><td>4</td><td>Q1</td></tr>
+          <tr><td>0:06</td><td>A. Which capabilities you want first</td><td>6</td><td>Q2, Q3</td></tr>
+          <tr><td>0:12</td><td>B. What must stay human forever</td><td>5</td><td>Q4, Q5</td></tr>
+          <tr><td>0:17</td><td>C. What "good" looks like, in numbers</td><td>5</td><td>Q6, Q7</td></tr>
+          <tr><td>0:22</td><td>D. What you'd switch off immediately</td><td>5</td><td>Q8, Q9</td></tr>
+          <tr><td>0:27</td><td>The weekly check-in proposal, and what happens next</td><td>3</td><td>—</td></tr>
+          <tr><td></td><td><b>Total</b></td><td><b>30</b></td><td>9 questions</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">If it runs long, drop Q7 and then Q3; both come back later. Q1, Q2, Q4 and Q8 are never cut, because without them nothing in the build can move.</p>
+  </section>
+
+  <section class="block">
+    <div class="callout">
+      <h3>Raise, don't fix: Swati reaches Dara only by a side door</h3>
+      <div class="vs">
+        <div><b>How she gets in today</b><span>Through a full <code>admin</code> account with no curriculum role. The section gate waves through any account without one.</span> <span class="cite">mgmtSectionGate.ts:248</span></div>
+        <div><b>The fix that never landed</b><span>Mapping <code>/api/admin/agents</code> for curriculum-scoped accounts. It appears 0 times in the map, so the curriculum-only account designed for her would get a 403 error.</span> <span class="cite">MANAGER_ACCESS_PLAN.md:19-20</span></div>
+        <div><b>Unknown</b>Whether she has ever opened Dara's page herself. Also worth raising: none of the 106 approval requests was decided by a person; a timer decided every one. <span class="cite">APPROVAL_DROP_QUEUE_2026-10-06.md:92</span></div>
+      </div>
+      <p class="small">A manager who can't reliably reach the page can't validate what's on it. The agenda raises this as Q1. The code change and the account decision go to Ali, the DRI, after the meeting.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Specific to Dara · what each answer changes</span>The nine questions</h2>
+    <div class="checks">
+      <div class="check"><h4>Q1 · Have you opened Dara's page with your own login? Full admin, or curriculum-only?</h4><span class="chip unknown">raise first</span><p><b>Changes:</b> her words become the evidence that she can reach the page. If she wants curriculum-only, the missing access fix becomes a blocker for Ali. <span class="cite">manager_access_and_decision_queue_integrity</span></p></div>
+      <div class="check"><h4>Q2 · Gap flag 06:10, risk sweep 06:15, readiness flag 06:30, student DMs: which do you read, and which do we validate first?</h4><span class="chip open">A · first</span><p><b>Changes:</b> the chosen job gets the first sign-off (scope, ceiling, human-decision flag) and becomes task 1 in Report 5. <span class="cite">aiOpsScheduler.ts:367, :369, :375</span></p></div>
+      <div class="check"><h4>Q3 · Is a Data Analyst assigned to curriculum? Which reports do they produce for you?</h4><span class="chip open">A · first</span><p><b>Changes:</b> if yes, the duty register from Report 3 gets written. If no, the DA capability is recorded as having nothing to absorb. <span class="cite">curriculum.json:4147</span></p></div>
+      <div class="check"><h4>Q4 · 20 jobs are marked "your decision forever". Would you delegate any? Is anything missing, like TWC compliance?</h4><span class="chip reserved">B · human</span><p><b>Changes:</b> a human-decision flag moves only with her signed agreement. Missing items join the stays-human list. <span class="cite">autonomyLadder.ts:214-218</span></p></div>
+      <div class="check"><h4>Q5 · Should a timeout ever count as approval? Who decides when you're away?</h4><span class="chip reserved">B · human</span><p><b>Changes:</b> "timeout means no, and escalate" becomes a written requirement, and a backup approver gets named in the accountability doc. <span class="cite">APPROVAL_DROP_QUEUE:92</span></p></div>
+      <div class="check"><h4>Q6 · Flags fire below quality 65 and pass probability 55. Your thresholds? How many flags a week is useful?</h4><span class="chip known">C · numbers</span><p><b>Changes:</b> her numbers become the pass mark for both daily flags, and her weekly count becomes the shadow-mode measure. <span class="cite">ROLE_CHARTER_v1.md:25-26</span></p></div>
+      <div class="check"><h4>Q7 · "Gap tasks you act on within a window": what window, and what counts as acted on?</h4><span class="chip known">C · numbers</span><p><b>Changes:</b> it becomes the first measured KPI target, plus a new requirement to record when a task is acted on. Nothing records that today. <span class="cite">ROLE_CHARTER_v1.md:40-41</span></p></div>
+      <div class="check"><h4>Q8 · What one wrong answer to a student would make you switch DMs off? Should they run before you've read a week of transcripts?</h4><span class="chip notmet">D · off</span><p><b>Changes:</b> her example becomes the first test case. A "pause" becomes a request to an admin; this report does not switch anything off. <span class="cite">daraReplyService.ts:105</span></p></div>
+      <div class="check"><h4>Q9 · Enabled/paused flag, global kill switch, safe mode: which should you be able to flip, and when?</h4><span class="chip notmet">D · off</span><p><b>Changes:</b> each trigger she names becomes the rollback condition for any pilot, and the owner of each switch gets recorded. <span class="cite">workforceAgentRuntime.ts:69-71</span></p></div>
+    </div>
+    <p class="small"><b>Drafted and cut:</b> "which model should Dara use" (needs a production read first), "your vision for AI in curriculum" (not specific to Dara), "rate Dara 1–10" (a good conversation isn't evidence), and video-alert recipients (that question belongs to switching on video monitoring).</p>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">A named day, a duration, three things it reviews</span>The proposed weekly check-in</h2>
+    <div class="figs">
+      <div class="fig known"><div class="fig-num">Mon</div><div class="fig-label">day</div><p>The weekly digest lands Sunday at 07:00, so Monday is the first day a full week is complete. <span class="cite">agentRegistrySeed.ts:2333</span></p></div>
+      <div class="fig"><div class="fig-num">20<small> min</small></div><div class="fig-label">duration</div><p>Three fixed items, about six minutes each.</p></div>
+      <div class="fig unknown"><div class="fig-num">?</div><div class="fig-label">time of day</div><p>Swati picks. The platform has no per-manager timezone. <span class="cite">REPORTING_MAP.md:24</span></p></div>
+      <div class="fig"><div class="fig-num">1<small>/week</small></div><div class="fig-label">1:1 record</div><p>One <code>AgentOneOnOne</code> row each week. It can't repeat on its own, so a person creates it. <span class="cite">AgentOneOnOne.ts:14-16</span></p></div>
+    </div>
+    <ol class="reasons">
+      <li><div><b>What Dara wrote this week, and what happened to it.</b><p>Every gap flag, readiness flag, research-sweep task, handoff ticket and Basecamp to-do: acted on, closed, or ignored? Output nobody acts on is noise.</p><span class="cite">/admin/workforce</span></div></li>
+      <li><div><b>A sample of student DMs, and every escalation.</b><p>Look for any answer outside the agreed scope, and any escalation Dara claimed that didn't happen. This grows the test set from Q8 week by week.</p><span class="cite">Dara's Agent page and Talk tab</span></div></li>
+      <li><div><b>The decision queue.</b><p>Anything waiting for Swati, and any decision a timer made instead of her. One capability's autonomy record moves forward, or is recorded as not moving and why.</p><span class="cite">mgmtSectionGate.ts:126, :128</span></div></li>
+    </ol>
+    <p class="small">This is a proposal for Swati to accept, change or decline. Nothing has been put in a calendar.</p>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">So the same file becomes the record</span>After the interview</h2>
+    <ul class="plain">
+      <li><span class="chip unknown">empty</span> The report ends with an answers table, Q1 to Q9, with a column for <b>Swati's own words</b> and one for <b>the action taken</b> (linked to a commit or record). Unanswered questions are written as "not answered".</li>
+      <li><span class="chip absent">not approval</span> An answer doesn't approve anything by itself. A capability changes state only when Swati signs it and that signature is recorded against it.</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <details>
+      <summary>Sources for Report 4</summary>
+      <div>
+        <p class="small">Platform: <code>ColaberryEnterprise_AI_LeadershipAccelerator</code> @ <code>a284987</code>. The full question text, with what each answer changes, is in <code>docs/discovery/04-manager-interview.md</code>.</p>
+        <ul class="src">
+          <li>backend/src/middlewares/mgmtSectionGate.ts:21 (PATH_SECTION), 126, 128, 248</li>
+          <li>backend/src/services/agentDomain/capabilities/curriculum.json: manager_access_and_decision_queue_integrity, student_curriculum_dm_support, daily_*_flagging, out_of_scope_escalation_handoff; :1105, :4147</li>
+          <li>backend/src/services/agentDomain/autonomyLadder.ts:188-191, 214-218</li>
+          <li>backend/src/services/aiOpsScheduler.ts:367, 369, 375, 559 · agentRegistrySeed.ts:2333</li>
+          <li>workforce/workforceAgentRuntime.ts:69-71 · curriculum/daraReplyService.ts:105 · curriculum/daraEligibilityService.ts:14-19 · schedulerService.ts:2648</li>
+          <li>backend/src/models/AgentOneOnOne.ts:14-16, 54-63</li>
+          <li>docs/…/employees/curriculum/ROLE_CHARTER_v1.md:25-26, 34, 40-41 · MANAGER_ACCESS_PLAN.md:19-20</li>
+          <li>docs/architecture/ai-workforce-management/APPROVAL_DROP_QUEUE_2026-10-06.md:92 · REPORTING_MAP.md:24</li>
+        </ul>
+        <p class="small">Citation drift: the capability record cites <code>mgmtSectionGate.ts:188</code> for the admin pass-through. That line is now a comment; the check is at <code>:248</code>.</p>
+      </div>
+    </details>
+  </section>
+
+</div>
+</div>
+
+<!-- ============================== PAGE 5 ============================== -->
+<div class="page" id="tasks" role="tabpanel" aria-labelledby="tab-tasks" hidden>
+<div class="wrap">
+
+  <section class="block">
+    <div class="eyebrow">Report 5 · <code>docs/discovery/05-three-proposed-tasks.md</code> · platform @ <code>a284987</code></div>
+    <div class="answer">
+      <div class="eyebrow">The proposal</div>
+      <div class="verdict">Three of Dara's own capabilities, each with <em>proof written first</em>, a <em>must-not</em> list, and Swati as approver.</div>
+      <p>One task per kind of risk: one that only reads, one that writes work for a human, and one that proposes changes to what students are taught. <b>This is a proposal, not a switch-on.</b> Nothing has been enabled, granted or raised, and all three stay <code>draft</code> until Swati reviews them.</p>
+    </div>
+    <div class="howto">
+      <div><b>What this page asks</b>Which three jobs should Dara be validated on first, how far could each go, and what would prove it worked?</div>
+      <div><b>Why it matters to you</b><span>On this platform a timer has made every approval so far. A task is only ready to propose when you can say what <i>a person or a real record</i> would show if it worked.</span></div>
+      <div><b>How to read it</b><span>Each task card starts with <i>proof it worked</i>, highlighted. Then come what the task does, what Dara must not do, who approves it, and when to switch it off.</span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">The numbers behind the choice</span>Where things stand</h2>
+    <div class="figs">
+      <div class="fig known"><div class="fig-num">3<small>/38</small></div><div class="fig-label">tasks proposed</div><p>Chosen from Dara's own draft capabilities, not invented. <span class="cite">curriculum.json</span></p></div>
+      <div class="fig zero"><div class="fig-num">0</div><div class="fig-label">approved autonomy levels</div><p>So every task starts at <a href="#g-ladder">R0</a>. The code returns "no approved autonomy". <span class="cite">autonomyLadder.ts:188-191</span></p></div>
+      <div class="fig zero"><div class="fig-num">106<small>/106</small></div><div class="fig-label">approvals decided by a timer</div><p>An automatic "yes" after 4.25 hours. This is the failure the proof rule exists to prevent. <span class="cite">APPROVAL_DROP_QUEUE_2026-10-06.md:92-95</span></p></div>
+      <div class="fig reserved"><div class="fig-num">1<small>/3</small></div><div class="fig-label">human-reserved task</div><p>Task C proposes changes to what students are taught, so the code caps it at R5. <span class="cite">autonomyLadder.ts:213-220</span></p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">One of each risk shape</span>The three tasks at a glance</h2>
+    <div class="table-box">
+      <table>
+        <thead><tr><th>Task</th><th>What it touches</th><th>Human decision?</th><th>Start → ceiling</th><th>First rung to aim for</th></tr></thead>
+        <tbody>
+          <tr><td><a href="#task-a"><b>A.</b> Curriculum integrity scan</a></td><td>Reads the module and lesson tree; writes nothing</td><td>No</td><td>R0 → R7</td><td>R4</td></tr>
+          <tr><td><a href="#task-b"><b>B.</b> Out-of-scope question handed to Swati</a></td><td>Writes a ticket and a Basecamp to-do</td><td>No</td><td>R0 → R6</td><td>R3</td></tr>
+          <tr><td><a href="#task-c"><b>C.</b> Curriculum improvement recommendations</a></td><td>Proposes changes; never applies them</td><td><span class="chip reserved">yes, forever</span></td><td>R0 → R5</td><td>R2, then R5 shadow</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">Ceilings are copied from each capability's own record, not invented. The "first rung" is the report's recommendation; Swati decides it. <span class="cite">curriculum.json:361-362, :744-745, :1913-1914</span></p>
+  </section>
+
+  <section class="block">
+    <div class="callout">
+      <h3>The proof rule: what does not count as evidence</h3>
+      <div class="vs">
+        <div><b>Never counts</b>A story marked done, time passing, a conversation that went well, or a mocked test passing.</div>
+        <div><b>Why it's strict here</b><span>Every test that exists today for these three tasks uses mocks. Those tests are <i>preconditions</i>, not proof.</span> <span class="cite">curriculumQAAgent.test.ts · daraHandoffService.test.ts · composerEngines.test.ts</span></div>
+        <div><b>What counts instead</b><span>A count of real rows, a list a person wrote <i>before</i> seeing Dara's output, or a record that names the human who decided.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Proof first · tools · must-not · approver · switch-off</span>The three task cards</h2>
+    <div class="elements">
+
+      <article class="el s-known" id="task-a">
+        <div class="el-head"><span class="idx">A</span><h3>Read-only curriculum integrity scan</h3><span class="chip known">R0 → R7</span><span class="q">Find empty modules, untitled lessons, empty lessons and out-of-order lessons before a student hits them.</span></div>
+        <dl>
+          <dt class="first">Proof it worked</dt><dd class="first"><ul><li><b>Planted defects:</b> Swati writes the expected findings for a seeded sandbox tree <i>first</i>. The scan matches them exactly, with zero findings on the clean module.</li><li><b>Repeatable:</b> two runs over an unchanged tree give identical findings.</li><li><b>Writes nothing:</b> the ticket count is the same before and after every run, checked in a real database.</li><li><b>Leaves a trace:</b> each run logs a record under Dara's id. Today there are zero ever.</li><li><b>A person judges one:</b> Swati marks one real finding as a true defect or a false alarm, under her name.</li></ul><span class="cite">curriculum.json:384 · COVERAGE_CONTRACT.md:42-44</span></dd>
+          <dt>The task</dt><dd><p>Checks four structural rules and returns typed findings. It never judges teaching quality.</p><span class="cite">curriculum.json:307-314 · curriculumQAAgent.ts:45, :121-122</span></dd>
+          <dt>Tools &amp; data</dt><dd><p><code>scan_curriculum_integrity</code>, <code>read_curriculum_modules</code>, <code>emit_structured_log</code>. Data: modules, lessons, artifacts and mini-sections.</p><span class="cite">curriculum.json:299-302, :335-339</span></dd>
+          <dt>Must NOT</dt><dd><ul><li>Write anything except its own log line, above all a ticket.</li><li>Fix a defect it finds.</li><li>Call the curriculum "healthy" when nothing is found. Only four rules were checked.</li><li>Run on a cron. The registry row advertises one that nothing runs.</li></ul><span class="cite">curriculum.json:305, :317 · agentRegistrySeed.ts:1060-1065</span></dd>
+          <dt>Approver</dt><dd><p><b>Swati Raman</b>, for scope, each rung, and a written, by-name authorization at R7. A single run needs no approval, because it writes nothing.</p><span class="cite">curriculum.json:298, :389</span></dd>
+          <dt>Why this ceiling</dt><dd><p>No side effect at all, so "produce this one report" can be automated (R7). There's no agent to hand off to (R8) and no monitoring plan (R9). Aim for R4 first: today nobody reads the findings on a schedule.</p><span class="cite">curriculum.json:363, :368</span></dd>
+          <dt>Switch off if</dt><dd><p>Any write besides its log line is traced to the scan, two runs on an unchanged tree disagree, a planted defect is missed, or its output gets called "healthy".</p></dd>
+          <dt>Unknown</dt><dd><p><span class="unk">Unknown:</span> whether Dara's on/off flag stops this scan. The scan runs through a separate dispatch path that wasn't traced. Whether a seeded sandbox tree exists is also unknown.</p><span class="cite">workforceAgentRuntime.ts:69-71</span></dd>
+        </dl>
+      </article>
+
+      <article class="el s-unknown" id="task-b">
+        <div class="el-head"><span class="idx">B</span><h3>Hand an out-of-scope student question to Swati</h3><span class="chip open">R0 → R6</span><span class="q">When a student asks something Dara shouldn't answer, it becomes a tracked ticket for a person.</span></div>
+        <dl>
+          <dt class="first">Proof it worked</dt><dd class="first"><ul><li><b>One ticket per question:</b> replaying the same message gives exactly one handoff ticket.</li><li><b>Honest failure:</b> when the handoff can't be recorded, there's no ticket, and Dara doesn't tell the student it escalated.</li><li><b>Closed by a person:</b> every closed handoff names a human closer. Zero are closed by a <code>system:</code> actor or a timer.</li><li><b>Real approval:</b> with enforcement switched on, a named person decides at least one real request.</li><li><b>Disclosure:</b> every Basecamp to-do carries the AI-disclosure line.</li></ul><span class="cite">curriculum.json:764, :769, :752 · daraTools.ts:76, :98 · daraHandoffService.ts:29-30</span></dd>
+          <dt>The task</dt><dd><p>Dara calls <code>escalate_to_human</code>. The platform creates one ticket keyed on the message, links it to the conversation, tries a Basecamp to-do, and reports the true outcome.</p><span class="cite">curriculum.json:683-691</span></dd>
+          <dt>Tools &amp; data</dt><dd><p><code>escalate_to_human</code>, <code>create_internal_ticket</code>, <code>add_ticket_comment</code>, <code>basecamp_todo_write</code>, <code>emit_structured_log</code>. The student and message ids come from the server, never from the model.</p><span class="cite">curriculum.json:672-676, :716-722</span></dd>
+          <dt>Must NOT</dt><dd><ul><li>Answer the out-of-scope question herself.</li><li>Tell the student a person has it unless the tool said <code>escalated:true</code>.</li><li>Close, resolve or reassign a handoff ticket.</li><li>Hand off to anyone other than Swati, or send email (unbuilt and denied to agents).</li><li>Post a Basecamp to-do without the disclosure line.</li></ul><span class="cite">curriculum.json:693, :758, :3796</span></dd>
+          <dt>Approver</dt><dd><p><b>Swati Raman</b>, who also receives every handoff. Ali Muwwakkil (DRI) must settle the shared-credential question before the Basecamp half leaves sandbox. Whether he has is unknown.</p><span class="cite">daraHandoffService.ts:13-14 · curriculum.json:655, :752</span></dd>
+          <dt>Why this ceiling</dt><dd><p>It doesn't decide what's taught, so it isn't capped at R5. But it writes a real outside record under a shared login, and its approval gate only watches, in <a href="#g-shadow">shadow mode</a>. So the ceiling is a supervised pilot (R6), not automation. Aim for R3 in sandbox first.</p><span class="cite">curriculum.json:746, :750 · agentAuthorizationService.ts:39-46</span></dd>
+          <dt>Switch off if</dt><dd><p>A ticket is closed by anything but a person, one message makes two tickets, Dara claims an escalation that didn't happen, a to-do lacks the disclosure line, or enforcement slips back to shadow during a pilot.</p></dd>
+          <dt>Unknown</dt><dd><p><span class="unk">Note:</span> the only off switch is Dara's <code>enabled</code> flag, which also stops all her student DMs. There's no escalation-only switch. Whether to build one is Swati's call.</p><span class="cite">daraReplyService.ts:100-105</span></dd>
+        </dl>
+      </article>
+
+      <article class="el s-unknown" id="task-c">
+        <div class="el-head"><span class="idx">C</span><h3>Ranked curriculum improvement recommendations</h3><span class="chip reserved">R0 → R5</span><span class="q">Turn validation gaps into a ranked list of suggested fixes, then stop. A person applies or declines each one.</span></div>
+        <dl>
+          <dt class="first">Proof it worked</dt><dd class="first"><ul><li><b>Shadow comparison:</b> Swati writes her own list for agreed weeks <i>first</i>. Then Dara's list is compared with hers: both found, only Swati, only Dara.</li><li><b>Humans applied every patch:</b> each applied patch names a person, and zero came from an agent. The record needed for this doesn't exist yet.</li><li><b>Traceable:</b> on a sample Swati picks, every item traces to a real check or gap, and none claims a measured learning gain.</li><li><b>Locked out:</b> Dara's account is refused on the apply and publish routes.</li></ul><span class="cite">curriculum.json:1921, :1937 · daraIdentitySeed.ts:99 · authMiddleware.ts:55, :68-70</span></dd>
+          <dt>The task</dt><dd><p>Runs the existing rules-based engine over a week plan. Each suggestion has an area, a severity, a reason and a patch. Then Dara stops.</p><span class="cite">curriculum.json:1857-1863 · optimizationEngine.ts:1-6</span></dd>
+          <dt>Tools &amp; data</dt><dd><p><code>read_curriculum_blueprints</code>, <code>run_validation_gate</code>, <code>propose_curriculum_patch</code>, <code>emit_structured_log</code>. Data: the validated plan, evidence, dependencies and coverage gaps.</p><span class="cite">curriculum.json:1848-1852, :1886-1891</span></dd>
+          <dt>Must NOT</dt><dd><ul><li>Apply, accept or decline a patch anywhere a student can see it.</li><li>Publish a week plan or add videos.</li><li>Let an AI model set severity or rank.</li><li>Claim a suggestion will improve learning. No measured link exists.</li></ul><span class="cite">curriculum.json:1865, :1905-1907, :1920</span></dd>
+          <dt>Approver</dt><dd><p><b>Swati Raman</b>, for scope, each rung, and <b>every</b> apply-or-decline decision, permanently. Whether anyone else on staff may apply a patch is <span class="unk">unknown</span>.</p><span class="cite">curriculum.json:1830, :1912</span></dd>
+          <dt>Why this ceiling</dt><dd><p>It's about what students are taught, so it's <a href="#g-reserved">human-reserved</a> and the code caps it at R5: shadow only. Dara has no tool access to the engine today, which holds her at R2, so R2 is the first reachable rung.</p><span class="cite">autonomyLadder.ts:207-211, :213-220 · composerRoutes.ts:15-30</span></dd>
+          <dt>Switch off if</dt><dd><p>An agent applies or decides a patch, Dara's account gets through to apply or publish, a model sets rank, a suggestion claims a learning gain, or Dara keeps missing high-severity items Swati found. Swati sets that miss rate <i>before</i> the comparison starts.</p></dd>
+          <dt>Unknown</dt><dd><p><span class="unk">Note:</span> Dara is kept out of the apply routes only by her account type. No test checks it.</p></dd>
+        </dl>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Considered and set aside</span>Left out on purpose</h2>
+    <ul class="plain">
+      <li><span class="chip notmet">finding, not task</span> <b>Student DM support.</b> It reaches learners, it's a human decision, and it already runs in production unsupervised. That's a problem to raise with Swati (Q2 and Q8 on page 4), not a task to propose.</li>
+      <li><span class="chip unknown">no scope yet</span> <b>The Data Analyst transition.</b> Its ceiling is R0 until a duty list exists (page 3). A task with no defined scope can't have proof.</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Nothing moves until she answers</span>What Swati decides</h2>
+    <ol class="reasons">
+      <li><div><b>Are these the right three?</b><p>Her answer to Q2 picks which capability moves first, and it may replace one of these.</p></div></li>
+      <li><div><b>Is each "first rung" right?</b><p>R4 for A, R3 for B, R2 for C.</p></div></li>
+      <li><div><b>Task A:</b><p>Should the scan ever run on a schedule, and who reads the findings?</p></div></li>
+      <li><div><b>Task B:</b><p>Should an escalation-only off switch exist, separate from switching off all of Dara's DMs?</p></div></li>
+      <li><div><b>Task C:</b><p>Who may apply a patch, which weeks go in the shadow set, and what miss rate switches it off?</p></div></li>
+    </ol>
+  </section>
+
+  <section class="block">
+    <details>
+      <summary>Sources for Report 5</summary>
+      <div>
+        <p class="small">Platform: <code>ColaberryEnterprise_AI_LeadershipAccelerator</code> @ <code>a284987</code>. Each task's full evidence table is in <code>docs/discovery/05-three-proposed-tasks.md</code>.</p>
+        <ul class="src">
+          <li>backend/src/services/agentDomain/capabilities/curriculum.json:275-392 (A), 649-772 (B), 1826-1940 (C), 3796, 3846</li>
+          <li>backend/src/services/agentDomain/autonomyLadder.ts:58-69, 185-223</li>
+          <li>services/agents/curriculumQAAgent.ts · __tests__/curriculumQAAgent.test.ts:48-156 · agentRegistrySeed.ts:1060-1065</li>
+          <li>services/curriculum/daraHandoffService.ts:7-30 · daraTools.ts:25-27, 76, 98, 112 · daraReplyService.ts:100-105 · daraIdentitySeed.ts:99</li>
+          <li>services/composer/optimizationEngine.ts:1-27 · routes/admin/composerRoutes.ts:15-30 · middlewares/authMiddleware.ts:55-70</li>
+          <li>services/agentAuthorizationService.ts:1-12, 37-46 · workforce/workforceAgentRuntime.ts:69-71</li>
+          <li>docs/…/APPROVAL_DROP_QUEUE_2026-10-06.md:90-95 · employees/curriculum/COVERAGE_CONTRACT.md:42-44 · RISK_REGISTER.md:8</li>
+        </ul>
+        <p class="small">Citation drift in the capability file: <code>autonomyLadder.ts:141-144</code> is now <code>:188-191</code>; <code>:169-173</code> is now <code>:213-220</code>; <code>agentAuthorizationService.ts:149-150</code> is now <code>:6</code>, <code>:39-46</code>; <code>agentRegistrySeed.ts:1058</code> is now <code>:1060-1065</code>.</p>
+      </div>
+    </details>
+  </section>
+
+</div>
+</div>
+
+<!-- ============================== PAGE 6 ============================== -->
+<div class="page" id="legacy" role="tabpanel" aria-labelledby="tab-legacy" hidden>
+<div class="wrap">
+
+  <section class="block">
+    <div class="eyebrow">Legacy migration plan · <code>docs/migration/legacy-migration-plan.md</code> · release r1 · platform @ <code>a284987</code></div>
+    <div class="answer">
+      <div class="eyebrow">The plan</div>
+      <div class="verdict">All <em>8</em> old agent records are accounted for: <em>3 merged</em> into Dara, 3 waiting to merge, and 2 retirements that are planned but <em>not done</em>.</div>
+      <p>Before Dara, curriculum work was spread across eight older agents. This plan says what happens to each one, checks the research behind it, and lists what has to be decided first. <b>It is a plan, not a migration.</b> No agent row has been changed, switched off or archived.</p>
+    </div>
+    <div class="howto">
+      <div><b>What this page asks</b>What happens to each of the eight older curriculum agents now that Dara does their work, and can the cleanup run safely more than once?</div>
+      <div><b>Why it matters to you</b>An old agent left half-retired can keep running, keep sending, or quietly switch back on. Every row here needs Swati's confirmation before anything is archived.</div>
+      <div><b>How to read it</b><span>Start with the table: each record and whether the code has <i>actually</i> done what the plan says. Then the problems found in the research, then the order of decisions.</span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Counts from the code, not the plan</span>Where things stand</h2>
+    <div class="figs">
+      <div class="fig known"><div class="fig-num">8<small>/8</small></div><div class="fig-label">records accounted for</div><p>Matches the source classification file exactly. <span class="cite">LEGACY_AGENT_CLASSIFICATION.csv:30-37</span></p></div>
+      <div class="fig known"><div class="fig-num">3</div><div class="fig-label">merged into Dara, done</div><p>The two daily Director jobs and the QA scan now run under Dara's identity. <span class="cite">repointLegacyBehaviors.ts:31-42</span></p></div>
+      <div class="fig zero"><div class="fig-num">0<small>/2</small></div><div class="fig-label">retirements done by code</div><p>Nothing archives either row, and the platform's own retirement list doesn't include them. <span class="cite">agentRegistrySeed.ts:3212-3249</span></p></div>
+      <div class="fig unknown"><div class="fig-num">4</div><div class="fig-label">nightly jobs left out</div><p>Curriculum-owned, unregistered, no off switch; one emails Ali. <span class="cite">schedulerService.ts:3466-3513</span></p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Kept, merged or retired · with what the code shows today</span>Every legacy record</h2>
+    <div class="table-box">
+      <table>
+        <thead><tr><th>Old record</th><th>Decision</th><th>Who takes over the job</th><th>Done in code?</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td><code>WorkforceCurriculumDirector</code></td><td>Merged</td><td>Daily curriculum-gap flag</td><td><span class="chip known">yes</span></td><td>Its 06:10 job now runs as Dara. The row is kept as an audit record. <span class="cite">aiOpsScheduler.ts:367 · ROLE_CHARTER_v1.md:54</span></td></tr>
+          <tr><td><code>WorkforceCertificationDirector</code></td><td>Merged</td><td>Daily readiness flag</td><td><span class="chip known">yes</span></td><td>Its 06:30 job now runs as Dara. It awards nothing. <span class="cite">aiOpsScheduler.ts:369</span></td></tr>
+          <tr><td><code>CurriculumQAAgent</code></td><td>Merged as a tool</td><td>Curriculum integrity scan (Task A on page 5)</td><td><span class="chip unknown">mostly</span></td><td>Absorbed and writes no tickets, but its registry row still claims a cron. <span class="cite">agentRegistrySeed.ts:1064-1065</span></td></tr>
+          <tr><td><code>LearningInnovationArchitect</code></td><td>Kept for now; merge later</td><td>Strategy proposals (ceiling R2)</td><td><span class="chip absent">no</span></td><td>Waits on three conditions. Its history: 175 tickets, all cancelled; 175 initiatives, none moved. <span class="cite">COVERAGE_CONTRACT.md:20 · BASELINE:35-36</span></td></tr>
+          <tr><td><code>CurriculumArchitectAgent</code></td><td>Kept for now; merge later</td><td>Module drafting, as a tool</td><td><span class="chip absent">no</span></td><td>Waits on three fixes. It's also the catch-all handler for any curriculum ticket. <span class="cite">COVERAGE_CONTRACT.md:21 · capabilityRegistry.ts:107-112</span></td></tr>
+          <tr><td><code>ArtifactGenerationAgent</code></td><td>Kept for now; merge later</td><td>Module drafting, as a tool</td><td><span class="chip absent">no</span></td><td>Only the architect feeds it, so the two move together. <span class="cite">COVERAGE_CONTRACT.md:22</span></td></tr>
+          <tr><td><code>CurriculumOptimizerAgent</code></td><td>Retire (archive, keep history)</td><td>None. Its idea returns as a new learner-outcome capability starting from zero.</td><td><span class="chip absent">no</span></td><td>Nothing imports it or schedules it. Still switched on at the last production read. <span class="cite">BASELINE_2026-09-15.md:15</span></td></tr>
+          <tr><td><code>EducationReportingAgent</code></td><td>Retire (archive, keep history)</td><td>None. Readiness reporting covers the need.</td><td><span class="chip absent">no</span></td><td>Never loaded, never scheduled, already switched off in production. <span class="cite">agentRegistryAuditClassification.ts:38 · BASELINE:16</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Discovery was done at speed · these are the corrections</span>Where the research is wrong or incomplete</h2>
+    <div class="checks">
+      <div class="check"><h4>W1 · Four nightly jobs Dara owns aren't on the list</h4><span class="chip notmet">missing</span><p>The list only covers agents with a registry row. Four nightly Anthropic-change jobs have none, so they have no off switch and no run tracking. One emails Ali about high-scoring changes. The domain's own plan says Dara owns them. <span class="cite">COVERAGE_CONTRACT.md:23 · schedulerService.ts:3490-3494</span></p></div>
+      <div class="check"><h4>W2 · A reason given for one retirement doesn't hold</h4><span class="chip unknown">doesn't hold</span><p>The research says the unused row causes a "missed job" alert. The alert check only fires for a job that has run before, and this one never has. The retirement still stands on other grounds. <span class="cite">cronHealthAlertService.ts:90 · BASELINE:15</span></p></div>
+      <div class="check"><h4>W3 · "Already absorbed" for the QA scan is half done</h4><span class="chip unknown">half done</span><p>The plan says its row should stop claiming a cron. It still does, and the seed rewrites that value on every restart, so a hand fix wouldn't last. <span class="cite">COVERAGE_CONTRACT.md:13 · agentRegistrySeed.ts:3273</span></p></div>
+      <div class="check"><h4>W4 · No code performs either retirement</h4><span class="chip notmet">not done</span><p>"Archive" means setting the status to archived and switching the row off. No code sets "archived", and the existing retirement list doesn't include these two. <span class="cite">repointLegacyBehaviors.ts:61 · agentRegistrySeed.ts:3212</span></p></div>
+      <div class="check"><h4>W5 · A rebuild would switch three old agents back on</h4><span class="chip notmet">not replayable</span><p>Rows default to "on" and these three seed rows don't say otherwise. On a fresh database, LearningInnovationArchitect would resume creating tickets every 6 hours. <span class="cite">AiAgent.ts:423-427 · aiOpsScheduler.ts:323</span></p></div>
+      <div class="check"><h4>W6 · "Five live production rows" says more than the source</h4><span class="chip unknown">overstated</span><p>The source says those rows are switched on and asks someone to check whether anything still runs them. "Live" isn't shown. <span class="cite">LEGACY_AGENT_CLASSIFICATION.csv:243-247</span></p></div>
+    </div>
+    <p class="small"><b>Also:</b> all eight seed-row line numbers in the research are 2 lines off. That's minor and changes nothing. Of the 13 citations checked, 10 said exactly what was claimed.</p>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Running it twice must change nothing the second time</span>Making the migration replayable</h2>
+    <div class="table-box">
+      <table>
+        <thead><tr><th>Step</th><th>What it does</th><th>Why a second run does nothing</th><th>Exists?</th></tr></thead>
+        <tbody>
+          <tr><td>M1 Merge</td><td>Links the merged rows to Dara</td><td>Writes a field only if it's empty <span class="cite">repointLegacyBehaviors.ts:27-30</span></td><td><span class="chip known">yes</span></td></tr>
+          <tr><td>M2 Retire</td><td>Adds the two rows to the retirement list, marks them archived, keeps their history</td><td>Skips a row that's already off <span class="cite">agentRegistrySeed.ts:3240</span></td><td><span class="chip open">proposed</span></td></tr>
+          <tr><td>M3 Pin the seed</td><td>Writes "off" into three seed rows so a rebuild matches production</td><td>Only applies when a row is first created</td><td><span class="chip open">proposed</span></td></tr>
+          <tr><td>M4 Fix QA row</td><td>Stops the QA scan's row claiming a cron</td><td>The restart rewrite then keeps it correct</td><td><span class="chip open">proposed</span></td></tr>
+          <tr><td>M5 Waiting rows</td><td>No change until their conditions are met</td><td>Nothing is written</td><td><span class="chip known">already true</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ol class="reasons">
+      <li><div><b>Proof it's replayable: snapshot, run again, compare.</b><p>On a sandbox copy, record the eight rows after one run and again after a second. The difference is empty.</p></div></li>
+      <li><div><b>The second run creates nothing.</b><p>Zero new tickets, initiatives, alerts or emails.</p></div></li>
+      <li><div><b>A fresh rebuild matches production.</b><p>The same snapshot on a new database equals what production reports.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="block">
+    <div class="callout">
+      <h3>A record the migration can't classify is left alone and reported, never retired by default</h3>
+      <div class="vs">
+        <div><b>What the migration touches</b><span>Only names on an explicit list. Every other row stays "not yet classified", and a missing name is logged and skipped.</span> <span class="cite">MIGRATION_MATRIX.md:15 · repointLegacyBehaviors.ts:53-56</span></div>
+        <div><b>Where it goes</b>Swati's Monday decision list (page 4), with its name, what it does, whether anything runs it, and a proposed owner.</div>
+        <div><b>On that list today</b><span>The four nightly Anthropic jobs. <i>Register them first</i> so they get an off switch. Two session-reminder jobs are possibly curriculum work.</span> <span class="cite">LEGACY_AGENT_CLASSIFICATION.csv:233-234</span></div>
+      </div>
+      <p class="small">21 more legacy records belong to no domain at all. They're outside this plan and named so nobody assumes they're covered.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Each one question, and who can answer</span>What's still unknown</h2>
+    <div class="table-box">
+      <table>
+        <thead><tr><th>#</th><th>The question</th><th>Who answers</th></tr></thead>
+        <tbody>
+          <tr><td>U1</td><td>In production today, are the two retired rows switched off and marked archived?</td><td>Ali, or someone he names with production access</td></tr>
+          <tr><td>U2</td><td>Is LearningInnovationArchitect still off, and has it created anything since 24 Aug?</td><td>Same</td></tr>
+          <tr><td>U3</td><td>Does Dara own the four nightly Anthropic jobs, and does Ali still want the email?</td><td>Swati, with Ali</td></tr>
+          <tr><td>U4</td><td>Can a curriculum ticket reach the catch-all architect agent today?</td><td>Ali, or the ticket-routing owner</td></tr>
+          <tr><td>U5</td><td>Are session reminders and session status changes curriculum work?</td><td>Swati; if not, Ali assigns them</td></tr>
+          <tr><td>U6</td><td>Where does "28 of 39 retired rows were live" come from? Only the story template states it.</td><td>The template's author; ask Ali</td></tr>
+          <tr><td>U7</td><td>Do you confirm both retirements?</td><td>Swati</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Steps 1–3 can run in parallel</span>What has to be decided first</h2>
+    <ol class="reasons">
+      <li><div><b>Report production's real state (U1, U2).</b><p>Blocks everything below, because the end state is defined against what production actually holds.</p></div></li>
+      <li><div><b>Swati confirms the two retirements (U7).</b><p>Unblocks retiring them and pinning their seed rows. Until then both stay exactly as they are.</p></div></li>
+      <li><div><b>Settle who owns the Anthropic jobs (U3).</b><p>Unblocks registering them. Until then the email to Ali runs with no off switch.</p></div></li>
+      <li><div><b>Fix the QA scan's row.</b><p>Needs no new decision, only a developer and Ali's sign-off.</p></div></li>
+      <li><div><b>Check whether ticket routing is live (U4).</b><p>The two drafting tools also wait on their three fixes.</p></div></li>
+      <li><div><b>Decide whether LearningInnovationArchitect's work is worth continuing.</b><p>Swati decides. Until then its capability stays at R2 with no way to approve anything.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="block">
+    <details>
+      <summary>Sources for the legacy migration plan</summary>
+      <div>
+        <p class="small">Platform: <code>ColaberryEnterprise_AI_LeadershipAccelerator</code> @ <code>a284987</code>. The full disposition, the 13-citation check table and the replay evidence are in <code>docs/migration/legacy-migration-plan.md</code>.</p>
+        <ul class="src">
+          <li>backend/src/services/agentDomain/capabilities/curriculum.json:4558-4623 (dispositions), 4627-4634</li>
+          <li>services/curriculum/repointLegacyBehaviors.ts:27-42, 51-93</li>
+          <li>services/agentRegistrySeed.ts:1040-1078, 1700-1709, 1985-1995, 2251, 2273, 2575-2597, 3212-3249, 3252, 3273, 3308</li>
+          <li>services/aiOpsScheduler.ts:323, 367, 369 · schedulerService.ts:3462-3516 · cronHealthAlertService.ts:57-145</li>
+          <li>services/workGraph/capabilityRegistry.ts:76-79, 105-112 · agentRegistryAuditClassification.ts:36-38 · models/AiAgent.ts:423-427</li>
+          <li>docs/…/LEGACY_AGENT_CLASSIFICATION.csv:30-37, 227-247 · MIGRATION_MATRIX.md:15, 49 · FLEET_RECONCILIATION_2026-09-15.md §5</li>
+          <li>docs/…/employees/curriculum/COVERAGE_CONTRACT.md:11-34 · BASELINE_2026-09-15.md:7-16, 35-36 · ROLE_CHARTER_v1.md:54 · RISK_REGISTER.md:8</li>
+        </ul>
+        <p class="small">Citation drift: all eight seed rows are 2 lines lower than cited (for example, <code>:1068</code> is now <code>:1070</code>), and Dara's tool list moved from <code>:2522</code> to <code>:2544</code>.</p>
+      </div>
+    </details>
+  </section>
+
+</div>
+</div>
+</main>
+
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var pages = { classes: document.getElementById('classes'), anatomy: document.getElementById('anatomy'), role: document.getElementById('role'), interview: document.getElementById('interview'), tasks: document.getElementById('tasks'), legacy: document.getElementById('legacy') };
+
+  function pageFor(id) {
+    if (pages[id]) return id;
+    var el = id && document.getElementById(id);
+    if (!el) return null;
+    if (pages.anatomy.contains(el)) return 'anatomy';
+    if (pages.role.contains(el)) return 'role';
+    if (pages.interview.contains(el)) return 'interview';
+    if (pages.tasks.contains(el)) return 'tasks';
+    if (pages.legacy.contains(el)) return 'legacy';
+    return null;
+  }
+
+  function show(name, scrollTarget) {
+    Object.keys(pages).forEach(function (k) { pages[k].hidden = k !== name; });
+    tabs.forEach(function (t) { t.setAttribute('aria-selected', String(t.getAttribute('aria-controls') === name)); });
+    if (scrollTarget) {
+      var el = document.getElementById(scrollTarget);
+      if (el) el.scrollIntoView({ block: 'start' });
+    }
+  }
+
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      var name = t.getAttribute('aria-controls');
+      show(name);
+      try { history.replaceState(null, '', '#' + name); } catch (e) { /* hash update is a convenience only */ }
+      window.scrollTo(0, 0);
+    });
+  });
+
+  // Glossary links open the glossary before jumping to the term.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#g-"]');
+    if (!a) return;
+    var gloss = document.querySelector('.gloss');
+    if (gloss) gloss.open = true;
+  });
+
+  function fromHash() {
+    var id = location.hash.replace('#', '');
+    var name = pageFor(id);
+    if (name) show(name, pages[id] ? null : id);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
