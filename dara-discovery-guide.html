@@ -233,6 +233,13 @@ a.term { color: inherit; text-decoration: underline dotted var(--accent); text-u
 .howto div { border-left: 3px solid var(--accent); padding: 2px 0 2px 12px; font-size: 15px; display: grid; gap: 2px; }
 .howto b { font-family: var(--font-display); }
 
+/* Overview page */
+.el.s-page { border-top: 4px solid var(--accent); }
+.figs.six { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.el-head .go { margin-left: auto; font-family: var(--font-display); font-weight: 700; font-size: 14px; text-decoration: none; white-space: nowrap; }
+.el-head .go:hover { text-decoration: underline; }
+.callout.safe { border-color: var(--known); background: var(--known-soft); }
+
 @media (prefers-reduced-motion: no-preference) {
   .page:not([hidden]) { animation: fade 0.25s ease-out; }
   @keyframes fade { from { opacity: 0.4; } to { opacity: 1; } }
@@ -270,7 +277,8 @@ a.term { color: inherit; text-decoration: underline dotted var(--accent); text-u
   </div>
   <nav class="tabs" aria-label="Report pages">
     <div class="wrap" role="tablist">
-      <button class="tab" role="tab" id="tab-classes" aria-controls="classes" aria-selected="true"><span class="n">1</span>Which kind of system?</button>
+      <button class="tab" role="tab" id="tab-overview" aria-controls="overview" aria-selected="true"><span class="n">0</span>Overview</button>
+      <button class="tab" role="tab" id="tab-classes" aria-controls="classes" aria-selected="false"><span class="n">1</span>Which kind of system?</button>
       <button class="tab" role="tab" id="tab-anatomy" aria-controls="anatomy" aria-selected="false"><span class="n">2</span>Dara's anatomy</button>
       <button class="tab" role="tab" id="tab-role" aria-controls="role" aria-selected="false"><span class="n">3</span>Swati's role &amp; the DA transition</button>
       <button class="tab" role="tab" id="tab-interview" aria-controls="interview" aria-selected="false"><span class="n">4</span>Interview &amp; weekly check-in</button>
@@ -281,8 +289,153 @@ a.term { color: inherit; text-decoration: underline dotted var(--accent); text-u
 </header>
 
 <main>
+<!-- ============================== OVERVIEW ============================== -->
+<div class="page" id="overview" role="tabpanel" aria-labelledby="tab-overview">
+<div class="wrap">
+
+  <section class="block">
+    <div class="eyebrow">Overview · all six reports on one page</div>
+    <div class="answer">
+      <div class="eyebrow">The short version</div>
+      <div class="verdict">Dara is <em>already running</em>, and <s>none</s> of what she does has been approved by the person accountable for her.</div>
+      <p>Across six reports, the same picture keeps coming back. Dara is one tool-using AI employee that answers students, opens handoff tickets, writes Basecamp to-dos and runs daily scans. Ali, the DRI, authorized all of it. Swati Raman, her accountable manager, hasn't yet approved a single capability, autonomy level or duty, and a timer, not a person, closed every approval request on record. Every report ends at the same next step: read what production actually holds, then ask Swati.</p>
+    </div>
+    <div class="howto">
+      <div><b>What this page is</b>A one-page summary of reports 1–6: what each asks, what it found, and what it leads to.</div>
+      <div><b>How the six fit together</b>What Dara is (1), what she's made of (2), whose work she takes on (3), how to ask her manager (4), what to test first (5), and how to retire the agents she replaces (6).</div>
+      <div><b>How to use it</b><span>Read this page first, then open any report from its card for the detail and the <a class="term" href="#g-citation">file:line citations</a>.</span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">The figures that recur across the reports</span>Dara in six numbers</h2>
+    <div class="figs six">
+      <div class="fig"><div class="fig-num">38</div><div class="fig-label">candidate capabilities</div><p>Every job Dara could do, one story file each. All still drafts.</p></div>
+      <div class="fig reserved"><div class="fig-num">20<small>/38</small></div><div class="fig-label"><a class="term" href="#g-reserved">human-reserved</a></div><p>A person always decides. The code caps these at R5.</p></div>
+      <div class="fig zero"><div class="fig-num">0<small>/38</small></div><div class="fig-label">with <a class="term" href="#g-approved">approved autonomy</a></div><p>So the platform grants Dara no authority on any of them.</p></div>
+      <div class="fig zero"><div class="fig-num">106<small>/106</small></div><div class="fig-label">approvals decided by a timer</div><p>Each request was auto-approved after 4.25 hours. No person decided one.</p></div>
+      <div class="fig unknown"><div class="fig-num">5<small>/9</small></div><div class="fig-label">anatomy elements unknown</div><p>The answer lives only in production data, including whether Dara is switched on.</p></div>
+      <div class="fig zero"><div class="fig-num">0</div><div class="fig-label">Data Analyst duty lists</div><p>Nothing written down, so no DA work can be handed to Dara yet.</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">One question builds on the last</span>How the six reports fit together</h2>
+    <div class="chain">
+      <div class="link"><span class="chip open">1 · Kind</span>One tool-using agent, not a multi-agent system.</div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="link"><span class="chip unknown">2 · Parts</span>Nine elements: 3 known, 5 unknown, 1 absent.</div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="link"><span class="chip reserved">3 · Work</span>18 jobs move, 19 split, 1 stays human.</div>
+    </div>
+    <div class="chain">
+      <div class="link"><span class="chip open">4 · Ask</span>Nine questions put to Swati in 30 minutes.</div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="link"><span class="chip known">5 · Test</span>Three tasks, with proof defined before the work.</div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="link"><span class="chip absent">6 · Clean up</span>8 old agent records: 3 merged, 3 waiting, 2 not yet retired.</div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Asks · finds · key numbers · leads to</span>Each report in brief</h2>
+    <div class="elements">
+
+      <article class="el s-page">
+        <div class="el-head"><span class="idx">1</span><h3>Which kind of system?</h3><a class="go" href="#classes">Open page 1 →</a></div>
+        <dl>
+          <dt>Asks</dt><dd>Of the five kinds of AI system, from chatbot to multi-agent, which one does Dara actually need?</dd>
+          <dt class="first">Finds</dt><dd class="first">One tool-using agent that runs most of its work as fixed workflows. A chatbot is too little, because 37 of 38 capabilities need a tool. A multi-agent system isn't justified: no capability's ceiling reaches R8, and there's no other AI employee to hand work to.</dd>
+          <dt>Key numbers</dt><dd>20 of 38 capabilities are capped at R5. The highest ceiling is R7, on 11 capabilities. 0 of 38 are approved.</dd>
+          <dt>Leads to</dt><dd>Five conditions to meet before anything more autonomous is built. None of them is met today, including a fixed Basecamp login, a gate that actually blocks, and a person deciding at least one approval.</dd>
+        </dl>
+      </article>
+
+      <article class="el s-page">
+        <div class="el-head"><span class="idx">2</span><h3>Dara's anatomy</h3><a class="go" href="#anatomy">Open page 2 →</a></div>
+        <dl>
+          <dt>Asks</dt><dd>Every agent has nine parts. For each of Dara's: what exists, what's missing, and what an honest first version looks like.</dd>
+          <dt class="first">Finds</dt><dd class="first">Dara already runs, and Swati has approved none of it. Inputs, communication and tools are known from the code. Reasoning, memory, procedures, safeguards and verification can only be answered from production data. Coordination with other agents doesn't exist.</dd>
+          <dt>Key numbers</dt><dd><span>Each student message gets one LLM call (gpt-4o-mini by default) and at most one <a class="term" href="#g-tool">tool call</a>. The authorization gate defaults to <a class="term" href="#g-shadow">shadow</a> and never blocks. The code says Dara is off; her charter says she's on.</span></dd>
+          <dt>Leads to</dt><dd>Five production reads that settle the unknowns, plus a list of statements in the code and docs that are out of date.</dd>
+        </dl>
+      </article>
+
+      <article class="el s-page">
+        <div class="el-head"><span class="idx">3</span><h3>Swati's role &amp; the DA transition</h3><a class="go" href="#role">Open page 3 →</a></div>
+        <dl>
+          <dt>Asks</dt><dd>What does Swati actually do, and which of the Data Analyst's responsibilities should move to Dara?</dd>
+          <dt class="first">Finds</dt><dd class="first">No one ever wrote down the Data Analyst's duties. 40 files mention "data analyst", but none of them is a duty list. So none of that work can be handed over yet. Dara's own 38 capabilities can be sorted, though: 18 move to her, 19 split so that Dara prepares and Swati decides, and 1 stays fully human.</dd>
+          <dt>Key numbers</dt><dd>Swati is confirmed as Dara's accountable manager. Her other roles are only labels, not a written job.</dd>
+          <dt>Leads to</dt><dd>The missing document: a written DA duty list, which only a person can write. Until then the DA capability stays at R0.</dd>
+        </dl>
+      </article>
+
+      <article class="el s-page">
+        <div class="el-head"><span class="idx">4</span><h3>Interview &amp; weekly check-in</h3><a class="go" href="#interview">Open page 4 →</a></div>
+        <dl>
+          <dt>Asks</dt><dd>What should a 30-minute conversation with Swati cover, and how should she and Dara stay in touch every week after that?</dd>
+          <dt class="first">Finds</dt><dd class="first">Nine questions, each one written to change the build: what Dara does first, what stays Swati's forever, what "good" means in numbers, and what gets switched off. Then a 20-minute check-in every Monday. Swati can only reach Dara's page by a side door, and that's raised first.</dd>
+          <dt>Key numbers</dt><dd>30 minutes in all. Q1, Q2, Q4 and Q8 are never cut. Q7 and then Q3 are dropped if time runs short.</dd>
+          <dt>Leads to</dt><dd>An empty answer table that becomes the record. It's an agenda, not a booking: no meeting has been arranged and nothing has been sent.</dd>
+        </dl>
+      </article>
+
+      <article class="el s-page">
+        <div class="el-head"><span class="idx">5</span><h3>Three proposed tasks</h3><a class="go" href="#tasks">Open page 5 →</a></div>
+        <dl>
+          <dt>Asks</dt><dd>Which three jobs should Dara be validated on first, how far could each go, and what would prove it worked?</dd>
+          <dt class="first">Finds</dt><dd class="first">One task for each kind of risk. A: a curriculum integrity scan that only reads. B: an out-of-scope question handed to Swati, which writes work for a human. C: curriculum improvement recommendations, which proposes changes to what students are taught and so is human-reserved forever.</dd>
+          <dt>Key numbers</dt><dd>Suggested first rungs: A at R4, B at R3, C at R2. All three start at R0. Today every test for them uses mocks, which don't count as proof.</dd>
+          <dt>Leads to</dt><dd>Swati confirms the three tasks, their first rungs and their off switches. Until then everything stays draft.</dd>
+        </dl>
+      </article>
+
+      <article class="el s-page">
+        <div class="el-head"><span class="idx">6</span><h3>Legacy migration plan</h3><a class="go" href="#legacy">Open page 6 →</a></div>
+        <dl>
+          <dt>Asks</dt><dd>What happens to each of the eight older curriculum agents now that Dara does their work, and can the cleanup safely run more than once?</dd>
+          <dt class="first">Finds</dt><dd class="first">All 8 records are accounted for: 3 merged into Dara, 3 waiting to merge, and 2 retirements planned but not done. No code performs the retirements. A fresh seed would switch three rows back on. Four nightly jobs owned by Curriculum were left out of the plan, and one of them emails Ali with no off switch.</dd>
+          <dt>Key numbers</dt><dd>10 of the 13 citations checked hold. A record the migration can't classify is left alone and reported, never retired by default.</dd>
+          <dt>Leads to</dt><dd>Six steps, in order: read production, Swati confirms the retirements, settle who owns the nightly jobs, fix the QA scan's row, check ticket routing, and decide the fate of LearningInnovationArchitect.</dd>
+        </dl>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">What every page has in common</span>Threads that run through all six</h2>
+    <div class="checks">
+      <div class="check"><h4>Doing is not the same as approved</h4><span class="chip notmet">every page</span><p>Dara answers students and writes tickets today, but every recorded approval came from Ali, and a timer closed all 106 approval requests. Swati has signed off nothing.</p></div>
+      <div class="check"><h4>The deciding facts live in production</h4><span class="chip unknown">pages 2, 3, 6</span><p>Whether Dara is switched on, which tools she holds, what she remembers, and whether the old agents still run can only be read from production. The code only sets starting values.</p></div>
+      <div class="check"><h4>What students are taught stays with people</h4><span class="chip reserved">pages 1, 3, 5</span><p>20 of 38 capabilities, and task C, are capped at R5. Dara can prepare and propose, but a person decides.</p></div>
+      <div class="check"><h4>Missing paperwork blocks the handover</h4><span class="chip absent">pages 3, 6</span><p>There's no DA duty list, and no code performs the planned retirements. Both have to be written before anything moves.</p></div>
+      <div class="check"><h4>The brief's citations drift</h4><span class="chip open">every page</span><p>Each report checks its sources and lists line numbers that have moved or claims that don't hold, so the next reader isn't misled.</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2><span class="req">Pulled from all six reports</span>What happens next, in order</h2>
+    <ol class="reasons">
+      <li><div><b>Read what production actually holds.</b><span>Dara's on/off state, her tools, her autonomy level, the gate setting and the legacy rows. This settles most of the unknowns on pages 2 and 6. It needs someone with production access.</span></div></li>
+      <li><div><b>Hold the 30-minute interview with Swati.</b><span>Fix her access to Dara's page first. It's the first time she gets to decide anything about Dara (page 4).</span></div></li>
+      <li><div><b>Swati picks the first tasks and their rungs.</b><span>She confirms or replaces tasks A, B and C, along with their first rungs and switch-off rules (page 5).</span></div></li>
+      <li><div><b>Write the Data Analyst duty list.</b><span>Until it exists, no DA work can move to Dara (page 3).</span></div></li>
+      <li><div><b>Finish the legacy cleanup.</b><span>Swati confirms the two retirements, the nightly jobs get an owner and an off switch, and the migration is made safe to re-run (page 6).</span></div></li>
+    </ol>
+  </section>
+
+  <section class="callout safe">
+    <h3>What none of these reports does</h3>
+    <p>They're research and proposals only. No agent was switched on or off, no tool was granted, no autonomy level was raised, no message was sent, and no meeting was booked. Every capability stays <code>draft</code> until Swati has reviewed it.</p>
+  </section>
+
+</div>
+</div>
+
 <!-- ============================== PAGE 1 ============================== -->
-<div class="page" id="classes" role="tabpanel" aria-labelledby="tab-classes">
+<div class="page" id="classes" role="tabpanel" aria-labelledby="tab-classes" hidden>
 <div class="wrap">
 
   <section class="block">
@@ -1324,12 +1477,13 @@ grep -c -i twc backend/src/services/agentDomain/capabilities/curriculum.json   #
 <script>
 (function () {
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
-  var pages = { classes: document.getElementById('classes'), anatomy: document.getElementById('anatomy'), role: document.getElementById('role'), interview: document.getElementById('interview'), tasks: document.getElementById('tasks'), legacy: document.getElementById('legacy') };
+  var pages = { overview: document.getElementById('overview'), classes: document.getElementById('classes'), anatomy: document.getElementById('anatomy'), role: document.getElementById('role'), interview: document.getElementById('interview'), tasks: document.getElementById('tasks'), legacy: document.getElementById('legacy') };
 
   function pageFor(id) {
     if (pages[id]) return id;
     var el = id && document.getElementById(id);
     if (!el) return null;
+    if (pages.classes.contains(el)) return 'classes';
     if (pages.anatomy.contains(el)) return 'anatomy';
     if (pages.role.contains(el)) return 'role';
     if (pages.interview.contains(el)) return 'interview';
@@ -1367,7 +1521,9 @@ grep -c -i twc backend/src/services/agentDomain/capabilities/curriculum.json   #
   function fromHash() {
     var id = location.hash.replace('#', '');
     var name = pageFor(id);
-    if (name) show(name, pages[id] ? null : id);
+    if (!name) return;
+    show(name, pages[id] ? null : id);
+    if (pages[id]) window.scrollTo(0, 0);
   }
   window.addEventListener('hashchange', fromHash);
   fromHash();
