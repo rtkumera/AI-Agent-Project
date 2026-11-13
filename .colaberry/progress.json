@@ -3,13 +3,13 @@
   "project": "curriculum",
   "totals": {
     "stories_total": 45,
-    "stories_verified": 0,
+    "stories_verified": 6,
     "stories_submitted": 0,
-    "stories_in_progress": 0,
-    "stories_not_started": 45,
-    "criteria_total": 61,
-    "criteria_passed": 0,
-    "points_awarded": 0
+    "stories_in_progress": 36,
+    "stories_not_started": 3,
+    "criteria_total": 62,
+    "criteria_passed": 18,
+    "points_awarded": 108
   },
   "stories": [
     {
@@ -27,7 +27,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -55,7 +55,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -83,7 +83,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -111,7 +111,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -139,7 +139,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -167,7 +167,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -194,19 +194,7 @@
       "tests_added": [],
       "notes": null,
       "updated_at": null,
-      "verification": {
-        "state": "not_started",
-        "criteria_passed": 0,
-        "criteria_total": 1,
-        "verified_at": null,
-        "commit_sha": null,
-        "commit_url": null,
-        "commit_at": null,
-        "points_awarded": null,
-        "outstanding": [
-          "Swati states that a triage verdict is a second opinion and names who decides."
-        ]
-      }
+      "verification": null
     },
     {
       "id": "curriculum.CAP.charter_and_kpi_stewardship",
@@ -223,7 +211,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -251,7 +239,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -279,7 +267,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -307,7 +295,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -335,7 +323,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -363,7 +351,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -391,7 +379,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -419,7 +407,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -447,7 +435,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -475,7 +463,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -503,7 +491,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -531,7 +519,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -559,7 +547,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -587,7 +575,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -615,7 +603,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -643,7 +631,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -671,7 +659,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -699,7 +687,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -727,7 +715,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -755,7 +743,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -783,7 +771,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -810,19 +798,7 @@
       "tests_added": [],
       "notes": null,
       "updated_at": null,
-      "verification": {
-        "state": "not_started",
-        "criteria_passed": 0,
-        "criteria_total": 1,
-        "verified_at": null,
-        "commit_sha": null,
-        "commit_url": null,
-        "commit_at": null,
-        "points_awarded": null,
-        "outstanding": [
-          "Swati names the approver and the review step for a drafted assessment specifically."
-        ]
-      }
+      "verification": null
     },
     {
       "id": "curriculum.CAP.out_of_scope_escalation_handoff",
@@ -839,7 +815,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -867,7 +843,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -895,7 +871,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -923,7 +899,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -951,7 +927,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -979,7 +955,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -1007,7 +983,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -1035,7 +1011,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -1063,7 +1039,7 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
@@ -1101,19 +1077,15 @@
       "notes": "All 8 legacy records dispositioned (3 merged and done, 3 merge deferred, 2 retire planned but not performed by any code). Replayability: steps M1-M5 with idempotency guards (repointLegacyBehaviors only-if-empty; RETIRED_AGENTS skip-if-disabled) plus snapshot-diff evidence; found a rebuild would enable 3 rows (AiAgent.enabled default true). Unclassifiable rule: untouched, record_kind null, logged and queued for Swati/Ali; 4 unregistered Anthropic crons named. 13 citations checked; 7 issues with the brief recorded (W1-W7). Nothing changed in the platform. Platform @ a284987.",
       "updated_at": "2026-11-07T00:00:00Z",
       "verification": {
-        "state": "not_started",
-        "criteria_passed": 0,
+        "state": "verified",
+        "criteria_passed": 3,
         "criteria_total": 3,
-        "verified_at": null,
-        "commit_sha": null,
-        "commit_url": null,
-        "commit_at": null,
-        "points_awarded": null,
-        "outstanding": [
-          "The plan accounts for every inherited legacy record for this domain, each one kept, merged or retired with a reason.",
-          "The migration is described as replayable: running it twice leaves the same end state, with no duplicated side effects.",
-          "The plan states what happens to a record the migration cannot classify, rather than assuming none exist."
-        ]
+        "verified_at": "2026-11-08T02:23:27.971Z",
+        "commit_sha": "f05c5902881aea10e49432ca80002b9402e148a6",
+        "commit_url": "https://github.com/rtkumera/AI-Agent-Project/commit/f05c5902881aea10e49432ca80002b9402e148a6",
+        "commit_at": "2026-11-08T02:23:21Z",
+        "points_awarded": 18,
+        "outstanding": []
       }
     },
     {
@@ -1141,19 +1113,15 @@
       "notes": "Document only, no code or tests. Counts reproducible via Q1 in the doc. Platform cited at ColaberryEnterprise_AI_LeadershipAccelerator@6ba8530. Found stale file:line citations in capability briefs (listed in the doc). Awaiting Swati Raman review.",
       "updated_at": "2026-10-21T00:00:00Z",
       "verification": {
-        "state": "not_started",
-        "criteria_passed": 0,
+        "state": "verified",
+        "criteria_passed": 3,
         "criteria_total": 3,
-        "verified_at": null,
-        "commit_sha": null,
-        "commit_url": null,
-        "commit_at": null,
-        "points_awarded": null,
-        "outstanding": [
-          "The document compares all five system classes (chatbot, fixed workflow, tool-using agent, agentic system, multi-agent system) and names which one this domain needs.",
-          "The choice cites this domain's own capability count and its human-reserved count, so the argument would change if those numbers changed.",
-          "The document states explicitly which class this domain does NOT need, and what would have to change to justify the next class up."
-        ]
+        "verified_at": "2026-10-22T03:37:18.461Z",
+        "commit_sha": "1f3c83c485da2d8271f20504c833cf30fa25895b",
+        "commit_url": "https://github.com/rtkumera/AI-Agent-Project/commit/1f3c83c485da2d8271f20504c833cf30fa25895b",
+        "commit_at": "2026-10-22T03:37:14Z",
+        "points_awarded": 18,
+        "outstanding": []
       }
     },
     {
@@ -1181,19 +1149,15 @@
       "notes": "Document only, no code or tests. 5 of 9 elements unknown (production-only facts), coordination known absent, 0 of 9 approved by Swati. Platform cited at ColaberryEnterprise_AI_LeadershipAccelerator@a284987. Awaiting Swati Raman review.",
       "updated_at": "2026-10-26T00:00:00Z",
       "verification": {
-        "state": "not_started",
-        "criteria_passed": 0,
+        "state": "verified",
+        "criteria_passed": 3,
         "criteria_total": 3,
-        "verified_at": null,
-        "commit_sha": null,
-        "commit_url": null,
-        "commit_at": null,
-        "points_awarded": null,
-        "outstanding": [
-          "All nine anatomy elements are addressed, with none left blank and none dismissed as not applicable without a stated reason.",
-          "Each element names the concrete platform surface, tool or record it maps to, rather than describing the element in general terms.",
-          "Any element that cannot be filled is recorded as a gap with what is missing, rather than omitted."
-        ]
+        "verified_at": "2026-10-27T02:42:16.420Z",
+        "commit_sha": "91d549ce7407d22abbb465a4acfbb224d9dc8392",
+        "commit_url": "https://github.com/rtkumera/AI-Agent-Project/commit/91d549ce7407d22abbb465a4acfbb224d9dc8392",
+        "commit_at": "2026-10-27T02:42:11Z",
+        "points_awarded": 18,
+        "outstanding": []
       }
     },
     {
@@ -1221,19 +1185,15 @@
       "notes": "Accountable human Swati Raman (ACCOUNTABILITY_v1.md:7). Data Analyst duty list for curriculum is absent; search record in section 1 of the doc (40 platform files, 36 workforce docs, scope amendment missing). Classified the 38 draft capabilities from curriculum.json: 18 transition (each with rung acceptance evidence), 19 split (line from permissions_by_environment.production), 1 stays human (DA duty list, R0). Stays-human list with reasons in section 6; outline of the missing DA duty register in section 7. Nothing reviewed by Swati; all rows remain draft. Platform @ a284987.",
       "updated_at": "2026-11-05T00:00:00Z",
       "verification": {
-        "state": "not_started",
-        "criteria_passed": 0,
+        "state": "verified",
+        "criteria_passed": 3,
         "criteria_total": 3,
-        "verified_at": null,
-        "commit_sha": null,
-        "commit_url": null,
-        "commit_at": null,
-        "points_awarded": null,
-        "outstanding": [
-          "The document names the accountable human for this domain and the specific responsibilities proposed to transition to the agent.",
-          "Each transitioning responsibility states what evidence would show the agent is ready to hold it.",
-          "Responsibilities that must stay human are listed separately, each with the reason it is reserved."
-        ]
+        "verified_at": "2026-11-06T00:21:29.835Z",
+        "commit_sha": "b0701c7756d6cb6090a800c91efbbcd7a8b716da",
+        "commit_url": "https://github.com/rtkumera/AI-Agent-Project/commit/b0701c7756d6cb6090a800c91efbbcd7a8b716da",
+        "commit_at": "2026-11-06T00:21:24Z",
+        "points_awarded": 18,
+        "outstanding": []
       }
     },
     {
@@ -1261,19 +1221,15 @@
       "notes": "30-minute agenda (2+4+6+5+5+5+3), 9 Dara-specific questions grouped first / human forever / measurable good / switch off, each with what the answer changes in the build (section 4 table). Access blocker raised, not fixed: Swati reaches Dara only via a full admin account; /api/admin/agents still unmapped for scoped roles (mgmtSectionGate.ts:248, MANAGER_ACCESS_PLAN.md:20). Weekly check-in proposed: Monday, 20 minutes, three reviews; time of day unknown (no per-manager timezone). Empty answers section. Nothing sent or scheduled. Platform @ a284987.",
       "updated_at": "2026-11-07T00:00:00Z",
       "verification": {
-        "state": "not_started",
-        "criteria_passed": 0,
+        "state": "verified",
+        "criteria_passed": 3,
         "criteria_total": 3,
-        "verified_at": null,
-        "commit_sha": null,
-        "commit_url": null,
-        "commit_at": null,
-        "points_awarded": null,
-        "outstanding": [
-          "The interview plan fits 30 minutes, and every question is specific to this domain rather than reusable for any agent.",
-          "A weekly check-in is proposed with a named day, a duration, and the three things it reviews.",
-          "The plan states what to do with each answer, so a completed interview changes the build rather than only recording opinions."
-        ]
+        "verified_at": "2026-11-07T21:13:45.021Z",
+        "commit_sha": "947d80ad8c5f29e6ede457e5479315ab93f21d6a",
+        "commit_url": "https://github.com/rtkumera/AI-Agent-Project/commit/947d80ad8c5f29e6ede457e5479315ab93f21d6a",
+        "commit_at": "2026-11-07T21:13:39Z",
+        "points_awarded": 18,
+        "outstanding": []
       }
     },
     {
@@ -1301,44 +1257,44 @@
       "notes": "Three of Dara's 38 draft capabilities, one per risk shape: A curriculum_integrity_scan (read-only, R0->R7, aim R4), B out_of_scope_escalation_handoff (ticket + Basecamp write, R0->R6, aim R3), C curriculum_improvement_recommendations (human_decision, R0->R5, aim R2 then R5 shadow). Evidence tables written before each task; mocked tests and timer-closed records excluded as evidence. Each task has a must-NOT list, Swati Raman as approver, switch-off conditions and how to switch off. Nothing enabled, granted or raised; all stay draft. Platform @ a284987; citation drift recorded.",
       "updated_at": "2026-11-07T00:00:00Z",
       "verification": {
-        "state": "not_started",
-        "criteria_passed": 0,
+        "state": "verified",
+        "criteria_passed": 3,
         "criteria_total": 3,
-        "verified_at": null,
-        "commit_sha": null,
-        "commit_url": null,
-        "commit_at": null,
-        "points_awarded": null,
-        "outstanding": [
-          "Exactly three agent tasks are proposed, each with its boundary stated as what the agent must NOT do.",
-          "Each task names the evidence that proves it completed, and that evidence is something other than the task being marked done.",
-          "Each task names the human who approves it wherever approval is required."
-        ]
+        "verified_at": "2026-11-08T01:54:33.385Z",
+        "commit_sha": "8041098f2e1ff280a371ec18d88b5c19774b1d58",
+        "commit_url": "https://github.com/rtkumera/AI-Agent-Project/commit/8041098f2e1ff280a371ec18d88b5c19774b1d58",
+        "commit_at": "2026-11-08T01:54:27Z",
+        "points_awarded": 18,
+        "outstanding": []
       }
     },
     {
-      "id": "STORY-000",
-      "release": null,
-      "acceptance_total": 5,
+      "id": "curriculum.STORY-000",
+      "release": "autonomy:R0",
+      "acceptance_total": 6,
       "criteria": [
         {
-          "text": "Given the Command Center, when it is opened, then every tab is reachable and every card drills down one level.",
+          "text": "Given the Command Center, when it is opened, then all six panels render and each one names the endpoint it read.",
           "passed": false
         },
         {
-          "text": "Given sample mode, when any tab is shown, then the sample data is visibly labelled as sample.",
+          "text": "Given a panel whose endpoint returned nothing, when it renders, then it says so in words and is visibly distinct from a panel that is still loading.",
           "passed": false
         },
         {
-          "text": "Given the Command Center, when any tab renders, then .colaberry/plan.json and .colaberry/progress.json are both committed in this repo and every tab reads its content from them at runtime rather than from hard-coded values.",
+          "text": "Given the autonomy ladder panel, when it renders, then all ten rungs are present with the owner's wording, and each capability's ceiling is marked against the rung it stops at.",
           "passed": false
         },
         {
-          "text": "Given the Command Center, when any tab is shown, then .colaberry/manifest.json is committed in this repo and every tab shows how old that data is and warns when the age exceeds a week.",
+          "text": "Given the autonomy ladder panel, when a capability's authority is shown, then the page shows the effective authority `effectiveAuthority()` returns rather than the level the capability record asks for, and names the `no_tool_grants` rule with the number of capabilities it currently constrains, saying so in words when that number is zero.",
           "passed": false
         },
         {
-          "text": "Trust — no tab shows a number, a connection or a result the project has not actually produced.",
+          "text": "Given the governance panel, when a tool request is shown, then nothing on the page states or implies that filing it granted anything.",
+          "passed": false
+        },
+        {
+          "text": "Trust -- no panel shows a number, a grant, a rung or a result this domain has not actually produced.",
           "passed": false
         }
       ],
@@ -1346,7 +1302,24 @@
       "tests_added": [],
       "notes": null,
       "updated_at": null,
-      "verification": null
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 6,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Given the Command Center, when it is opened, then all six panels render and each one names the endpoint it read.",
+          "Given a panel whose endpoint returned nothing, when it renders, then it says so in words and is visibly distinct from a panel that is still loading.",
+          "Given the autonomy ladder panel, when it renders, then all ten rungs are present with the owner's wording, and each capability's ceiling is marked against the rung it stops at.",
+          "Given the autonomy ladder panel, when a capability's authority is shown, then the page shows the effective authority `effectiveAuthority()` returns rather than the level the capability record asks for, and names the `no_tool_grants` rule with the number of capabilities it currently constrains, saying so in words when that number is zero.",
+          "Given the governance panel, when a tool request is shown, then nothing on the page states or implies that filing it granted anything.",
+          "Trust -- no panel shows a number, a grant, a rung or a result this domain has not actually produced."
+        ]
+      }
     }
   ]
 }

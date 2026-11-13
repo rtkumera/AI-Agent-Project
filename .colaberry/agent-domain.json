@@ -1,0 +1,1274 @@
+{
+  "schema": "colaberry.agent-domain/v1",
+  "domain_key": "curriculum",
+  "sources": {
+    "agent": "GET /api/admin/agent-domains-mine",
+    "capabilities": "GET /api/admin/agent-domains/curriculum",
+    "governance": "GET /api/admin/agent-domain-change-requests-mine"
+  },
+  "autonomy_models": {
+    "agent_level": "observe | suggest | act_audited | communicate -- a property of the employee",
+    "capability_ladder": "autonomy:R0 .. autonomy:R9 -- a property of each capability",
+    "warning": "These are different scales on different objects. Never render one as a position on the other, and never compare them."
+  },
+  "staleness_note": "This file deliberately carries no timestamp: a clock here would make every sync commit a file whose only change is the time. Read `generated_at` from `.colaberry/manifest.json` and label it \"last changed\", not \"last checked\".",
+  "agent": {
+    "exists": true,
+    "agent_id": "089e4fd5-0187-46a3-9c56-5db68ef21cca",
+    "display_name": null,
+    "enabled": true,
+    "autonomy_level": "communicate",
+    "autonomy_level_set_at": "2026-10-11T18:43:33.204Z",
+    "autonomy_level_source": "manual",
+    "autonomy_level_set_by": null,
+    "tools_granted": [
+      "escalate_to_human",
+      "flag_certification_readiness",
+      "flag_curriculum_content_gaps",
+      "monitor_curriculum_video_health",
+      "respond_to_curriculum_dm",
+      "scan_curriculum_integrity"
+    ],
+    "tools_granted_count": 6
+  },
+  "authority": [
+    {
+      "capability_id": "curriculum.autonomy_and_promotion_record_for_this_domain",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R2",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "An agent must never set or raise its own authority, which charter boundary 8 states directly. R2 caps it at reporting the record from approved knowledge. This capability exists to make the absence of an approved level visible rather than to grant one."
+    },
+    {
+      "capability_id": "curriculum.blueprint_publish_to_live_timeline",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R5",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "This is the capability that puts curriculum in front of learners, so it is human-decided forever and effectiveAuthority() caps it at autonomy:R5. Even R5 is shadow only: the agent prepares a publish packet and a named human publishes. Reaching real students additionally needs push_to_protected_main and production_deploy, both default-denied, so no automation rung is reachable at all."
+    },
+    {
+      "capability_id": "curriculum.ccarf_prep_alignment_drift_tracking",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R2",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "A weight or domain change propagates into every student's readiness score and into what the prep bank must cover, so the change is permanently human-required. R2 is the ceiling because the input - what Anthropic currently publishes - cannot be agent-verified: it needs a human-confirmed source, and an unbounded network fetch is default-denied."
+    },
+    {
+      "capability_id": "curriculum.certification_bank_level_distribution_audit",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "A pure read-only audit over the whole bank with no write path, so R7 is permitted for producing the audit. Withdrawing or regenerating a failing bank is a separate human decision because it changes the material students practise on."
+    },
+    {
+      "capability_id": "curriculum.certification_evidence_mapping_review",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R5",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Proposing a mapping has no effect until a human verifies it, but the verified mapping changes a student's readiness score, so the decision is permanently human-required and capped at autonomy:R5. Proposal is the agent's whole role; setting a state is not available at any rung."
+    },
+    {
+      "capability_id": "curriculum.certification_item_review_status_transition",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R2",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Approving an assessment item is exactly the human decision this matrix protects, and it reaches learners directly. R2 is the ceiling rather than R5 because the agent has no legitimate role beyond answering from approved knowledge and recommending: a shadow comparison against human approvals would normalise an agent opinion on whether an item is fit to serve."
+    },
+    {
+      "capability_id": "curriculum.certification_item_rubric_review_and_improvement",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Scoring, triaging and drafting a candidate are read-only and provably write-free, which makes producing the review one nameable action class and R7 permissible. Persisting a revision or changing its status is a different capability and is human-decided. This capability touches preparation material only and nothing about it issues a credential."
+    },
+    {
+      "capability_id": "curriculum.charter_and_kpi_stewardship",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R2",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Charter boundary 4 makes this manager-authored only, permanently: the agent may report against its own KPIs but may never approve them, and boundary 8 forbids it changing its own autonomy level. R2 is therefore the ceiling - answering from approved knowledge - and no higher rung is coherent for a capability whose whole point is that a human holds the pen."
+    },
+    {
+      "capability_id": "curriculum.cohort_certification_readiness_reporting",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Reporting readiness is a computation over existing records with no learner-facing change and no credential effect, so R7 is permitted for producing the report. Acting on a weak cohort - changing what is taught or what is practised - is a separate human decision."
+    },
+    {
+      "capability_id": "curriculum.competency_coverage_gap_detection",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Pure read-only detection with a stable output and no side effect, so R7 is permitted for reporting the gap list. Filling a gap is excluded from this capability because it would change what a student is taught."
+    },
+    {
+      "capability_id": "curriculum.coverage_gap_video_curation_proposal",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R5",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "The curate half is a read-only proposal, but the apply half puts third-party content in front of learners, which makes the capability human-decided and caps it at autonomy:R5. The agent's role ends at the proposal; applying needs the publish path, which itself needs default-denied capabilities."
+    },
+    {
+      "capability_id": "curriculum.coverage_scope_and_deferral_enforcement",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R2",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Scope is a governance boundary and an agent must never be able to widen its own. R2 caps it at reporting from the approved contract. Charter boundary 5 forbids silently absorbing a deferred or out-of-scope item at any rung, so no higher level exists for this capability by design."
+    },
+    {
+      "capability_id": "curriculum.curriculum_change_impact_on_live_cohorts",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R5",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "The assessment is read-only, but it exists to gate a change that reaches learners mid-programme, which makes it human-decided and caps it at autonomy:R5. At R5 the agent produces the assessment and a human decides; applying the change is a different capability and needs default-denied capabilities to reach production."
+    },
+    {
+      "capability_id": "curriculum.curriculum_improvement_recommendations",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R5",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Generating a recommendation has no side effect, but the recommendation is about what a student is taught, which makes the decision permanently human-required and caps the capability at autonomy:R5 under effectiveAuthority(). The apply step is deliberately excluded: an agent may propose a patch and never apply one."
+    },
+    {
+      "capability_id": "curriculum.curriculum_integrity_scan",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Genuinely read-only: the ticket write was deliberately removed and a test asserts zero tickets. R7 is permitted because producing this one report is a single explicitly nameable action class with no side effect. R8 and R9 are withheld: no handoff recipient exists and no monitoring or recovery story has been written for it."
+    },
+    {
+      "capability_id": "curriculum.curriculum_type_approval_and_promotion",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R5",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Approval is the gate between a draft and something a student can be scheduled into, so it is permanently human-required and capped at autonomy:R5. Even at R5 the agent only prepares the promotion diff. Promotion itself needs push_to_protected_main and production_deploy, both default-denied, so there is no automation path."
+    },
+    {
+      "capability_id": "curriculum.curriculum_type_draft_authoring",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R4",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "A type definition determines the shape of a learning activity, so it is human-decided. R4 permits stateful multi-step draft authoring in sandbox, which is genuinely where this work lives. R5 is withheld because the preview is a lower-fidelity approximation of the real student card, so a shadow comparison would be measuring the wrong artifact."
+    },
+    {
+      "capability_id": "curriculum.da_curriculum_analytics_transition",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R0",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "An autonomy ceiling over an undefined scope would be a fabrication. autonomy:R0 is deliberately the lowest ceiling in this matrix and stays there until a human interview produces the duty list. R0 is itself the work: define the workflow, the risks and the human decisions."
+    },
+    {
+      "capability_id": "curriculum.daily_certification_readiness_flagging",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R6",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Internal queue write about readiness, not a credential decision and not learner-facing. R6 is the ceiling for the same reason as the curriculum flag: it already writes in production, so the honest next rung is a separately approved supervised pilot. No issuance of any kind is in scope at any rung."
+    },
+    {
+      "capability_id": "curriculum.daily_curriculum_gap_flagging",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R6",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "An internal queue write a human must act on, not a learner-facing change. R6 (separately approved supervised production pilot) is the ceiling because it already writes in production and the honest next step is a supervised pilot with a named approver, not automation. R7 is withheld: no action class has been explicitly authorized on this ladder."
+    },
+    {
+      "capability_id": "curriculum.escalation_reaches_a_named_human",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R6",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Delivering a finding to a named human is not itself a decision about what students are taught, so it is not human_decision. R6 caps it at a separately approved supervised pilot because the delivery is a real external side effect and the designed email channel is both unbuilt and, as live_email, default-denied to an agent."
+    },
+    {
+      "capability_id": "curriculum.external_certificate_claim_triage",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R4",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "The decision is a human one and it affects a student's record and progression, so it is permanently human-required. R4 permits the agent to do the stateful preparation work - reading the file, laying out the claim - in sandbox, but no rung lets it approve, and nothing here issues a credential at any rung."
+    },
+    {
+      "capability_id": "curriculum.generated_card_content_governance_audit",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "The audit itself only reads call sites and event records, so R7 is permitted for producing the inventory. Remediating a path - giving it an identity, a switch, or turning it off - changes what students read and is a human decision handled elsewhere."
+    },
+    {
+      "capability_id": "curriculum.learner_outcome_to_curriculum_feedback_loop",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R4",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Producing the finding is read-only, but the finding exists to inform a change to what students are taught, which makes the decision permanently human-required. R4 permits the stateful multi-step analysis in sandbox; R5 is withheld because no approved reference finding set exists to shadow against, and a drop-off cannot yet be separated from its cause."
+    },
+    {
+      "capability_id": "curriculum.llm_cost_attribution_integrity",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Reading call sites and cost events and reporting them has no side effect, so R7 is permitted for producing the report. Changing a call site to add an identity is a code change with its own review, and is excluded here."
+    },
+    {
+      "capability_id": "curriculum.manager_access_and_decision_queue_integrity",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R2",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Who may reach and decide for an AI employee is a governance decision for a human, and an agent reporting on its own access must never be able to affect it. R2 caps it at answering from approved knowledge; granting access is excluded at every rung, consistent with the rule that manager instructions may only restrict an agent."
+    },
+    {
+      "capability_id": "curriculum.manager_conversation_briefing",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Answering the manager's own questions in her own thread has no side effect and no learner contact, so R7 is permitted for that one action class. It is nonetheless not at R7 today: nothing has been approved, and a successful conversation is explicitly not evidence of promotion."
+    },
+    {
+      "capability_id": "curriculum.manager_work_gateway_to_basecamp",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R5",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "A real external write under a shared credential that misattributes authorship to a named person is the highest-consequence thing in this domain that is not learner-facing. R5 caps it at shadow comparison until the credential question Ali flagged as unresolved is actually resolved; R6 would require that resolution plus a separate pilot approval."
+    },
+    {
+      "capability_id": "curriculum.module_and_artifact_drafting_for_human_approval",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R4",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Drafting is not publishing, so the drafting work itself can reach stateful multi-step sandbox tasks. It stops at autonomy:R4 rather than R5 because the output is curriculum a learner would be taught, which makes it a permanently human-required decision, and because the preconditions that make its write path safe are unmet: a shadow comparison against a reference outcome would be measuring a loop that still leaves partial writes."
+    },
+    {
+      "capability_id": "curriculum.out_of_scope_escalation_handoff",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R6",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "It does not decide what a student is taught, so it is not a human_decision capability; but it writes a real external Basecamp side effect at risk tier R3, so automation is withheld and R6 (separately approved supervised pilot) is the ceiling. R8 is explicitly unavailable: no second AI employee has a matching capability to hand off to."
+    },
+    {
+      "capability_id": "curriculum.pre_publish_validation_gate_audit",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Running the gate is pure, deterministic and side-effect-free: it reads a plan and returns checks. R7 is permitted for that one authorized action class, reporting the result. Acting on the result - publishing anyway over a warn - is a separate capability and is human-decided."
+    },
+    {
+      "capability_id": "curriculum.presence_availability_signal",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "One write to the agent's own row, affecting nobody else's data and conveying no curriculum. R7 is permitted for that single authorized action class. R9 is withheld because no monitoring, recovery or ownership story exists for it: the signal is content-free and a failure is indistinguishable from idleness."
+    },
+    {
+      "capability_id": "curriculum.strategy_initiative_proposal",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R2",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "A proposal to change what Colaberry teaches is a human decision at every level, which effectiveAuthority() treats as permanently human-required. R2 is the ceiling rather than R5 because the capability has no approval path at all today: until a human can actually adopt or decline a proposal, anything above answering from approved knowledge would manufacture work that cannot be acted on, which is precisely the 175-cancelled-initiative failure mode."
+    },
+    {
+      "capability_id": "curriculum.student_curriculum_dm_support",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R5",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "This reaches a learner and conveys curriculum content, so what it says is a human decision and effectiveAuthority() caps a human_decision capability at autonomy:R5 (autonomyLadder.ts:169-173). It already runs unsupervised in production, which is a finding rather than a justification: a passing conversation proves nothing and cannot promote it."
+    },
+    {
+      "capability_id": "curriculum.targeted_certification_risk_research_sweep",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R6",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "It writes per-student internal tasks a human acts on and never contacts the learner, so it is not itself a human_decision capability. R6 is the ceiling because it already runs in production against real student data and the honest next rung is a separately approved supervised pilot, not automation of an unmeasured flag."
+    },
+    {
+      "capability_id": "curriculum.video_link_health_monitoring",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R6",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Detection is read-only but the alert fan-out is a real production side effect with named recipients, and RISK_REGISTER.md:16 rates that fan-out as high impact if absorbed carelessly. R6 therefore caps it at a separately approved supervised pilot. Replacing a broken video is excluded from this capability entirely because it would alter live curriculum."
+    },
+    {
+      "capability_id": "curriculum.week_blueprint_authoring_and_quality_scoring",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R4",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "A blueprint is the declaration of what a week teaches, so its content is a human decision and is permanently human-required. R4 permits stateful multi-step authoring of drafts in sandbox; R5 is withheld because there is no approved reference blueprint set to shadow against, and inventing one would be the fabrication this matrix exists to avoid."
+    },
+    {
+      "capability_id": "curriculum.week_teaching_content_integrity_audit",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "A read-only inventory over repository content with no write path, so R7 is permitted for producing the report. Editing any of this content is publishing to learners, which is excluded from this capability entirely and would additionally need push_to_protected_main and production_deploy, both default-denied."
+    }
+  ],
+  "authority_rule": {
+    "rule": "A capability approved above autonomy:R2 with no granted tools is forced back down to autonomy:R2, with the reason no_tool_grants. Tool grants are the throttle.",
+    "approved_above_r2": 0,
+    "binds_nothing": true,
+    "note": "When this binds nothing, say so in words. It means no capability in this domain has been approved above autonomy:R2 yet, not that the rule is absent or that the panel failed."
+  },
+  "governance": {
+    "disclosure": "A filed request grants nothing. Status is what a named human decided, and a pending row means nobody has decided yet.",
+    "requests": [],
+    "pending": 0
+  },
+  "verification": {
+    "known": true,
+    "disclosure": "A criterion counts as passing when it is marked in `.colaberry/progress.json` in this repository. The verifier reads that file on every sync and records what it found. A story showing 0 of N is not a rejection: nothing has been claimed yet.",
+    "summary": {
+      "stories": 49,
+      "checked": 45,
+      "verified": 6,
+      "awaiting_criteria": 39,
+      "outstanding_criteria": 44
+    },
+    "stories": [
+      {
+        "story_id": "curriculum.CAP.autonomy_and_promotion_record_for_this_domain",
+        "title": "A per-capability autonomy and promotion record for the curriculum employee",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.autonomy_and_promotion_record_for_this_domain and changes a file. Commit your work with a `Story: curriculum.CAP.autonomy_and_promotion_record_for_this_domain` trailer (or curriculum.CAP.autonomy_and_promotion_record_for_this_domain in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati signs each capability's scope, its ceiling and its human-decision flag; every unapproved level reads unknown."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.blueprint_publish_to_live_timeline",
+        "title": "Publishing an approved week plan to the live student timeline",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.blueprint_publish_to_live_timeline and changes a file. Commit your work with a `Story: curriculum.CAP.blueprint_publish_to_live_timeline` trailer (or curriculum.CAP.blueprint_publish_to_live_timeline in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati names the approver and states what happens to the old cards on a re-publish."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.ccarf_prep_alignment_drift_tracking",
+        "title": "Tracking drift between Anthropic's published CCAR-F requirements and Colaberry's prep material",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.ccarf_prep_alignment_drift_tracking and changes a file. Commit your work with a `Story: curriculum.CAP.ccarf_prep_alignment_drift_tracking` trailer (or curriculum.CAP.ccarf_prep_alignment_drift_tracking in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati names the verification source and confirms that a weight change is her decision."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.certification_bank_level_distribution_audit",
+        "title": "Bank-level audit of answer-key distribution and mock supportability",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.certification_bank_level_distribution_audit and changes a file. Commit your work with a `Story: curriculum.CAP.certification_bank_level_distribution_audit` trailer (or curriculum.CAP.certification_bank_level_distribution_audit in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati states why a per-item green does not imply a healthy bank."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.certification_evidence_mapping_review",
+        "title": "Proposing and reviewing build evidence mapped onto CCAR-F domains",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.certification_evidence_mapping_review and changes a file. Commit your work with a `Story: curriculum.CAP.certification_evidence_mapping_review` trailer (or curriculum.CAP.certification_evidence_mapping_review in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati states that a pending mapping counts for nothing."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.certification_item_review_status_transition",
+        "title": "Moving a prep item between draft, in review, approved and retired",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.certification_item_review_status_transition and changes a file. Commit your work with a `Story: curriculum.CAP.certification_item_review_status_transition` trailer (or curriculum.CAP.certification_item_review_status_transition in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati names the reviewer and states that an approved item is a human judgment."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.certification_item_rubric_review_and_improvement",
+        "title": "Per-item rubric scoring, adversarial review and improvement drafting for the CCAR-F prep bank",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.certification_item_rubric_review_and_improvem and changes a file. Commit your work with a `Story: curriculum.CAP.certification_item_rubric_review_and_improvem` trailer (or curriculum.CAP.certification_item_rubric_review_and_improvem in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati states that a triage verdict is a second opinion and names who decides."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.charter_and_kpi_stewardship",
+        "title": "Keeping the curriculum employee's charter and KPIs honest and manager-authored",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.charter_and_kpi_stewardship and changes a file. Commit your work with a `Story: curriculum.CAP.charter_and_kpi_stewardship` trailer (or curriculum.CAP.charter_and_kpi_stewardship in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati restates the boundaries in her own words and names the UNMEASURED KPIs."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.cohort_certification_readiness_reporting",
+        "title": "Explainable cohort and per-student certification readiness reporting",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.cohort_certification_readiness_reporting and changes a file. Commit your work with a `Story: curriculum.CAP.cohort_certification_readiness_reporting` trailer (or curriculum.CAP.cohort_certification_readiness_reporting in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati states what sustained requires and that Colaberry issues nothing."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.competency_coverage_gap_detection",
+        "title": "Competency coverage gap detection against the declared blueprint",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.competency_coverage_gap_detection and changes a file. Commit your work with a `Story: curriculum.CAP.competency_coverage_gap_detection` trailer (or curriculum.CAP.competency_coverage_gap_detection in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati can state why a competency can be neither covered nor a gap."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.coverage_gap_video_curation_proposal",
+        "title": "Proposing curated videos to close a specific competency coverage gap",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.coverage_gap_video_curation_proposal and changes a file. Commit your work with a `Story: curriculum.CAP.coverage_gap_video_curation_proposal` trailer (or curriculum.CAP.coverage_gap_video_curation_proposal in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati states who applies a video and what happens if it is later removed."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.coverage_scope_and_deferral_enforcement",
+        "title": "Enforcing what this employee does and does not own, and tracking each deferral's precondition",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.coverage_scope_and_deferral_enforcement and changes a file. Commit your work with a `Story: curriculum.CAP.coverage_scope_and_deferral_enforcement` trailer (or curriculum.CAP.coverage_scope_and_deferral_enforcement in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati names one deferred item and its precondition, and one out-of-scope item and its owner."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.curriculum_change_impact_on_live_cohorts",
+        "title": "Impact assessment before a curriculum change reaches a cohort already mid-programme",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.curriculum_change_impact_on_live_cohorts and changes a file. Commit your work with a `Story: curriculum.CAP.curriculum_change_impact_on_live_cohorts` trailer (or curriculum.CAP.curriculum_change_impact_on_live_cohorts in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati states what a slug rename would do to student progress and who decides on a change."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.curriculum_improvement_recommendations",
+        "title": "Ranked, machine-applicable curriculum improvement recommendations",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.curriculum_improvement_recommendations and changes a file. Commit your work with a `Story: curriculum.CAP.curriculum_improvement_recommendations` trailer (or curriculum.CAP.curriculum_improvement_recommendations in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati states who applies a patch and what makes a recommendation high severity."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.curriculum_integrity_scan",
+        "title": "Read-only curriculum integrity scan of the module and lesson tree",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.curriculum_integrity_scan and changes a file. Commit your work with a `Story: curriculum.CAP.curriculum_integrity_scan` trailer (or curriculum.CAP.curriculum_integrity_scan in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati can name what the scan does and does not check."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.curriculum_type_approval_and_promotion",
+        "title": "Approving a curriculum type and promoting it so it can reach students",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.curriculum_type_approval_and_promotion and changes a file. Commit your work with a `Story: curriculum.CAP.curriculum_type_approval_and_promotion` trailer (or curriculum.CAP.curriculum_type_approval_and_promotion in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati states that an unapproved type cannot be scheduled and names who signs off."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.curriculum_type_draft_authoring",
+        "title": "Authoring a curriculum type as a draft Experience Studio component",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.curriculum_type_draft_authoring and changes a file. Commit your work with a `Story: curriculum.CAP.curriculum_type_draft_authoring` trailer (or curriculum.CAP.curriculum_type_draft_authoring in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati states why a slug can never be renamed and who approves a type."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.da_curriculum_analytics_transition",
+        "title": "Data Analyst curriculum and certification reporting duties transitioning to AI",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.da_curriculum_analytics_transition and changes a file. Commit your work with a `Story: curriculum.CAP.da_curriculum_analytics_transition` trailer (or curriculum.CAP.da_curriculum_analytics_transition in the subject line) and push."
+        ],
+        "outstanding": [
+          "A written duty list exists, authored from a human interview, naming each report and its recipient. Until it does, every field of this capability stays unknown."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.daily_certification_readiness_flagging",
+        "title": "Daily cohort certification-readiness risk flag",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.daily_certification_readiness_flagging and changes a file. Commit your work with a `Story: curriculum.CAP.daily_certification_readiness_flagging` trailer (or curriculum.CAP.daily_certification_readiness_flagging in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati can name the bar and confirm in her own words that nothing is awarded."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.daily_curriculum_gap_flagging",
+        "title": "Daily curriculum-quality gap flag for the accountable manager",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.daily_curriculum_gap_flagging and changes a file. Commit your work with a `Story: curriculum.CAP.daily_curriculum_gap_flagging` trailer (or curriculum.CAP.daily_curriculum_gap_flagging in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati can state, unprompted, what makes a day produce a flag and what makes it produce nothing."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.daily_curriculum_gap_flagging.L1-BY-HAND",
+        "title": "Daily curriculum-quality gap flag for the accountable manager · 1 · do it by hand",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.daily_curriculum_gap_flagging.L2-IN-THE-APP",
+        "title": "Daily curriculum-quality gap flag for the accountable manager · 2 · do it in the app",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.daily_curriculum_gap_flagging.L3-TOOL-REQUEST",
+        "title": "Daily curriculum-quality gap flag for the accountable manager · 3 · request the tool",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.daily_curriculum_gap_flagging.L4-AGENT-WATCHED",
+        "title": "Daily curriculum-quality gap flag for the accountable manager · 4 · agent does it, watched",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.escalation_reaches_a_named_human",
+        "title": "Making sure a curriculum or certification finding actually reaches the accountable human",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.escalation_reaches_a_named_human and changes a file. Commit your work with a `Story: curriculum.CAP.escalation_reaches_a_named_human` trailer (or curriculum.CAP.escalation_reaches_a_named_human in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati confirms which channel she reads and that nothing closes on a timer."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.external_certificate_claim_triage",
+        "title": "Triaging a student's uploaded claim of an externally earned certification",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.external_certificate_claim_triage and changes a file. Commit your work with a `Story: curriculum.CAP.external_certificate_claim_triage` trailer (or curriculum.CAP.external_certificate_claim_triage in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati states that Colaberry approves a claim and issues nothing."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.generated_card_content_governance_audit",
+        "title": "Governance audit of LLM-generated student card content",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.generated_card_content_governance_audit and changes a file. Commit your work with a `Story: curriculum.CAP.generated_card_content_governance_audit` trailer (or curriculum.CAP.generated_card_content_governance_audit in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati can name which paths generate student content without an identity."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.learner_outcome_to_curriculum_feedback_loop",
+        "title": "Turning real learner outcomes back into evidenced curriculum findings",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.learner_outcome_to_curriculum_feedback_loop and changes a file. Commit your work with a `Story: curriculum.CAP.learner_outcome_to_curriculum_feedback_loop` trailer (or curriculum.CAP.learner_outcome_to_curriculum_feedback_loop in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati states what a drop-off does and does not prove, and the minimum cohort size for a finding."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.llm_cost_attribution_integrity",
+        "title": "Honest attribution of curriculum LLM spend to the employee that incurred it",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.llm_cost_attribution_integrity and changes a file. Commit your work with a `Story: curriculum.CAP.llm_cost_attribution_integrity` trailer (or curriculum.CAP.llm_cost_attribution_integrity in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati can distinguish a real zero cost from an unmeasured one."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.manager_access_and_decision_queue_integrity",
+        "title": "Keeping the accountable manager actually able to reach and decide for her AI employee",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.manager_access_and_decision_queue_integrity and changes a file. Commit your work with a `Story: curriculum.CAP.manager_access_and_decision_queue_integrity` trailer (or curriculum.CAP.manager_access_and_decision_queue_integrity in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati confirms she can open the page, in her own words, and the stale ownership-map row is corrected."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.manager_conversation_briefing",
+        "title": "Direct manager conversation about the state of curriculum and certification",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.manager_conversation_briefing and changes a file. Commit your work with a `Story: curriculum.CAP.manager_conversation_briefing` trailer (or curriculum.CAP.manager_conversation_briefing in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati can name the two real metric keys and at least two UNMEASURED KPIs."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.manager_work_gateway_to_basecamp",
+        "title": "Agent-to-human work gateway into the manager's real Basecamp queue",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.manager_work_gateway_to_basecamp and changes a file. Commit your work with a `Story: curriculum.CAP.manager_work_gateway_to_basecamp` trailer (or curriculum.CAP.manager_work_gateway_to_basecamp in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati names the destination and confirms the disclosure wording."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.module_and_artifact_drafting_for_human_approval",
+        "title": "Drafting curriculum module structures and lesson artifacts for a human to approve",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.module_and_artifact_drafting_for_human_approv and changes a file. Commit your work with a `Story: curriculum.CAP.module_and_artifact_drafting_for_human_approv` trailer (or curriculum.CAP.module_and_artifact_drafting_for_human_approv in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati names the approver and the review step for a drafted assessment specifically."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.out_of_scope_escalation_handoff",
+        "title": "Mandatory ticket-backed handoff of an out-of-scope student question to the accountable human",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.out_of_scope_escalation_handoff and changes a file. Commit your work with a `Story: curriculum.CAP.out_of_scope_escalation_handoff` trailer (or curriculum.CAP.out_of_scope_escalation_handoff in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati confirms she is the recipient and that nothing closes on a timer."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.pre_publish_validation_gate_audit",
+        "title": "Deterministic pre-publish validation gate over a week plan",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.pre_publish_validation_gate_audit and changes a file. Commit your work with a `Story: curriculum.CAP.pre_publish_validation_gate_audit` trailer (or curriculum.CAP.pre_publish_validation_gate_audit in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati names the blocking checks and states who decides on a warn."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.presence_availability_signal",
+        "title": "Reachability signal for the curriculum AI employee",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.presence_availability_signal and changes a file. Commit your work with a `Story: curriculum.CAP.presence_availability_signal` trailer (or curriculum.CAP.presence_availability_signal in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati can state that green means the process ran, not that Dara can answer."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.strategy_initiative_proposal",
+        "title": "Proposing curriculum and learning strategy initiatives for human decision",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.strategy_initiative_proposal and changes a file. Commit your work with a `Story: curriculum.CAP.strategy_initiative_proposal` trailer (or curriculum.CAP.strategy_initiative_proposal in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati states who adopts or declines a proposal and what happens to one that is declined."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.student_curriculum_dm_support",
+        "title": "Student direct-message support on curriculum content and certification requirements",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.student_curriculum_dm_support and changes a file. Commit your work with a `Story: curriculum.CAP.student_curriculum_dm_support` trailer (or curriculum.CAP.student_curriculum_dm_support in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati restates the scope boundary in her own words and names one question she expects to be escalated."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.targeted_certification_risk_research_sweep",
+        "title": "Per-student certification-risk research sweep, human-mediated",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.targeted_certification_risk_research_sweep and changes a file. Commit your work with a `Story: curriculum.CAP.targeted_certification_risk_research_sweep` trailer (or curriculum.CAP.targeted_certification_risk_research_sweep in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati confirms the cohort, the cap and that no student is contacted."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.video_link_health_monitoring",
+        "title": "Curriculum video-link health monitoring",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.video_link_health_monitoring and changes a file. Commit your work with a `Story: curriculum.CAP.video_link_health_monitoring` trailer (or curriculum.CAP.video_link_health_monitoring in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati can state what is alerted on and who receives it."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.week_blueprint_authoring_and_quality_scoring",
+        "title": "Week and session blueprint authoring with a real quality, coverage and readiness score",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.week_blueprint_authoring_and_quality_scoring and changes a file. Commit your work with a `Story: curriculum.CAP.week_blueprint_authoring_and_quality_scoring` trailer (or curriculum.CAP.week_blueprint_authoring_and_quality_scoring in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati states what each score means and who advances status."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.CAP.week_teaching_content_integrity_audit",
+        "title": "Integrity audit of the shipped week decks, session plans and deep-dive guides",
+        "status": "in_progress",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.CAP.week_teaching_content_integrity_audit and changes a file. Commit your work with a `Story: curriculum.CAP.week_teaching_content_integrity_audit` trailer (or curriculum.CAP.week_teaching_content_integrity_audit in the subject line) and push."
+        ],
+        "outstanding": [
+          "Swati states the four per-week artifacts and that the deep-dive blobs are generated."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "curriculum.LEGACY-MIGRATION-PLAN",
+        "title": "Legacy migration plan",
+        "status": "complete",
+        "verification_state": "verified",
+        "verified": true,
+        "criteria_passed": 3,
+        "criteria_total": 3,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": "f05c5902881aea10e49432ca80002b9402e148a6"
+      },
+      {
+        "story_id": "curriculum.RESEARCH-1-SYSTEM-CLASSES",
+        "title": "Compare the five system classes, and place this domain among them",
+        "status": "complete",
+        "verification_state": "verified",
+        "verified": true,
+        "criteria_passed": 3,
+        "criteria_total": 3,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": "1f3c83c485da2d8271f20504c833cf30fa25895b"
+      },
+      {
+        "story_id": "curriculum.RESEARCH-2-AGENT-ANATOMY",
+        "title": "Map the nine anatomy elements onto this domain's agent",
+        "status": "complete",
+        "verification_state": "verified",
+        "verified": true,
+        "criteria_passed": 3,
+        "criteria_total": 3,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": "91d549ce7407d22abbb465a4acfbb224d9dc8392"
+      },
+      {
+        "story_id": "curriculum.RESEARCH-3-ROLE-AND-DA-TRANSITION",
+        "title": "Document Swati Raman's role, and which DA responsibilities transition",
+        "status": "complete",
+        "verification_state": "verified",
+        "verified": true,
+        "criteria_passed": 3,
+        "criteria_total": 3,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": "b0701c7756d6cb6090a800c91efbbcd7a8b716da"
+      },
+      {
+        "story_id": "curriculum.RESEARCH-4-MANAGER-INTERVIEW",
+        "title": "Prepare a 30-minute interview with Swati Raman and propose a weekly check-in",
+        "status": "complete",
+        "verification_state": "verified",
+        "verified": true,
+        "criteria_passed": 3,
+        "criteria_total": 3,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": "947d80ad8c5f29e6ede457e5479315ab93f21d6a"
+      },
+      {
+        "story_id": "curriculum.RESEARCH-5-THREE-PROPOSED-TASKS",
+        "title": "Capture three proposed agent tasks with boundaries and completion evidence",
+        "status": "complete",
+        "verification_state": "verified",
+        "verified": true,
+        "criteria_passed": 3,
+        "criteria_total": 3,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": "8041098f2e1ff280a371ec18d88b5c19774b1d58"
+      },
+      {
+        "story_id": "curriculum.STORY-000",
+        "title": "STORY-000 · Build your Command Center",
+        "status": "not_started",
+        "verification_state": "not_started",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 6,
+        "reasons": [
+          "None of the 6 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names curriculum.STORY-000 and changes a file. Commit your work with a `Story: curriculum.STORY-000` trailer (or curriculum.STORY-000 in the subject line) and push."
+        ],
+        "outstanding": [
+          "Given the Command Center, when it is opened, then all six panels render and each one names the endpoint it read.",
+          "Given a panel whose endpoint returned nothing, when it renders, then it says so in words and is visibly distinct from a panel that is still loading.",
+          "Given the autonomy ladder panel, when it renders, then all ten rungs are present with the owner's wording, and each capability's ceiling is marked against the rung it stops at.",
+          "Given the autonomy ladder panel, when a capability's authority is shown, then the page shows the effective authority `effectiveAuthority()` returns rather than the level the capability record asks for, and names the `no_tool_grants` rule with the number of capabilities it currently constrains, saying so in words when that number is zero.",
+          "Given the governance panel, when a tool request is shown, then nothing on the page states or implies that filing it granted anything.",
+          "Trust -- no panel shows a number, a grant, a rung or a result this domain has not actually produced."
+        ],
+        "commit_sha": null
+      }
+    ]
+  },
+  "not_recorded": [
+    {
+      "field": "agent.autonomy_level_set_by",
+      "reason": "The platform does not store who set an agent's autonomy level. `ai_agents` carries `autonomy_level_set_at` and `autonomy_level_source` but no `set_by` column, so the time and whether a person chose it are known and the identity is not. Do not render a name here."
+    }
+  ]
+}
