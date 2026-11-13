@@ -1,4 +1,4 @@
-# curriculum — Requirements
+# Curriculum, Learning & Certification (Dara) — Requirements
 
 The curriculum domain agent.
 

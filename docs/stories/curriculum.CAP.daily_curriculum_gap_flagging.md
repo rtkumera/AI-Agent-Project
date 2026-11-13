@@ -1,5 +1,7 @@
 # curriculum.CAP.daily_curriculum_gap_flagging — Daily curriculum-quality gap flag for the accountable manager
 
+**IN FLIGHT.** This capability is the one this domain is building right now. The work itself is its four ladder stories -- do it by hand, do it in the app, request the tool, then let the agent do it watched -- and they run in that order. This row is the capability they belong to, not a fifth piece of work.
+
 Swati gets one specific, evidence-carrying curriculum-quality gap per day as an actionable internal task instead of discovering a weak week after students have sat through it.
 
 **Built today:** implemented. **Requirement validated:** draft -- Swati Raman must confirm scope, exceptions and success measures
@@ -12,7 +14,7 @@ Swati gets one specific, evidence-carrying curriculum-quality gap per day as an 
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

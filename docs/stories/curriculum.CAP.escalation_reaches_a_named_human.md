@@ -1,5 +1,7 @@
 # curriculum.CAP.escalation_reaches_a_named_human — Making sure a curriculum or certification finding actually reaches the accountable human
 
+**CANDIDATE -- not started, not assigned.** This is one line on this domain's list of everything its agent could eventually do. It becomes real work only when the builder picks it and their manager agrees, at which point it opens as four stories. Until then it is deliberately inert, and the honest status of it is "not started" rather than "behind".
+
 A real finding reaches Swati by a channel she actually reads, deduped on real severity rather than a timer, closing the known failure where an escalation was a comment nobody saw.
 
 **Built today:** partial. **Requirement validated:** draft -- Swati Raman must confirm scope, exceptions and success measures
@@ -14,7 +16,7 @@ A real finding reaches Swati by a channel she actually reads, deduped on real se
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

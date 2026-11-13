@@ -1,5 +1,7 @@
 # curriculum.CAP.week_teaching_content_integrity_audit — Integrity audit of the shipped week decks, session plans and deep-dive guides
 
+**CANDIDATE -- not started, not assigned.** This is one line on this domain's list of everything its agent could eventually do. It becomes real work only when the builder picks it and their manager agrees, at which point it opens as four stories. Until then it is deliberately inert, and the honest status of it is "not started" rather than "behind".
+
 The teaching content students and instructors actually meet each week is checked for gaps and inconsistencies against the programme spine, instead of being trusted because it exists in the repo.
 
 **Built today:** implemented. **Requirement validated:** draft -- Swati Raman must confirm scope, exceptions and success measures
@@ -13,7 +15,7 @@ The teaching content students and instructors actually meet each week is checked
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

@@ -1,5 +1,7 @@
 # curriculum.CAP.autonomy_and_promotion_record_for_this_domain — A per-capability autonomy and promotion record for the curriculum employee
 
+**CANDIDATE -- not started, not assigned.** This is one line on this domain's list of everything its agent could eventually do. It becomes real work only when the builder picks it and their manager agrees, at which point it opens as four stories. Until then it is deliberately inert, and the honest status of it is "not started" rather than "behind".
+
 Every curriculum capability carries a level a named human approved, a ceiling, the evidence required to move up and the condition that moves it back down - so authority stops being inferred from the fact that something already runs.
 
 **Built today:** absent. **Requirement validated:** draft -- Swati Raman must confirm scope, exceptions and success measures
@@ -14,7 +16,7 @@ Every curriculum capability carries a level a named human approved, a ceiling, t
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

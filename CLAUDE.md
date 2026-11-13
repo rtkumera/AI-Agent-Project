@@ -1,5 +1,5 @@
 <!-- COLABERRY:BEGIN — managed by the build pipeline. Edits inside this block are overwritten. -->
-# CLAUDE.md — curriculum
+# CLAUDE.md — Curriculum, Learning & Certification (Dara)
 
 Conventions for this build. Claude Code reads this automatically.
 

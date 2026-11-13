@@ -1,5 +1,7 @@
 # curriculum.CAP.generated_card_content_governance_audit — Governance audit of LLM-generated student card content
 
+**CANDIDATE -- not started, not assigned.** This is one line on this domain's list of everything its agent could eventually do. It becomes real work only when the builder picks it and their manager agrees, at which point it opens as four stories. Until then it is deliberately inert, and the honest status of it is "not started" rather than "behind".
+
 Every path that generates content a student reads is accounted for: what triggered it, under whose identity, with which kill switch and at what cost - closing the case where a student simply opening a card triggers an unattributed model write.
 
 **Built today:** partial. **Requirement validated:** draft -- Swati Raman must confirm scope, exceptions and success measures
@@ -13,7 +15,7 @@ Every path that generates content a student reads is accounted for: what trigger
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

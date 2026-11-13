@@ -1,5 +1,7 @@
 # curriculum.CAP.daily_certification_readiness_flagging — Daily cohort certification-readiness risk flag
 
+**CANDIDATE -- not started, not assigned.** This is one line on this domain's list of everything its agent could eventually do. It becomes real work only when the builder picks it and their manager agrees, at which point it opens as four stories. Until then it is deliberately inert, and the honest status of it is "not started" rather than "behind".
+
 When the active cohort's estimated CCAR-F pass probability drops below the agreed bar, Swati gets one task naming the weak Anthropic domains, instead of finding out at exam time.
 
 **Built today:** implemented. **Requirement validated:** draft -- Swati Raman must confirm scope, exceptions and success measures
@@ -12,7 +14,7 @@ When the active cohort's estimated CCAR-F pass probability drops below the agree
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

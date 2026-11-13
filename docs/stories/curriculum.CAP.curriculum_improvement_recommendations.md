@@ -1,5 +1,7 @@
 # curriculum.CAP.curriculum_improvement_recommendations — Ranked, machine-applicable curriculum improvement recommendations
 
+**CANDIDATE -- not started, not assigned.** This is one line on this domain's list of everything its agent could eventually do. It becomes real work only when the builder picks it and their manager agrees, at which point it opens as four stories. Until then it is deliberately inert, and the honest status of it is "not started" rather than "behind".
+
 Validation gaps and evidence shortfalls arrive as ranked actions each carrying a patch a human can apply in one click and an explanation of why it improves the student's path, instead of a list of complaints.
 
 **Built today:** implemented. **Requirement validated:** draft -- Swati Raman must confirm scope, exceptions and success measures
@@ -13,7 +15,7 @@ Validation gaps and evidence shortfalls arrive as ranked actions each carrying a
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

@@ -1,12 +1,12 @@
 {
   "schema_version": 2,
-  "project": "curriculum",
+  "project": "Curriculum, Learning & Certification (Dara)",
   "totals": {
-    "stories_total": 45,
+    "stories_total": 49,
     "stories_verified": 6,
     "stories_submitted": 0,
-    "stories_in_progress": 36,
-    "stories_not_started": 3,
+    "stories_in_progress": 38,
+    "stories_not_started": 5,
     "criteria_total": 62,
     "criteria_passed": 18,
     "points_awarded": 108
@@ -14,7 +14,7 @@
   "stories": [
     {
       "id": "curriculum.CAP.autonomy_and_promotion_record_for_this_domain",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -42,7 +42,7 @@
     },
     {
       "id": "curriculum.CAP.blueprint_publish_to_live_timeline",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -70,7 +70,7 @@
     },
     {
       "id": "curriculum.CAP.ccarf_prep_alignment_drift_tracking",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -98,7 +98,7 @@
     },
     {
       "id": "curriculum.CAP.certification_bank_level_distribution_audit",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -126,7 +126,7 @@
     },
     {
       "id": "curriculum.CAP.certification_evidence_mapping_review",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -154,7 +154,7 @@
     },
     {
       "id": "curriculum.CAP.certification_item_review_status_transition",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -181,8 +181,8 @@
       }
     },
     {
-      "id": "curriculum.CAP.certification_item_rubric_review_and_improvem",
-      "release": "r2",
+      "id": "curriculum.CAP.certification_item_rubric_review_and_improvement",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -194,11 +194,23 @@
       "tests_added": [],
       "notes": null,
       "updated_at": null,
-      "verification": null
+      "verification": {
+        "state": "in_progress",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Swati states that a triage verdict is a second opinion and names who decides."
+        ]
+      }
     },
     {
       "id": "curriculum.CAP.charter_and_kpi_stewardship",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -226,7 +238,7 @@
     },
     {
       "id": "curriculum.CAP.cohort_certification_readiness_reporting",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -254,7 +266,7 @@
     },
     {
       "id": "curriculum.CAP.competency_coverage_gap_detection",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -282,7 +294,7 @@
     },
     {
       "id": "curriculum.CAP.coverage_gap_video_curation_proposal",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -310,7 +322,7 @@
     },
     {
       "id": "curriculum.CAP.coverage_scope_and_deferral_enforcement",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -338,7 +350,7 @@
     },
     {
       "id": "curriculum.CAP.curriculum_change_impact_on_live_cohorts",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -366,7 +378,7 @@
     },
     {
       "id": "curriculum.CAP.curriculum_improvement_recommendations",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -394,7 +406,7 @@
     },
     {
       "id": "curriculum.CAP.curriculum_integrity_scan",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -422,7 +434,7 @@
     },
     {
       "id": "curriculum.CAP.curriculum_type_approval_and_promotion",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -450,7 +462,7 @@
     },
     {
       "id": "curriculum.CAP.curriculum_type_draft_authoring",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -478,7 +490,7 @@
     },
     {
       "id": "curriculum.CAP.da_curriculum_analytics_transition",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -506,7 +518,7 @@
     },
     {
       "id": "curriculum.CAP.daily_certification_readiness_flagging",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -534,7 +546,7 @@
     },
     {
       "id": "curriculum.CAP.daily_curriculum_gap_flagging",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -561,8 +573,136 @@
       }
     },
     {
+      "id": "curriculum.CAP.daily_curriculum_gap_flagging.L1-BY-HAND",
+      "release": "autonomy:R0",
+      "acceptance_total": 2,
+      "criteria": [
+        {
+          "text": "The capability was performed end to end by hand, producing its real outcome on real inputs.",
+          "passed": false
+        },
+        {
+          "text": "A run log exists recording the date, the elapsed time, each step actually performed, every judgment call made, and at least one way the recorded workflow differed from what the work was really like.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 0,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": []
+      }
+    },
+    {
+      "id": "curriculum.CAP.daily_curriculum_gap_flagging.L2-IN-THE-APP",
+      "release": "autonomy:R0",
+      "acceptance_total": 2,
+      "criteria": [
+        {
+          "text": "The same outcome was produced a second time using only the product, with no agent, no script and no direct database edit -- or the exact step that made this impossible is written down as a named gap.",
+          "passed": false
+        },
+        {
+          "text": "The app route was compared against the step 1 run log, and every difference between them is recorded.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 0,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": []
+      }
+    },
+    {
+      "id": "curriculum.CAP.daily_curriculum_gap_flagging.L3-TOOL-REQUEST",
+      "release": "autonomy:R0",
+      "acceptance_total": 3,
+      "criteria": [
+        {
+          "text": "A change request for a tool exists against this domain, filed by the builder, naming the tool, its scope, what it must never touch, and who approves a run.",
+          "passed": false
+        },
+        {
+          "text": "The request cites the step 1 run log and the step 2 result as its evidence.",
+          "passed": false
+        },
+        {
+          "text": "A named human other than the builder has recorded a decision on it. A decline counts; an undecided request does not.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 0,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": []
+      }
+    },
+    {
+      "id": "curriculum.CAP.daily_curriculum_gap_flagging.L4-AGENT-WATCHED",
+      "release": "autonomy:R0",
+      "acceptance_total": 3,
+      "criteria": [
+        {
+          "text": "Swati can state, unprompted, what makes a day produce a flag and what makes it produce nothing.",
+          "passed": false
+        },
+        {
+          "text": "The agent produced the same outcome as the step 1 run log, on the same inputs, including the exceptions recorded there.",
+          "passed": false
+        },
+        {
+          "text": "Every run in the evidence window was approved by a named human before it took effect, and the record shows who.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 0,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": []
+      }
+    },
+    {
       "id": "curriculum.CAP.escalation_reaches_a_named_human",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -590,7 +730,7 @@
     },
     {
       "id": "curriculum.CAP.external_certificate_claim_triage",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -618,7 +758,7 @@
     },
     {
       "id": "curriculum.CAP.generated_card_content_governance_audit",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -646,7 +786,7 @@
     },
     {
       "id": "curriculum.CAP.learner_outcome_to_curriculum_feedback_loop",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -674,7 +814,7 @@
     },
     {
       "id": "curriculum.CAP.llm_cost_attribution_integrity",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -702,7 +842,7 @@
     },
     {
       "id": "curriculum.CAP.manager_access_and_decision_queue_integrity",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -730,7 +870,7 @@
     },
     {
       "id": "curriculum.CAP.manager_conversation_briefing",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -758,7 +898,7 @@
     },
     {
       "id": "curriculum.CAP.manager_work_gateway_to_basecamp",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -785,8 +925,8 @@
       }
     },
     {
-      "id": "curriculum.CAP.module_and_artifact_drafting_for_human_approv",
-      "release": "r2",
+      "id": "curriculum.CAP.module_and_artifact_drafting_for_human_approval",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -798,11 +938,23 @@
       "tests_added": [],
       "notes": null,
       "updated_at": null,
-      "verification": null
+      "verification": {
+        "state": "in_progress",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Swati names the approver and the review step for a drafted assessment specifically."
+        ]
+      }
     },
     {
       "id": "curriculum.CAP.out_of_scope_escalation_handoff",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -830,7 +982,7 @@
     },
     {
       "id": "curriculum.CAP.pre_publish_validation_gate_audit",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -858,7 +1010,7 @@
     },
     {
       "id": "curriculum.CAP.presence_availability_signal",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -886,7 +1038,7 @@
     },
     {
       "id": "curriculum.CAP.strategy_initiative_proposal",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -914,7 +1066,7 @@
     },
     {
       "id": "curriculum.CAP.student_curriculum_dm_support",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -942,7 +1094,7 @@
     },
     {
       "id": "curriculum.CAP.targeted_certification_risk_research_sweep",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -970,7 +1122,7 @@
     },
     {
       "id": "curriculum.CAP.video_link_health_monitoring",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -998,7 +1150,7 @@
     },
     {
       "id": "curriculum.CAP.week_blueprint_authoring_and_quality_scoring",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -1026,7 +1178,7 @@
     },
     {
       "id": "curriculum.CAP.week_teaching_content_integrity_audit",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -1054,7 +1206,7 @@
     },
     {
       "id": "curriculum.LEGACY-MIGRATION-PLAN",
-      "release": "r1",
+      "release": "autonomy:R0",
       "acceptance_total": 3,
       "criteria": [
         {
@@ -1090,7 +1242,7 @@
     },
     {
       "id": "curriculum.RESEARCH-1-SYSTEM-CLASSES",
-      "release": "r0",
+      "release": "autonomy:R0",
       "acceptance_total": 3,
       "criteria": [
         {
@@ -1126,7 +1278,7 @@
     },
     {
       "id": "curriculum.RESEARCH-2-AGENT-ANATOMY",
-      "release": "r0",
+      "release": "autonomy:R0",
       "acceptance_total": 3,
       "criteria": [
         {
@@ -1162,7 +1314,7 @@
     },
     {
       "id": "curriculum.RESEARCH-3-ROLE-AND-DA-TRANSITION",
-      "release": "r0",
+      "release": "autonomy:R0",
       "acceptance_total": 3,
       "criteria": [
         {
@@ -1198,7 +1350,7 @@
     },
     {
       "id": "curriculum.RESEARCH-4-MANAGER-INTERVIEW",
-      "release": "r0",
+      "release": "autonomy:R0",
       "acceptance_total": 3,
       "criteria": [
         {
@@ -1234,7 +1386,7 @@
     },
     {
       "id": "curriculum.RESEARCH-5-THREE-PROPOSED-TASKS",
-      "release": "r0",
+      "release": "autonomy:R0",
       "acceptance_total": 3,
       "criteria": [
         {

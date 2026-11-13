@@ -1,5 +1,7 @@
 # curriculum.CAP.curriculum_type_draft_authoring — Authoring a curriculum type as a draft Experience Studio component
 
+**CANDIDATE -- not started, not assigned.** This is one line on this domain's list of everything its agent could eventually do. It becomes real work only when the builder picks it and their manager agrees, at which point it opens as four stories. Until then it is deliberately inert, and the honest status of it is "not started" rather than "behind".
+
 A new kind of learning activity can be defined once - its parts, its generation prompt, its contracts, its render band - as a draft that is reviewable before any student sees it, instead of being improvised per week.
 
 **Built today:** implemented. **Requirement validated:** draft -- Swati Raman must confirm scope, exceptions and success measures
@@ -14,7 +16,7 @@ A new kind of learning activity can be defined once - its parts, its generation 
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

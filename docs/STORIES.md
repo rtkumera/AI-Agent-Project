@@ -1,6 +1,6 @@
-# curriculum — Stories
+# Curriculum, Learning & Certification (Dara) — Stories
 
-44 stories across 3 releases, walking-skeleton first:
+49 stories across 1 releases, walking-skeleton first:
 the earliest release proves the thinnest end-to-end path including the trust
 spine, and later releases stack features on top of something already working.
 
@@ -13,28 +13,10 @@ the page you keep open for the rest of the programme and demo from. It belongs t
 release and fulfils none of your requirements, because it is the window onto your
 system rather than a part of it.
 
-## r0 · Discovery and validation — weeks 0–0
+## autonomy:R0 · Legacy migration plan — weeks 0–0
 
-**Goal:** Deliver every r0 story for curriculum.
-**Done when you can show:** The r0 documents exist in the repository and their acceptance criteria are met.
-
-- **[curriculum.RESEARCH-1-SYSTEM-CLASSES](stories/curriculum.RESEARCH-1-SYSTEM-CLASSES.md)** — Compare the five system classes, and place this domain among them
-- **[curriculum.RESEARCH-2-AGENT-ANATOMY](stories/curriculum.RESEARCH-2-AGENT-ANATOMY.md)** — Map the nine anatomy elements onto this domain's agent
-- **[curriculum.RESEARCH-3-ROLE-AND-DA-TRANSITION](stories/curriculum.RESEARCH-3-ROLE-AND-DA-TRANSITION.md)** — Document Swati Raman's role, and which DA responsibilities transition
-- **[curriculum.RESEARCH-4-MANAGER-INTERVIEW](stories/curriculum.RESEARCH-4-MANAGER-INTERVIEW.md)** — Prepare a 30-minute interview with Swati Raman and propose a weekly check-in
-- **[curriculum.RESEARCH-5-THREE-PROPOSED-TASKS](stories/curriculum.RESEARCH-5-THREE-PROPOSED-TASKS.md)** — Capture three proposed agent tasks with boundaries and completion evidence
-
-## r1 · Legacy migration plan — weeks 0–0
-
-**Goal:** Deliver every r1 story for curriculum.
-**Done when you can show:** The r1 documents exist in the repository and their acceptance criteria are met.
-
-- **[curriculum.LEGACY-MIGRATION-PLAN](stories/curriculum.LEGACY-MIGRATION-PLAN.md)** — Legacy migration plan
-
-## r2 · r2 — weeks 0–0
-
-**Goal:** Deliver every r2 story for curriculum.
-**Done when you can show:** The r2 documents exist in the repository and their acceptance criteria are met.
+**Goal:** Deliver every autonomy:R0 story for Curriculum, Learning & Certification (Dara).
+**Done when you can show:** The autonomy:R0 documents exist in the repository and their acceptance criteria are met.
 
 - **[curriculum.CAP.autonomy_and_promotion_record_for_this_domain](stories/curriculum.CAP.autonomy_and_promotion_record_for_this_domain.md)** — A per-capability autonomy and promotion record for the curriculum employee
 - **[curriculum.CAP.blueprint_publish_to_live_timeline](stories/curriculum.CAP.blueprint_publish_to_live_timeline.md)** — Publishing an approved week plan to the live student timeline
@@ -42,7 +24,7 @@ system rather than a part of it.
 - **[curriculum.CAP.certification_bank_level_distribution_audit](stories/curriculum.CAP.certification_bank_level_distribution_audit.md)** — Bank-level audit of answer-key distribution and mock supportability
 - **[curriculum.CAP.certification_evidence_mapping_review](stories/curriculum.CAP.certification_evidence_mapping_review.md)** — Proposing and reviewing build evidence mapped onto CCAR-F domains
 - **[curriculum.CAP.certification_item_review_status_transition](stories/curriculum.CAP.certification_item_review_status_transition.md)** — Moving a prep item between draft, in review, approved and retired
-- **[curriculum.CAP.certification_item_rubric_review_and_improvem](stories/curriculum.CAP.certification_item_rubric_review_and_improvem.md)** — Per-item rubric scoring, adversarial review and improvement drafting for the CCAR-F prep bank
+- **[curriculum.CAP.certification_item_rubric_review_and_improvement](stories/curriculum.CAP.certification_item_rubric_review_and_improvement.md)** — Per-item rubric scoring, adversarial review and improvement drafting for the CCAR-F prep bank
 - **[curriculum.CAP.charter_and_kpi_stewardship](stories/curriculum.CAP.charter_and_kpi_stewardship.md)** — Keeping the curriculum employee's charter and KPIs honest and manager-authored
 - **[curriculum.CAP.cohort_certification_readiness_reporting](stories/curriculum.CAP.cohort_certification_readiness_reporting.md)** — Explainable cohort and per-student certification readiness reporting
 - **[curriculum.CAP.competency_coverage_gap_detection](stories/curriculum.CAP.competency_coverage_gap_detection.md)** — Competency coverage gap detection against the declared blueprint
@@ -56,6 +38,10 @@ system rather than a part of it.
 - **[curriculum.CAP.da_curriculum_analytics_transition](stories/curriculum.CAP.da_curriculum_analytics_transition.md)** — Data Analyst curriculum and certification reporting duties transitioning to AI
 - **[curriculum.CAP.daily_certification_readiness_flagging](stories/curriculum.CAP.daily_certification_readiness_flagging.md)** — Daily cohort certification-readiness risk flag
 - **[curriculum.CAP.daily_curriculum_gap_flagging](stories/curriculum.CAP.daily_curriculum_gap_flagging.md)** — Daily curriculum-quality gap flag for the accountable manager
+- **[curriculum.CAP.daily_curriculum_gap_flagging.L1-BY-HAND](stories/curriculum.CAP.daily_curriculum_gap_flagging.L1-BY-HAND.md)** — Daily curriculum-quality gap flag for the accountable manager · 1 · do it by hand
+- **[curriculum.CAP.daily_curriculum_gap_flagging.L2-IN-THE-APP](stories/curriculum.CAP.daily_curriculum_gap_flagging.L2-IN-THE-APP.md)** — Daily curriculum-quality gap flag for the accountable manager · 2 · do it in the app
+- **[curriculum.CAP.daily_curriculum_gap_flagging.L3-TOOL-REQUEST](stories/curriculum.CAP.daily_curriculum_gap_flagging.L3-TOOL-REQUEST.md)** — Daily curriculum-quality gap flag for the accountable manager · 3 · request the tool
+- **[curriculum.CAP.daily_curriculum_gap_flagging.L4-AGENT-WATCHED](stories/curriculum.CAP.daily_curriculum_gap_flagging.L4-AGENT-WATCHED.md)** — Daily curriculum-quality gap flag for the accountable manager · 4 · agent does it, watched
 - **[curriculum.CAP.escalation_reaches_a_named_human](stories/curriculum.CAP.escalation_reaches_a_named_human.md)** — Making sure a curriculum or certification finding actually reaches the accountable human
 - **[curriculum.CAP.external_certificate_claim_triage](stories/curriculum.CAP.external_certificate_claim_triage.md)** — Triaging a student's uploaded claim of an externally earned certification
 - **[curriculum.CAP.generated_card_content_governance_audit](stories/curriculum.CAP.generated_card_content_governance_audit.md)** — Governance audit of LLM-generated student card content
@@ -64,7 +50,7 @@ system rather than a part of it.
 - **[curriculum.CAP.manager_access_and_decision_queue_integrity](stories/curriculum.CAP.manager_access_and_decision_queue_integrity.md)** — Keeping the accountable manager actually able to reach and decide for her AI employee
 - **[curriculum.CAP.manager_conversation_briefing](stories/curriculum.CAP.manager_conversation_briefing.md)** — Direct manager conversation about the state of curriculum and certification
 - **[curriculum.CAP.manager_work_gateway_to_basecamp](stories/curriculum.CAP.manager_work_gateway_to_basecamp.md)** — Agent-to-human work gateway into the manager's real Basecamp queue
-- **[curriculum.CAP.module_and_artifact_drafting_for_human_approv](stories/curriculum.CAP.module_and_artifact_drafting_for_human_approv.md)** — Drafting curriculum module structures and lesson artifacts for a human to approve
+- **[curriculum.CAP.module_and_artifact_drafting_for_human_approval](stories/curriculum.CAP.module_and_artifact_drafting_for_human_approval.md)** — Drafting curriculum module structures and lesson artifacts for a human to approve
 - **[curriculum.CAP.out_of_scope_escalation_handoff](stories/curriculum.CAP.out_of_scope_escalation_handoff.md)** — Mandatory ticket-backed handoff of an out-of-scope student question to the accountable human
 - **[curriculum.CAP.pre_publish_validation_gate_audit](stories/curriculum.CAP.pre_publish_validation_gate_audit.md)** — Deterministic pre-publish validation gate over a week plan
 - **[curriculum.CAP.presence_availability_signal](stories/curriculum.CAP.presence_availability_signal.md)** — Reachability signal for the curriculum AI employee
@@ -74,3 +60,10 @@ system rather than a part of it.
 - **[curriculum.CAP.video_link_health_monitoring](stories/curriculum.CAP.video_link_health_monitoring.md)** — Curriculum video-link health monitoring
 - **[curriculum.CAP.week_blueprint_authoring_and_quality_scoring](stories/curriculum.CAP.week_blueprint_authoring_and_quality_scoring.md)** — Week and session blueprint authoring with a real quality, coverage and readiness score
 - **[curriculum.CAP.week_teaching_content_integrity_audit](stories/curriculum.CAP.week_teaching_content_integrity_audit.md)** — Integrity audit of the shipped week decks, session plans and deep-dive guides
+- **[curriculum.LEGACY-MIGRATION-PLAN](stories/curriculum.LEGACY-MIGRATION-PLAN.md)** — Legacy migration plan
+- **[curriculum.RESEARCH-1-SYSTEM-CLASSES](stories/curriculum.RESEARCH-1-SYSTEM-CLASSES.md)** — Compare the five system classes, and place this domain among them
+- **[curriculum.RESEARCH-2-AGENT-ANATOMY](stories/curriculum.RESEARCH-2-AGENT-ANATOMY.md)** — Map the nine anatomy elements onto this domain's agent
+- **[curriculum.RESEARCH-3-ROLE-AND-DA-TRANSITION](stories/curriculum.RESEARCH-3-ROLE-AND-DA-TRANSITION.md)** — Document Swati Raman's role, and which DA responsibilities transition
+- **[curriculum.RESEARCH-4-MANAGER-INTERVIEW](stories/curriculum.RESEARCH-4-MANAGER-INTERVIEW.md)** — Prepare a 30-minute interview with Swati Raman and propose a weekly check-in
+- **[curriculum.RESEARCH-5-THREE-PROPOSED-TASKS](stories/curriculum.RESEARCH-5-THREE-PROPOSED-TASKS.md)** — Capture three proposed agent tasks with boundaries and completion evidence
+- **[curriculum.STORY-000](stories/curriculum.STORY-000.md)** — STORY-000 · Build your Command Center

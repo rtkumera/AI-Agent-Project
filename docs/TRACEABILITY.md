@@ -1,4 +1,4 @@
-# curriculum — Traceability
+# Curriculum, Learning & Certification (Dara) — Traceability
 
 Every requirement, and the stories that fulfil it. A `must` requirement with no
 story is a gap the plan gate refuses to publish; a constraint legitimately has

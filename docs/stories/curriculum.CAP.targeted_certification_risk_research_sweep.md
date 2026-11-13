@@ -1,5 +1,7 @@
 # curriculum.CAP.targeted_certification_risk_research_sweep — Per-student certification-risk research sweep, human-mediated
 
+**CANDIDATE -- not started, not assigned.** This is one line on this domain's list of everything its agent could eventually do. It becomes real work only when the builder picks it and their manager agrees, at which point it opens as four stories. Until then it is deliberately inert, and the honest status of it is "not started" rather than "behind".
+
 A specific pilot-cohort student whose certification readiness has fallen below the bar becomes a named task for Swati, with the weak domains and the real probability attached, rather than a cohort average that hides them.
 
 **Built today:** implemented. **Requirement validated:** draft -- Swati Raman must confirm scope, exceptions and success measures
@@ -13,7 +15,7 @@ A specific pilot-cohort student whose certification readiness has fallen below t
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

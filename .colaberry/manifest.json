@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-11-13T20:04:11.139Z",
-  "plan_version": 1,
-  "plan_sha256": "05f3882ca86686be5f8cbe685ece01f5a2a85eb896bdce82261077fa8d3e126d",
-  "correlation_id": "cc-20261113-q7m2-ruth-resync",
+  "generated_at": "2026-11-13T22:49:15.187Z",
+  "plan_version": 2,
+  "plan_sha256": "6f95cc68b90608455f2c70df7bade90dc8e963a58d96eeb4929650b0a2d19f18",
+  "correlation_id": null,
   "project_id": "f247aaaa-d548-581f-8956-850adf8bf6b4",
   "truth_revision": null,
   "files": [
     {
       "path": "docs/REQUIREMENTS.md",
-      "sha256": "1e0a57c3217d190956fa0ae35d06d9946fd4c16e3ef4b892bca677baade602e8"
+      "sha256": "ecf223ed1cde8ed3868d09e0fe204307736ae615d5b51f80c43b7005916ff89a"
     },
     {
       "path": "docs/STORIES.md",
-      "sha256": "4bfd3eee15a45332ce1df9a09b8e62f9b645fd85e76f059e81ab98091111c827"
+      "sha256": "adbd30d4f7a8e31c281912d81173423821474bda66f9edd65d36a5b42a39abf0"
     },
     {
       "path": "docs/TRACEABILITY.md",
-      "sha256": "89caf3dd58078f51920a4cde9726855b112eb957f388e0613be5409c9107a928"
+      "sha256": "8f2539cdba589ed8ae7f168f315ab2363ba1a5d28ce1a3979d4dd5e9e5d4a659"
     },
     {
       "path": "docs/DATA_CONTRACT.md",
@@ -24,195 +24,211 @@
     },
     {
       "path": "CLAUDE.md",
-      "sha256": "ea4b97e6af994355ee546f3c39aa3501da853381b8fe6a418b9c1ecc5982ca4b"
+      "sha256": "5fd74f59b2af581aa8891559ad001a278700ff456763fdfaf5ebe360b7841b61"
     },
     {
       "path": "docs/stories/curriculum.CAP.autonomy_and_promotion_record_for_this_domain.md",
-      "sha256": "bd06d099a48f831c78d430a050d5a9157b09cc4e63f793567f0f7acdc1ae6993"
+      "sha256": "f5fa0d3ef049d8ff1c6cb51317e3499f5936432f892849a16db532a8fd44743e"
     },
     {
       "path": "docs/stories/curriculum.CAP.blueprint_publish_to_live_timeline.md",
-      "sha256": "5eec29d690dee54f91db086ad00f564d34d865dad446e71aaff1ff71bc1da790"
+      "sha256": "00c92f1268f18ec0dc0ea9df169e2e8bae1daa4da828171ccd8dcbb3c889d1f8"
     },
     {
       "path": "docs/stories/curriculum.CAP.ccarf_prep_alignment_drift_tracking.md",
-      "sha256": "7ae7531cc43b4e122b3e0ae582b4e4b7b9523c791ee25a8b510dd507e1a0d5e7"
+      "sha256": "103f35400e49946ad6ffad7b655d5a9dc12becbfd6fc1ccf484a4ab6aad085db"
     },
     {
       "path": "docs/stories/curriculum.CAP.certification_bank_level_distribution_audit.md",
-      "sha256": "9bfc988a33195b226d4ab078a064f2b4fb7e92b47e1ae2d6f83bfac95b668e1c"
+      "sha256": "ca30850627cdc152a4e1384e36756eef24a297995059423e1e380375e3580401"
     },
     {
       "path": "docs/stories/curriculum.CAP.certification_evidence_mapping_review.md",
-      "sha256": "a47460c187f422d251d3dcf7ca43f96575e8a57535e7bed14697ff5cab426d60"
+      "sha256": "55b596d235a6eeda8f566363f1e49aa45ad37074af5c4e367f9fd4429811d29b"
     },
     {
       "path": "docs/stories/curriculum.CAP.certification_item_review_status_transition.md",
-      "sha256": "306c6075274b52d77ec221850e2bfc6a71f9c2bc8277c7ff0392b1a77387ef18"
+      "sha256": "fedacd9c7f8dbe4016f4f3e956530ce54f08fde6c976ba14bd1b85c434472626"
     },
     {
-      "path": "docs/stories/curriculum.CAP.certification_item_rubric_review_and_improvem.md",
-      "sha256": "c8db13d1e79faafaead6dc3be18f63e9dc6e6296929f1a0b9b0680ab6c7107a0"
+      "path": "docs/stories/curriculum.CAP.certification_item_rubric_review_and_improvement.md",
+      "sha256": "e8a316358625dd629f431c25db86b4ad9ac5d413168e055dba1d1091e2b01b81"
     },
     {
       "path": "docs/stories/curriculum.CAP.charter_and_kpi_stewardship.md",
-      "sha256": "73878b9add12cdc3f528bf9f94ab4b3ce2c81e6bbd5c54c7d0f22c00a34d957e"
+      "sha256": "df0ed4b48d97a9962fb9c68c9ac0301bbeded1fa1bdfb9b736d8c8883496a1c7"
     },
     {
       "path": "docs/stories/curriculum.CAP.cohort_certification_readiness_reporting.md",
-      "sha256": "43693c8a44ba416e9047d87c46ed89e07117a9d4223e8c3687c04bb4e8742e7e"
+      "sha256": "e2b5af5a7dc812e53e44c8bfd3b11c3a8241b1b69407a067765a3b355aa35468"
     },
     {
       "path": "docs/stories/curriculum.CAP.competency_coverage_gap_detection.md",
-      "sha256": "6b0b0de52662e6e1e12321d41ea815e088127c0b64fe58d3f129f124f93b739f"
+      "sha256": "f19b6ba23d84f99fc3d2e82462bf4ff014c59abec00401068239a5280208f129"
     },
     {
       "path": "docs/stories/curriculum.CAP.coverage_gap_video_curation_proposal.md",
-      "sha256": "21d8cc7091ec5072c78786be4e3a11929bba7b71fe478fef9266fdb4c3f5f032"
+      "sha256": "bb448299bd50c85d463b59e807bd50bbe17d68a47b2d6624648efb277f66f424"
     },
     {
       "path": "docs/stories/curriculum.CAP.coverage_scope_and_deferral_enforcement.md",
-      "sha256": "0fa3462ad76e430fe53e152e438c2bf48cf9631520ea4d658a7e189ec3c4e342"
+      "sha256": "e33b2228b26699123a314a01074f83caefe89de402d98b6efe45f7ab3e5f5478"
     },
     {
       "path": "docs/stories/curriculum.CAP.curriculum_change_impact_on_live_cohorts.md",
-      "sha256": "05340294da88723dc5c9489be53b85f03c843e4ba701fc1b6f14c058d6b4490e"
+      "sha256": "fb1b955431601b552eadc8a3d2209a9b851d747ae6a3e0ef5dee1361b29889c2"
     },
     {
       "path": "docs/stories/curriculum.CAP.curriculum_improvement_recommendations.md",
-      "sha256": "5d6d312c2c37173bace7ecf61dc22c78e184e60839715c05ccb4036fc4174afb"
+      "sha256": "576036dc1476c61eaf3e41cfac2f3c5041e285989baebfaae20e895f314d088c"
     },
     {
       "path": "docs/stories/curriculum.CAP.curriculum_integrity_scan.md",
-      "sha256": "edb13e7db4e79ecd3009ec77650c476b19a84633294b4d95a021265d4a6266e1"
+      "sha256": "0ace65d2a54a6c870137c8dd7f290ad230fbca31732288ac93e78e399edb0ece"
     },
     {
       "path": "docs/stories/curriculum.CAP.curriculum_type_approval_and_promotion.md",
-      "sha256": "2ffda830eccd93019c3894cf3e8383067f1cc40819a748acff02c621be3817e2"
+      "sha256": "ef8479a64e550780ed01865a1f458a85ebc75329bcbe910de9cf974771154392"
     },
     {
       "path": "docs/stories/curriculum.CAP.curriculum_type_draft_authoring.md",
-      "sha256": "ba837053b7720127ac8052fa718b5d1ac5564dfd785a79970ed94762ae3e7b63"
+      "sha256": "7101d7a23b76486be27e649e4b1b16b5d0c5ce1a62079a7f2534b20b9f6971f5"
     },
     {
       "path": "docs/stories/curriculum.CAP.da_curriculum_analytics_transition.md",
-      "sha256": "d0c4a34b6e62d0d35acaf010bb3d16bd929a772f64510de2dbbd26ab25483a3d"
+      "sha256": "7cc07bbbe35721a3f3521c950cca2327f42c0193481ed1e01d717c3b5a39f57b"
     },
     {
       "path": "docs/stories/curriculum.CAP.daily_certification_readiness_flagging.md",
-      "sha256": "0dfa222957950ffb404fd58eda44739a5e2ea621696ad46e6400b48e4e9b5479"
+      "sha256": "1a3d168c828c5614d2bc4bb2eb7e43496f54498aee7fb3bc6eec2e9481a921d6"
     },
     {
       "path": "docs/stories/curriculum.CAP.daily_curriculum_gap_flagging.md",
-      "sha256": "cd7525f31eaeb49487339202ca2e6135aedf1b46f36c0e37a881d6e6ce68b189"
+      "sha256": "4e108396e74cbacd559d04ded2df4dc5cb91d408d9164ed192305cd6e2f882e9"
+    },
+    {
+      "path": "docs/stories/curriculum.CAP.daily_curriculum_gap_flagging.L1-BY-HAND.md",
+      "sha256": "d17c3a9b917f5623d163a8f089d7c946fb5b1b99fe25fc8c06abd4a28512924c"
+    },
+    {
+      "path": "docs/stories/curriculum.CAP.daily_curriculum_gap_flagging.L2-IN-THE-APP.md",
+      "sha256": "ad5643647974c63ef7dda8d48f7ec4179436b4a42af891b09d957b6bd6ad22ea"
+    },
+    {
+      "path": "docs/stories/curriculum.CAP.daily_curriculum_gap_flagging.L3-TOOL-REQUEST.md",
+      "sha256": "812fddd8ffcc9b49a4a1da3a243e6bb01f8e4be0a7e16eaf4e20828a598693ab"
+    },
+    {
+      "path": "docs/stories/curriculum.CAP.daily_curriculum_gap_flagging.L4-AGENT-WATCHED.md",
+      "sha256": "046d4adcbc1ed59e497e9b8620bd8b45beaf1bd06f2bce9832d097090c28b677"
     },
     {
       "path": "docs/stories/curriculum.CAP.escalation_reaches_a_named_human.md",
-      "sha256": "5e639bd54e205ea2d47fe7da734c9907b83d31be11afe9ecaba03ef3e1af8d81"
+      "sha256": "29a45155d218cb3311770a3c5d091c785488c4886e18f8ca1f84f8db37af58b1"
     },
     {
       "path": "docs/stories/curriculum.CAP.external_certificate_claim_triage.md",
-      "sha256": "558949d6d752f7b074bc33584ef9ff787e1221b4dc775adf01c378122f271e78"
+      "sha256": "1bf2deb84f7d6d27849cbebec571091534e1c5c8d3f1d1834574d22f3c8d84b2"
     },
     {
       "path": "docs/stories/curriculum.CAP.generated_card_content_governance_audit.md",
-      "sha256": "fe6e8ac9046f6c9992adde08f12de7579868022318c74b4fc9ecae6949bbf5f9"
+      "sha256": "7592abaa5d3653853ba38c8c2af0f20c1990329315eb9195a117cc6b4e6c23aa"
     },
     {
       "path": "docs/stories/curriculum.CAP.learner_outcome_to_curriculum_feedback_loop.md",
-      "sha256": "5affc66912ad3f046a6dfa9175b6cb4a74e92c5f3d28b22089da9bc5e434ed9b"
+      "sha256": "be21dcbfdbebdde7e8e7767bf570fb93ab6a220e7b40316b3d5ff511c9009e61"
     },
     {
       "path": "docs/stories/curriculum.CAP.llm_cost_attribution_integrity.md",
-      "sha256": "034dbbe5a27a9d41bf76d65d8e2e5025be407f535e6c76a7807156161ae4e91c"
+      "sha256": "68d2c90298b197ff33c59cbd13ab0b95356cc9e0e799046b6c03744ed31a9b7f"
     },
     {
       "path": "docs/stories/curriculum.CAP.manager_access_and_decision_queue_integrity.md",
-      "sha256": "0e7c44cc263f9eaf95942825a9131d9abd30082367c0325f28032e1ded06f1b5"
+      "sha256": "345bda384824327af680c769be8df049d7345fc0e4c615b6615047c55385aa13"
     },
     {
       "path": "docs/stories/curriculum.CAP.manager_conversation_briefing.md",
-      "sha256": "5d875e3f036a23109cdc3eee7ef747433e8230be04a6b3b6bdae67742d5f6160"
+      "sha256": "7597b68620c12b1415226c11b9bd1616c9c58b76d3665f2dae83d184a59b6342"
     },
     {
       "path": "docs/stories/curriculum.CAP.manager_work_gateway_to_basecamp.md",
-      "sha256": "8c3b83288f059e8c6314f7201247cb746d8edff7e504d06393c7469095c8cba9"
+      "sha256": "ffb8b92e9171a23ac776791b6c51ab0a5a54133196c920ded16bf1e441622409"
     },
     {
-      "path": "docs/stories/curriculum.CAP.module_and_artifact_drafting_for_human_approv.md",
-      "sha256": "9f8998229c15f4e988145631a485b4cae78d79401c3d613e893aaeabeadd4805"
+      "path": "docs/stories/curriculum.CAP.module_and_artifact_drafting_for_human_approval.md",
+      "sha256": "2fe30a36da1fb02d70e4aeb06c07d0620bf33f88c4432c4f3d3947440c494b94"
     },
     {
       "path": "docs/stories/curriculum.CAP.out_of_scope_escalation_handoff.md",
-      "sha256": "c089562e9c79dd1a070b4a692277c86dcd21477ce15448bf173bc94fa52dcb6f"
+      "sha256": "761f59e5863782146531cdcface0913f8b315f6de6abe34fb89724e3b5876b05"
     },
     {
       "path": "docs/stories/curriculum.CAP.pre_publish_validation_gate_audit.md",
-      "sha256": "c59ea1547396f53488a39ff30e1ecaa8986c73dbeb3b974ca694f432c52c51c2"
+      "sha256": "cbe2a2edfcd4da3a20e1fe4dd1af3e2fdab83190ec224d56ade3fa45647f9ca6"
     },
     {
       "path": "docs/stories/curriculum.CAP.presence_availability_signal.md",
-      "sha256": "22eba0c237044aea3bd1b3dfde1be0e5f34bc1fee95ed4a257835410469e8bed"
+      "sha256": "b50a1b8c4f55fcb89214d0e2f85b121015051199dbf78e40182c846d850a9979"
     },
     {
       "path": "docs/stories/curriculum.CAP.strategy_initiative_proposal.md",
-      "sha256": "a083d2243506a03324a671ab1d1a91090ef4fc30b098828999c45fde070259ac"
+      "sha256": "8d2fd188f8113f9ce26306611e3b682323e1df5d2155087b0faf5c30748dab74"
     },
     {
       "path": "docs/stories/curriculum.CAP.student_curriculum_dm_support.md",
-      "sha256": "531edf06c8c22b241c06fef1c101d8b46b3fa7d23b602b3ea62459c52d5c838d"
+      "sha256": "496f52d93fac5893b201eb01a67eaac8559694bbde59bdb6edb125f8d1856634"
     },
     {
       "path": "docs/stories/curriculum.CAP.targeted_certification_risk_research_sweep.md",
-      "sha256": "8ce1c02d3eab1fd53994fc2bd7921cd0582d08cbbcf6024a36d7bd9d1a7defca"
+      "sha256": "6a25aaea865ebc75b0fb7624606abfafa0522fb1c5998a3bcfd2abe1dea4f78e"
     },
     {
       "path": "docs/stories/curriculum.CAP.video_link_health_monitoring.md",
-      "sha256": "517c53228a04b0b00dfece4aeb703f8e89931acc1c7f25119981c68776a2624a"
+      "sha256": "ca77dae86af9ac97f7c1e5aafef401412b8572195ee7350f062672ef1467df38"
     },
     {
       "path": "docs/stories/curriculum.CAP.week_blueprint_authoring_and_quality_scoring.md",
-      "sha256": "25d828c2f060ff1d866816aaab16841f0e68ae71953108d88818b3d38a139132"
+      "sha256": "c6dfa1ad7f42933fc663755d3d71d7f9998d2625a5588d93a8915a00d9711ee8"
     },
     {
       "path": "docs/stories/curriculum.CAP.week_teaching_content_integrity_audit.md",
-      "sha256": "e5b63d58f5f2fcad4d6d2acad063552811dac84643dd636b3164215d9f9313d6"
+      "sha256": "6c84ca513c79600858eced7e99516201335a890596a70d6710ca5e01e6e92ee4"
     },
     {
       "path": "docs/stories/curriculum.LEGACY-MIGRATION-PLAN.md",
-      "sha256": "8213397716f455e5c22fae142edcff67bb87055fddc86b37028ce3f2bbd0d01d"
+      "sha256": "0f5ee0b2514a9f6a96bbc5c41d55fff681835b5ae94ea9718efc58de9191bbb5"
     },
     {
       "path": "docs/stories/curriculum.RESEARCH-1-SYSTEM-CLASSES.md",
-      "sha256": "04fe9d8c69dfb1466edffdc700505e54b8fe2718703af2699c22d67a846085da"
+      "sha256": "545b4e5a7051fae4c32fb6113804b5eb9db30a171969756af35526781a725867"
     },
     {
       "path": "docs/stories/curriculum.RESEARCH-2-AGENT-ANATOMY.md",
-      "sha256": "6d8591737ea4f7a8c89d836653a75c3161dcf062952b38f7927ac9e06634de30"
+      "sha256": "fb21e6a4883ea3813597ca73cd7fdcaa7b811f709e717812c934c83b1ad6f48d"
     },
     {
       "path": "docs/stories/curriculum.RESEARCH-3-ROLE-AND-DA-TRANSITION.md",
-      "sha256": "2dc9e36a416492a4ee485e92d11a36f1b7fe039076d27580acfa72ed9acb3e2c"
+      "sha256": "332bd2e322bf607219b1f1ce865d25f91fe13c184d2450b78ce0faf2df7cfd22"
     },
     {
       "path": "docs/stories/curriculum.RESEARCH-4-MANAGER-INTERVIEW.md",
-      "sha256": "401ba592134921823fa1c1fef91b26f66fa1d95d38b59747144fceb3f20a1956"
+      "sha256": "39d6dcb8ce3913cbce7399dfa0d0e8ec97c5db8276e90fb07e435f8342cf1ad2"
     },
     {
       "path": "docs/stories/curriculum.RESEARCH-5-THREE-PROPOSED-TASKS.md",
-      "sha256": "e3cd6fe1821a594644656bac8448d41901c4a892013c0f8363da00836388a2ea"
+      "sha256": "6b75d4a591e11719b2d025bbb3ba2575a82aa9ad5b5f68661e0c8cfaefc0ae41"
     },
     {
       "path": "docs/stories/curriculum.STORY-000.md",
-      "sha256": "74961c47f3eac663a216cd60158faaaa35a874d26b1a7303b48f6e645ce260eb"
+      "sha256": "10bd667dce045858a693295b81f83ca843a600d061a1109aa5afd07771180069"
     },
     {
       "path": ".colaberry/plan.json",
-      "sha256": "9152c4ce92e95914184f5386de62f4cc26d8dabdda4551f0d868496f2a102ad7"
+      "sha256": "5558363c9deda39962bf1760b79ce6c13fd53921d557e92945450a474d6cece2"
     },
     {
       "path": ".colaberry/progress.json",
-      "sha256": "fe74f0c625eca1900812e255fddead62bb057e4633edea604aac70247ef721f1"
+      "sha256": "dcc483df1924765940de1cb78adc080bdc6738fbe58cde1cc6d21fea7b9f43b2"
     },
     {
       "path": ".colaberry/profile.json",

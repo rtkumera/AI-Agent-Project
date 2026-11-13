@@ -1,5 +1,7 @@
 # curriculum.CAP.coverage_gap_video_curation_proposal — Proposing curated videos to close a specific competency coverage gap
 
+**CANDIDATE -- not started, not assigned.** This is one line on this domain's list of everything its agent could eventually do. It becomes real work only when the builder picks it and their manager agrees, at which point it opens as four stories. Until then it is deliberately inert, and the honest status of it is "not started" rather than "behind".
+
 A competency a week promises but nothing teaches gets concrete, reviewed video candidates attached to it, so closing a gap is a decision a human makes from real options rather than a search they run themselves.
 
 **Built today:** implemented. **Requirement validated:** draft -- Swati Raman must confirm scope, exceptions and success measures
@@ -13,7 +15,7 @@ A competency a week promises but nothing teaches gets concrete, reviewed video c
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

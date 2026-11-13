@@ -1,5 +1,7 @@
 # curriculum.CAP.cohort_certification_readiness_reporting — Explainable cohort and per-student certification readiness reporting
 
+**CANDIDATE -- not started, not assigned.** This is one line on this domain's list of everything its agent could eventually do. It becomes real work only when the builder picks it and their manager agrees, at which point it opens as four stories. Until then it is deliberately inert, and the honest status of it is "not started" rather than "behind".
+
 Swati can see which students are building readiness, which are approaching it, which have sustained it, which have not started, and where the cohort is weakest - with every number explainable from its stored components.
 
 **Built today:** implemented. **Requirement validated:** draft -- Swati Raman must confirm scope, exceptions and success measures
@@ -12,7 +14,7 @@ Swati can see which students are building readiness, which are approaching it, w
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

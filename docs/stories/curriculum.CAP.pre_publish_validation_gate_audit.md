@@ -1,5 +1,7 @@
 # curriculum.CAP.pre_publish_validation_gate_audit — Deterministic pre-publish validation gate over a week plan
 
+**CANDIDATE -- not started, not assigned.** This is one line on this domain's list of everything its agent could eventually do. It becomes real work only when the builder picks it and their manager agrees, at which point it opens as four stories. Until then it is deliberately inert, and the honest status of it is "not started" rather than "behind".
+
 No week can reach students while a hard check fails, and every warn carries a specific detail, so the bar for publishable curriculum is a reproducible number rather than a reviewer's mood that day.
 
 **Built today:** implemented. **Requirement validated:** draft -- Swati Raman must confirm scope, exceptions and success measures
@@ -13,7 +15,7 @@ No week can reach students while a hard check fails, and every warn carries a sp
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 
