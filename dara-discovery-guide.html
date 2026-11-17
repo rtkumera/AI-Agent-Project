@@ -1383,7 +1383,7 @@ grep -c -i twc backend/src/services/agentDomain/capabilities/curriculum.json   #
       <div class="check"><h4>W3 · "Already absorbed" for the QA scan is half done</h4><span class="chip unknown">half done</span><p>The plan says its row should stop claiming a cron. It still does, and the seed rewrites that value on every restart, so a hand fix wouldn't last. <span class="cite">COVERAGE_CONTRACT.md:13 · agentRegistrySeed.ts:3273</span></p></div>
       <div class="check"><h4>W4 · No code performs either retirement</h4><span class="chip notmet">not done</span><p>"Archive" means setting the status to archived and switching the row off. No code sets "archived", and the existing retirement list doesn't include these two. <span class="cite">repointLegacyBehaviors.ts:61 · agentRegistrySeed.ts:3212</span></p></div>
       <div class="check"><h4>W5 · A rebuild would switch three old agents back on</h4><span class="chip notmet">not replayable</span><p>Rows default to "on" and these three seed rows don't say otherwise. On a fresh database, LearningInnovationArchitect would resume creating tickets every 6 hours. <span class="cite">AiAgent.ts:423-427 · aiOpsScheduler.ts:323</span></p></div>
-      <div class="check"><h4>W6 · "Five live production rows" says more than the source</h4><span class="chip unknown">overstated</span><p>The source says those rows are switched on and asks someone to check whether anything still runs them. "Live" isn't shown. <span class="cite">LEGACY_AGENT_CLASSIFICATION.csv:243-247</span></p></div>
+      <div class="check"><h4>W6 · "Five live" is too low: it's thirteen</h4><span class="chip absent">undercounted</span><p>The brief counted only the 5 rows that exist only in production. It missed 8 more of the 21 ownerless records that are wired to a running cron. Together the 13 have run 1,491,129 times. Tashima Diah caught it and Ali relayed the fix; the run count comes from production data. An earlier version of this page said "five" overstated it. That was wrong. <span class="cite">LEGACY_AGENT_CLASSIFICATION.csv:227-234, :243-247</span></p></div>
     </div>
     <p class="small"><b>Also:</b> all eight seed-row line numbers in the research are 2 lines off. That's minor and changes nothing. Of the 13 citations checked, 10 said exactly what was claimed.</p>
   </section>
@@ -1417,7 +1417,7 @@ grep -c -i twc backend/src/services/agentDomain/capabilities/curriculum.json   #
         <div><b>Where it goes</b>Swati's Monday decision list (page 4), with its name, what it does, whether anything runs it, and a proposed owner.</div>
         <div><b>On that list today</b><span>The four nightly Anthropic jobs. <i>Register them first</i> so they get an off switch. Two session-reminder jobs are possibly curriculum work.</span> <span class="cite">LEGACY_AGENT_CLASSIFICATION.csv:233-234</span></div>
       </div>
-      <p class="small">21 more legacy records belong to no domain at all. They're outside this plan and named so nobody assumes they're covered.</p>
+      <p class="small">21 more legacy records belong to no domain at all, and 13 of them are live. They're outside this plan and named so nobody assumes they're covered.</p>
     </div>
   </section>
 

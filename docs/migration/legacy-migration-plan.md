@@ -119,9 +119,13 @@ I opened each one at `a284987`. ✓ means it says what the brief claims. ✗ mea
 - **What follows:** on a fresh database, all three would be created **enabled**, the opposite of what production showed for two of them (`BASELINE_2026-09-15.md:9`, `:16`). LearningInnovationArchitect would also start running every 6 hours (`aiOpsScheduler.ts:323`), with tools that create initiatives and tickets (`agentRegistrySeed.ts:1993`).
 - **Why it matters:** "run it twice, same end state" holds on the current production database, but not on a rebuilt one. §6 fixes this.
 
-### W6. "Five of them are live production rows" goes further than the source does
-- The five `production_only` rows among the 21 with no owner are recorded as "enabled; no registry entry; **verify whether anything still runs it**" (`LEGACY_AGENT_CLASSIFICATION.csv:243-247`). The matrix calls for the same check (`MIGRATION_MATRIX.md:49`).
-- "Enabled" is evidenced; "live" is not. Whether anything runs them is **unknown**.
+### W6. "Five of them are live production rows" undercounts: it is thirteen
+*Corrected 2026-11-17. The first version of this section argued that "five live" said too much. That was the wrong direction: the brief says too little.*
+- The brief counted only the five `production_only` rows among the 21 with no owner (`LEGACY_AGENT_CLASSIFICATION.csv:243-247`).
+- It missed eight `registry` rows in the same group that are wired to a running cron: BehavioralSignalDetector, BehavioralTriggerEvaluator, ICPInsightComputer, IntentScoreRecomputer, OpportunityScoreRecomputer, PortfolioGitHubSyncAgent, SessionLifecycle and SessionReminders (`LEGACY_AGENT_CLASSIFICATION.csv:227-234`, each citing its `schedulerService.ts` line).
+- 5 + 8 = **13 live records**. The other eight of the 21 are `retire` rows with no source file on disk (`:235-242`).
+- The correction comes from Tashima Diah's check of the brief against its own sources, relayed by Ali Muwwakkil. Between them the 13 have run **1,491,129 times**. That count comes from production data, not from the repo at `a284987`, so this plan cites it rather than reproving it. The upstream fix is merged; until the boards are regenerated, the brief's own text (`docs/stories/curriculum.LEGACY-MIGRATION-PLAN.md:15`) still says five. Trust thirteen.
+- What still needs checking is ownership, not liveness: all 13 belong to no domain, so nobody is accountable for switching any of them off.
 
 ### W7. Smaller line drift
 All 8 seed line numbers moved by 2, and Dara's `tools_granted` moved from `:2522` to `:2544` (§4). In the same file's notes, the admin pass-through cited at `mgmtSectionGate.ts:188` is now at `:248` (already recorded in `docs/discovery/04-manager-interview.md`).
@@ -166,7 +170,7 @@ M2–M4 are changes to the platform repository. This story doesn't make them. Wh
 - **On that list today:**
   - The four Anthropic nightly jobs (W1, U3). Because one of them emails Ali with no off switch, the first proposed action is to **register** them, following the `CurriculumVideoLinkHealth` precedent (`agentRegistrySeed.ts:2575-2582`: "register the tracking row, change zero real behavior"). Classify them after that.
   - `SessionLifecycle` and `SessionReminders`, as possible curriculum work only (U5).
-- **The 21 records with no owner** (`LEGACY_AGENT_CLASSIFICATION.csv:227-247`) belong to no domain and aren't in this plan. This plan names them so they aren't mistaken for covered.
+- **The 21 records with no owner** (`LEGACY_AGENT_CLASSIFICATION.csv:227-247`) belong to no domain and aren't in this plan. Thirteen of them are live (W6). This plan names them so they aren't mistaken for covered.
 
 ---
 
