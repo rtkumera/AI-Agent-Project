@@ -1427,33 +1427,45 @@
       "criteria": [
         {
           "text": "Given the Command Center, when it is opened, then all six panels render and each one names the endpoint it read.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Given a panel whose endpoint returned nothing, when it renders, then it says so in words and is visibly distinct from a panel that is still loading.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Given the autonomy ladder panel, when it renders, then all ten rungs are present with the owner's wording, and each capability's ceiling is marked against the rung it stops at.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Given the autonomy ladder panel, when a capability's authority is shown, then the page shows the effective authority `effectiveAuthority()` returns rather than the level the capability record asks for, and names the `no_tool_grants` rule with the number of capabilities it currently constrains, saying so in words when that number is zero.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Given the governance panel, when a tool request is shown, then nothing on the page states or implies that filing it granted anything.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Trust -- no panel shows a number, a grant, a rung or a result this domain has not actually produced.",
-          "passed": false
+          "passed": true
         }
       ],
-      "files_touched": [],
-      "tests_added": [],
-      "notes": null,
-      "updated_at": null,
+      "files_touched": [
+        "index.html",
+        "assets/model.js",
+        "assets/app.js",
+        "assets/styles.css",
+        "assets/sample.js (deleted)",
+        "data/curriculum.capabilities.json",
+        "scripts/extract_capabilities.py",
+        "tests/command-center.test.mjs",
+        "docs/evidence/STORY-000/"
+      ],
+      "tests_added": [
+        "tests/command-center.test.mjs"
+      ],
+      "notes": "Six-panel Command Center built to the 13 Nov brief, replacing the paused tab layout. Panels read .colaberry/agent-domain.json (platform-synced copy of the three GET endpoints) and an extract of the capability file the curriculum endpoints load, at platform a284987c0. 11 tests pass against the real files (node --test tests/command-center.test.mjs). Evidence and criterion mapping: docs/evidence/STORY-000/README.md. Flagged: the brief says none of its listed tools is granted, but the agent row holds scan_curriculum_integrity and escalate_to_human; the employee level is not drawn on the R0-R9 ladder because the platform record says the two scales must never be compared. For Swati to evaluate.",
+      "updated_at": "2026-11-19T00:00:00Z",
       "verification": {
         "state": "not_started",
         "criteria_passed": 0,

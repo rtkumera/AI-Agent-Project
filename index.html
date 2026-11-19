@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Command Center · Curriculum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<header class="mast">
+  <div class="wrap">
+    <div class="eyebrow">Command Center · Curriculum, Learning &amp; Certification · <code>curriculum</code></div>
+    <h1>What I'm building, <span>and how far it has actually got</span></h1>
+    <p class="meta" id="meta">Reading the platform's records…</p>
+    <div id="demo-banner" class="demo-banner" hidden></div>
+  </div>
+  <nav class="jump" aria-label="Panels">
+    <div class="wrap">
+      <a href="#p1"><b>1</b>Employee</a>
+      <a href="#p2"><b>2</b>Capabilities</a>
+      <a href="#p3"><b>3</b>Autonomy ladder</a>
+      <a href="#p4"><b>4</b>Per-rung behaviour</a>
+      <a href="#p5"><b>5</b>Governance</a>
+      <a href="#p6"><b>6</b>Not available</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="rules" aria-label="Rules this page keeps">
+    <div><b>Draft is not approved.</b><span>Every capability shows its validation state as recorded. No panel reads as signed off.</span></div>
+    <div><b>Progress is not authority.</b><span id="rule-progress">A named human promotes, one rung at a time, on evidence.</span></div>
+    <div><b>Tool grants are the throttle.</b><span>Authority shown here is what <code>effectiveAuthority()</code> returned, not what a capability asks for. See panel 3.</span></div>
+  </section>
+
+  <section class="panel" id="p1" data-state="loading" aria-busy="true">
+    <header class="ph"><span class="pn">1</span><div><h2>Your employee</h2><p class="pq">Does it exist, and what is it allowed to do?</p></div></header>
+    <p class="reads">Reads <code>GET /api/admin/agent-domains-mine</code></p>
+    <div class="pb"></div>
+  </section>
+
+  <section class="panel" id="p2" data-state="loading" aria-busy="true">
+    <header class="ph"><span class="pn">2</span><div><h2>Your capability inventory</h2><p class="pq">What am I actually building?</p></div></header>
+    <p class="reads">Reads <code>GET /api/admin/agent-domains/curriculum</code> and <code>GET /api/admin/agent-domains/curriculum/coverage</code></p>
+    <div class="pb"></div>
+  </section>
+
+  <section class="panel" id="p3" data-state="loading" aria-busy="true">
+    <header class="ph"><span class="pn">3</span><div><h2>The autonomy ladder</h2><p class="pq">Where is this going?</p></div></header>
+    <p class="reads">Reads ceilings from <code>GET /api/admin/agent-domains/curriculum</code> and effective authority from <code>GET /api/admin/agent-domains-mine</code></p>
+    <div class="pb"></div>
+  </section>
+
+  <section class="panel" id="p4" data-state="loading" aria-busy="true">
+    <header class="ph"><span class="pn">4</span><div><h2>Per-rung behaviour</h2><p class="pq">What does the next rung require of me?</p></div></header>
+    <p class="reads">Reads <code>release_behaviour[]</code> from <code>GET /api/admin/agent-domains/curriculum</code></p>
+    <div class="pb"></div>
+  </section>
+
+  <section class="panel" id="p5" data-state="loading" aria-busy="true">
+    <header class="ph"><span class="pn">5</span><div><h2>Your governance queue</h2><p class="pq">What am I waiting on a human for?</p></div></header>
+    <p class="reads">Reads <code>GET /api/admin/agent-domain-change-requests-mine</code></p>
+    <div class="pb"></div>
+  </section>
+
+  <section class="panel" id="p6" data-state="loading" aria-busy="true">
+    <header class="ph"><span class="pn">6</span><div><h2>What is not available</h2><p class="pq">What would I be lying about?</p></div></header>
+    <p class="reads">Reads everything above, and says where it stops</p>
+    <div class="pb"></div>
+  </section>
+
+  <footer class="foot">
+    <p>Every figure on this page is computed from the files below. Nothing is typed in by hand, and nothing is a sample.</p>
+    <ul id="sources"></ul>
+  </footer>
+</main>
+
+<script src="assets/model.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
