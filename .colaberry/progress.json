@@ -358,10 +358,13 @@
           "passed": false
         }
       ],
-      "files_touched": [],
+      "files_touched": [
+        "docs/capabilities/curriculum_change_impact/ASSESSMENT-SCOPE.md",
+        "docs/evidence/curriculum_change_impact/README.md"
+      ],
       "tests_added": [],
-      "notes": null,
-      "updated_at": null,
+      "notes": "Scoping only, approved by Ali: questions (Q1-Q9), records with file:line (section 2), gaps (G1-G10). Criterion left unticked: only Swati can state what a slug rename does and who decides. Nothing built, nothing applied, capability stays draft at R0 with R5 ceiling.",
+      "updated_at": "2026-11-20T00:00:00Z",
       "verification": {
         "state": "in_progress",
         "criteria_passed": 0,
@@ -554,10 +557,13 @@
           "passed": false
         }
       ],
-      "files_touched": [],
+      "files_touched": [
+        "docs/capabilities/daily_curriculum_gap_flagging/R0-RULE-RECORD.md",
+        "docs/evidence/daily_curriculum_gap_flagging/README.md"
+      ],
       "tests_added": [],
-      "notes": null,
-      "updated_at": null,
+      "notes": "R0 record written: rule (directors.ts:52-53), two thresholds (0 blueprints; avg quality >0 and <65, school-wide, unscored counts as 0), dedup on source_rec_key over four open statuses, human-only close. Six code-vs-story differences listed in section 6, incl. two on-switches (Dara row + WorkforceCurriculumDirector row) and avg exactly 0 producing no flag. Criterion left unticked: only Swati can state the rule.",
+      "updated_at": "2026-11-20T00:00:00Z",
       "verification": {
         "state": "in_progress",
         "criteria_passed": 0,
