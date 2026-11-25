@@ -1,6 +1,6 @@
 # Curriculum, Learning & Certification (Dara) — Stories
 
-49 stories across 1 releases, walking-skeleton first:
+53 stories across 1 releases, walking-skeleton first:
 the earliest release proves the thinnest end-to-end path including the trust
 spine, and later releases stack features on top of something already working.
 
@@ -38,6 +38,9 @@ system rather than a part of it.
 - **[curriculum.CAP.da_curriculum_analytics_transition](stories/curriculum.CAP.da_curriculum_analytics_transition.md)** — Data Analyst curriculum and certification reporting duties transitioning to AI
 - **[curriculum.CAP.daily_certification_readiness_flagging](stories/curriculum.CAP.daily_certification_readiness_flagging.md)** — Daily cohort certification-readiness risk flag
 - **[curriculum.CAP.daily_curriculum_gap_flagging](stories/curriculum.CAP.daily_curriculum_gap_flagging.md)** — Daily curriculum-quality gap flag for the accountable manager
+- **[curriculum.CAP.daily_curriculum_gap_flagging.L0-ASK-FOR-A-SCREEN](stories/curriculum.CAP.daily_curriculum_gap_flagging.L0-ASK-FOR-A-SCREEN.md)** — Daily curriculum-quality gap flag for the accountable manager · 0.3 · waiting on the platform
+- **[curriculum.CAP.daily_curriculum_gap_flagging.L0-CHOOSE](stories/curriculum.CAP.daily_curriculum_gap_flagging.L0-CHOOSE.md)** — Daily curriculum-quality gap flag for the accountable manager · 0.1 · pick one from the list
+- **[curriculum.CAP.daily_curriculum_gap_flagging.L0-SCOPE-SHEET](stories/curriculum.CAP.daily_curriculum_gap_flagging.L0-SCOPE-SHEET.md)** — Daily curriculum-quality gap flag for the accountable manager · 0.2 · write the scope sheet
 - **[curriculum.CAP.daily_curriculum_gap_flagging.L1-BY-HAND](stories/curriculum.CAP.daily_curriculum_gap_flagging.L1-BY-HAND.md)** — Daily curriculum-quality gap flag for the accountable manager · 1 · do it by hand
 - **[curriculum.CAP.daily_curriculum_gap_flagging.L2-IN-THE-APP](stories/curriculum.CAP.daily_curriculum_gap_flagging.L2-IN-THE-APP.md)** — Daily curriculum-quality gap flag for the accountable manager · 2 · do it in the app
 - **[curriculum.CAP.daily_curriculum_gap_flagging.L3-TOOL-REQUEST](stories/curriculum.CAP.daily_curriculum_gap_flagging.L3-TOOL-REQUEST.md)** — Daily curriculum-quality gap flag for the accountable manager · 3 · request the tool
@@ -60,6 +63,7 @@ system rather than a part of it.
 - **[curriculum.CAP.video_link_health_monitoring](stories/curriculum.CAP.video_link_health_monitoring.md)** — Curriculum video-link health monitoring
 - **[curriculum.CAP.week_blueprint_authoring_and_quality_scoring](stories/curriculum.CAP.week_blueprint_authoring_and_quality_scoring.md)** — Week and session blueprint authoring with a real quality, coverage and readiness score
 - **[curriculum.CAP.week_teaching_content_integrity_audit](stories/curriculum.CAP.week_teaching_content_integrity_audit.md)** — Integrity audit of the shipped week decks, session plans and deep-dive guides
+- **[curriculum.GATE.R0.1](stories/curriculum.GATE.R0.1.md)** — R0 gate · 1 of 1 · a capability the agent does, watched
 - **[curriculum.LEGACY-MIGRATION-PLAN](stories/curriculum.LEGACY-MIGRATION-PLAN.md)** — Legacy migration plan
 - **[curriculum.RESEARCH-1-SYSTEM-CLASSES](stories/curriculum.RESEARCH-1-SYSTEM-CLASSES.md)** — Compare the five system classes, and place this domain among them
 - **[curriculum.RESEARCH-2-AGENT-ANATOMY](stories/curriculum.RESEARCH-2-AGENT-ANATOMY.md)** — Map the nine anatomy elements onto this domain's agent
