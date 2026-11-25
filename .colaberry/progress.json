@@ -7,7 +7,7 @@
     "stories_submitted": 0,
     "stories_in_progress": 42,
     "stories_not_started": 4,
-    "criteria_total": 72,
+    "criteria_total": 84,
     "criteria_passed": 24,
     "points_awarded": 124
   },
@@ -603,7 +603,7 @@
       "verification": {
         "state": "not_started",
         "criteria_passed": 0,
-        "criteria_total": 0,
+        "criteria_total": 3,
         "verified_at": null,
         "commit_sha": null,
         "commit_url": null,
@@ -637,7 +637,7 @@
       "verification": {
         "state": "not_started",
         "criteria_passed": 0,
-        "criteria_total": 0,
+        "criteria_total": 3,
         "verified_at": null,
         "commit_sha": null,
         "commit_url": null,
@@ -671,7 +671,7 @@
       "verification": {
         "state": "not_started",
         "criteria_passed": 0,
-        "criteria_total": 0,
+        "criteria_total": 3,
         "verified_at": null,
         "commit_sha": null,
         "commit_url": null,
@@ -1351,7 +1351,7 @@
       "verification": {
         "state": "not_started",
         "criteria_passed": 0,
-        "criteria_total": 0,
+        "criteria_total": 3,
         "verified_at": null,
         "commit_sha": null,
         "commit_url": null,
